@@ -1,0 +1,8 @@
+git clone available here https://github.com/olamy/redback-components
+
+git clone git://github.com/olamy/redback-components.git
+
+cd redback-components
+
+git svn init --tags=tags --trunk=trunk --branches=branches https://svn.codehaus.org/redback/components/
+
