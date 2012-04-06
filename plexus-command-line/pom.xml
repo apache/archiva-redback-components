@@ -34,7 +34,7 @@
 
   <distributionManagement>
     <site>
-      <id>codehaus.org</id>
+      <id>apache.website</id>
       <url>scp://people.apache.org/www/archiva.apache.org/redback/components/${project.artifactId}</url>
     </site>
   </distributionManagement>
