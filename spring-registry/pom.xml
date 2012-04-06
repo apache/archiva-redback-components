@@ -22,7 +22,7 @@
     <relativePath>../redback-components-parent/pom.xml</relativePath>
   </parent>  
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.codehaus.redback.components.registry</groupId>
+  <groupId>org.apache.archiva.redback.components.registry</groupId>
   <artifactId>spring-registry</artifactId>
   <version>1.1-SNAPSHOT</version>
   <name>Redback Spring Registry Component</name>
