@@ -1,8 +1,5 @@
 package org.codehaus.plexus.spring;
 
-import java.util.List;
-import java.util.Map;
-
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -21,6 +18,10 @@ import java.util.Map;
  * specific language governing permissions and limitations
  * under the License.
  */
+
+import java.util.List;
+import java.util.Map;
+
 
 /**
  * A typical plexus component implementation

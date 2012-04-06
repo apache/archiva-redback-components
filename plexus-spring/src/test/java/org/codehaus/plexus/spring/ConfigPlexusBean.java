@@ -1,7 +1,5 @@
 package org.codehaus.plexus.spring;
 
-import org.codehaus.plexus.configuration.PlexusConfiguration;
-
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -21,6 +19,9 @@ import org.codehaus.plexus.configuration.PlexusConfiguration;
  * under the License.
  */
 
+import org.codehaus.plexus.configuration.PlexusConfiguration;
+
+
 /**
  * A typical plexus component implementation
  *
@@ -34,7 +35,6 @@ public class ConfigPlexusBean
     {
         return config;
     }
-
 
 
 }

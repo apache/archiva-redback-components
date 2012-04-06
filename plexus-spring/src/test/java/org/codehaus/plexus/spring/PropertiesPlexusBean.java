@@ -1,8 +1,5 @@
 package org.codehaus.plexus.spring;
 
-import java.util.Map;
-import java.util.Properties;
-
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -22,6 +19,10 @@ import java.util.Properties;
  * under the License.
  */
 
+import java.util.Map;
+import java.util.Properties;
+
+
 /**
  * A typical plexus component implementation
  *
@@ -30,7 +31,7 @@ import java.util.Properties;
 public class PropertiesPlexusBean
 {
     private Properties properties;
-    
+
     private Map<?, ?> map;
 
     public Properties getProperties()

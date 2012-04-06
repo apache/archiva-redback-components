@@ -1,17 +1,5 @@
 package org.codehaus.plexus.spring;
 
-import java.util.List;
-import java.util.Set;
-
-import org.codehaus.plexus.context.Context;
-import org.codehaus.plexus.context.ContextException;
-import org.codehaus.plexus.logging.AbstractLogEnabled;
-import org.codehaus.plexus.logging.Logger;
-import org.codehaus.plexus.personality.plexus.lifecycle.phase.Contextualizable;
-import org.codehaus.plexus.personality.plexus.lifecycle.phase.Disposable;
-import org.codehaus.plexus.personality.plexus.lifecycle.phase.Initializable;
-import org.codehaus.plexus.personality.plexus.lifecycle.phase.InitializationException;
-
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -30,6 +18,19 @@ import org.codehaus.plexus.personality.plexus.lifecycle.phase.InitializationExce
  * specific language governing permissions and limitations
  * under the License.
  */
+
+import org.codehaus.plexus.context.Context;
+import org.codehaus.plexus.context.ContextException;
+import org.codehaus.plexus.logging.AbstractLogEnabled;
+import org.codehaus.plexus.logging.Logger;
+import org.codehaus.plexus.personality.plexus.lifecycle.phase.Contextualizable;
+import org.codehaus.plexus.personality.plexus.lifecycle.phase.Disposable;
+import org.codehaus.plexus.personality.plexus.lifecycle.phase.Initializable;
+import org.codehaus.plexus.personality.plexus.lifecycle.phase.InitializationException;
+
+import java.util.List;
+import java.util.Set;
+
 
 /**
  * A typical plexus component implementation
@@ -82,6 +83,7 @@ public class PlexusBeanImpl
 
     /**
      * {@inheritDoc}
+     *
      * @see org.codehaus.plexus.personality.plexus.lifecycle.phase.Contextualizable#contextualize(org.codehaus.plexus.context.Context)
      */
     public void contextualize( Context context )

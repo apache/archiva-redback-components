@@ -1,3 +1,5 @@
+package org.codehaus.plexus.spring.editors;
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -16,7 +18,6 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.codehaus.plexus.spring.editors;
 
 import java.io.StringReader;
 import java.util.Iterator;

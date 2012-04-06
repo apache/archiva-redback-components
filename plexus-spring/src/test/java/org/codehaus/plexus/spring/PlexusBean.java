@@ -1,11 +1,5 @@
 package org.codehaus.plexus.spring;
 
-import java.util.List;
-import java.util.Set;
-
-import org.codehaus.plexus.context.Context;
-import org.codehaus.plexus.logging.Logger;
-
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -24,6 +18,14 @@ import org.codehaus.plexus.logging.Logger;
  * specific language governing permissions and limitations
  * under the License.
  */
+
+import java.util.List;
+import java.util.Set;
+
+import org.codehaus.plexus.context.Context;
+import org.codehaus.plexus.logging.Logger;
+
+
 
 /**
  * A plexus component interface
