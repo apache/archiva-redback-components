@@ -21,8 +21,8 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.apache.archiva.redback.components</groupId>
   <artifactId>redback-components</artifactId>
-  <packaging>pom</packaging>
   <version>2.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
   <name>Apache Archiva Redback Components Parent Project</name>
   <url>http://archiva.apache.org/redback/components</url>
   <properties>
