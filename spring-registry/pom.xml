@@ -24,23 +24,23 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.apache.archiva.redback.components.registry</groupId>
   <artifactId>spring-registry</artifactId>
-  <version>1.1-SNAPSHOT</version>
+  <version>2.0-SNAPSHOT</version>
   <name>Redback Spring Registry Component</name>
   <packaging>pom</packaging>
 
-  <url>http://redback.codehaus.org/components/${project.artifactId}</url>
+  <url>http://archiva.apache.org/redback/components/${project.artifactId}</url>
 
   <distributionManagement>
     <site>
-      <id>codehaus.org</id>
-      <url>dav:https://dav.codehaus.org/redback/components/${project.artifactId}</url>
+      <id>apache.website</id>
+      <url>scp://people.apache.org/www/archiva.apache.org/redback/components/${project.artifactId}</url>
     </site>
   </distributionManagement>
 
   <scm>
-    <connection>scm:svn:https://svn.codehaus.org/redback/components/trunk/spring-registry</connection>
-    <developerConnection>scm:svn:https://svn.codehaus.org/redback/components/trunk/spring-registry</developerConnection>
-    <url>http://fisheye.codehaus.org/browse/redback/components/trunk/spring-registry</url>
+    <connection>scm:svn:http://svn.apache.org/repos/asf/archiva/redback/redback-components/trunk/spring-registry/</connection>
+    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/archiva/redback/redback-components/trunk/spring-registry/</developerConnection>
+    <url>http://svn.apache.org/viewvc/archiva/redback/redback-components/trunk/spring-registry</url>
   </scm>
 
   <modules>
