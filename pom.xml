@@ -372,6 +372,35 @@
         </plugins>
       </build>
     </profile>
+    <profile>
+      <id>rat</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.rat</groupId>
+            <artifactId>apache-rat-plugin</artifactId>
+            <version>0.8</version>
+            <configuration>
+              <excludes>
+                <exclude>.gitignore</exclude>
+                <exclude>DEPENDENCIES</exclude>
+                <exclude>README.txt</exclude>
+                <exclude>*.sh</exclude>
+              </excludes>
+            </configuration>
+            <executions>
+              <execution>
+                <id>rat-check</id>
+                <goals>
+                  <goal>check</goal>
+                </goals>
+                <phase>verify</phase>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
   </profiles>
 
 </project>
