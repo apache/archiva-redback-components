@@ -20,8 +20,8 @@ package org.apache.archiva.redback.components.apacheds;
  */
 
 import javax.naming.NamingException;
-import javax.naming.directory.InitialDirContext;
 import javax.naming.directory.Attributes;
+import javax.naming.directory.InitialDirContext;
 import java.io.File;
 import java.util.Set;
 
@@ -31,7 +31,6 @@ import java.util.Set;
  */
 public interface ApacheDs
 {
-    String ROLE = ApacheDs.class.getName();
 
     // ----------------------------------------------------------------------
     // Configuration
@@ -40,9 +39,9 @@ public interface ApacheDs
     void setBasedir( File basedir );
 
     void setPort( int port );
-    
+
     int getPort();
-    
+
     void setEnableNetworking( boolean enableNetworking );
 
     void addPartition( String name, String root, Set indexedAttributes, Attributes partitionAttributes )
@@ -54,7 +53,7 @@ public interface ApacheDs
     /**
      * Creates a partition usable for testing and other light usage.
      *
-     * @param name The name of the partition. Will be used as the directory name when persisted.
+     * @param name             The name of the partition. Will be used as the directory name when persisted.
      * @param domainComponents E.g. "plexus", "codehaus", "org"
      * @throws NamingException
      */
