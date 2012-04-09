@@ -24,14 +24,13 @@
 
   <skin>
     <groupId>org.apache.maven.skins</groupId>
-    <artifactId>maven-default-skin</artifactId>
-    <version>1.0</version>
+    <artifactId>maven-fluido-skin</artifactId>
+    <version>1.2.1</version>
   </skin>
 
   <body>
     <links>
-      <item name="The Codehaus" href="http://codehaus.org" />
-      <item name="Redback" href="http://redback.codehaus.org"/>
+      <item name="Redback" href="http://archiva.apache.org/redback"/>
     </links>
     <menu ref="parent" inherit="top"/>
     <menu ref="modules" inherit="bottom"/>
