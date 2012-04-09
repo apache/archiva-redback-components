@@ -21,7 +21,7 @@ package org.codehaus.redback.components.apacheds;
 
 import junit.framework.TestCase;
 import org.apache.directory.shared.ldap.util.AttributeUtils;
-import org.codehaus.redback.components.apacheds.ApacheDs;
+import org.apache.archiva.redback.components.apacheds.ApacheDs;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
