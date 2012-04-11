@@ -1,4 +1,4 @@
-package org.codehaus.redback.components.scheduler;
+package org.apache.archiva.redback.components.scheduler;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -26,7 +26,6 @@ import org.quartz.SchedulerException;
 import org.quartz.SchedulerFactory;
 import org.quartz.Trigger;
 import org.quartz.TriggerListener;
-import org.quartz.core.QuartzScheduler;
 import org.quartz.impl.JobDetailImpl;
 import org.quartz.impl.StdScheduler;
 import org.quartz.impl.StdSchedulerFactory;

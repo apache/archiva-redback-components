@@ -1,4 +1,4 @@
-package org.codehaus.redback.components.scheduler;
+package org.apache.archiva.redback.components.scheduler;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -20,6 +20,7 @@ package org.codehaus.redback.components.scheduler;
  */
 
 import junit.framework.TestCase;
+import org.apache.archiva.redback.components.scheduler.CronExpressionValidator;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;

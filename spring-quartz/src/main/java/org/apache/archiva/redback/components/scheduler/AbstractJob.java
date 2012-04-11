@@ -1,4 +1,4 @@
-package org.codehaus.redback.components.scheduler;
+package org.apache.archiva.redback.components.scheduler;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one

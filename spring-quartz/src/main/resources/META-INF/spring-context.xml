@@ -29,6 +29,6 @@
 
   <context:annotation-config />
   <context:component-scan 
-    base-package="org.codehaus.redback.components.scheduler"/>
+    base-package="org.apache.archiva.redback.components.scheduler"/>
  
 </beans>
