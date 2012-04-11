@@ -1,4 +1,4 @@
-package org.codehaus.redback.components.scheduler.configuration;
+package org.apache.archiva.redback.components.scheduler.configuration;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,7 +19,7 @@ package org.codehaus.redback.components.scheduler.configuration;
  * under the License.
  */
 
-import org.codehaus.redback.components.scheduler.Scheduler;
+import org.apache.archiva.redback.components.scheduler.Scheduler;
 import org.quartz.impl.StdSchedulerFactory;
 import org.springframework.stereotype.Service;
 
