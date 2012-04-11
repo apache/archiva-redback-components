@@ -26,7 +26,5 @@ package org.codehaus.plexus.cache.test.examples.wine;
  */
 public interface WineService
 {
-    String ROLE = WineService.class.getName();
-
     Wine getWine( String name );
 }

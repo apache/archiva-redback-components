@@ -31,18 +31,16 @@ import org.codehaus.plexus.cache.Cache;
  */
 public interface CacheBuilder
 {
-    String ROLE = CacheBuilder.class.getName();
-
     /**
      * @param roleHint
      * @return
      */
-    public Cache getCache( String roleHint );
+    Cache getCache( String roleHint );
 
     /**
      * @param clazz
      * @return
      */
-    public Cache getCache( Class clazz );
+    Cache getCache( Class clazz );
 
 }
