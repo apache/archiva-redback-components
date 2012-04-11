@@ -1,4 +1,4 @@
-package org.codehaus.plexus.cache.test;
+package org.apache.archiva.redback.components.cache.test;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -24,7 +24,7 @@ import org.apache.archiva.redback.components.cache.Cache;
 import org.apache.archiva.redback.components.cache.CacheStatistics;
 import org.apache.archiva.redback.components.cache.CacheException;
 import org.apache.archiva.redback.components.cache.factory.CacheFactory;
-import org.codehaus.plexus.cache.test.examples.wine.Wine;
+import org.apache.archiva.redback.components.cache.test.examples.wine.Wine;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

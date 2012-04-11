@@ -1,4 +1,4 @@
-package org.codehaus.plexus.cache.test.examples.wine;
+package org.apache.archiva.redback.components.cache.test.examples.wine;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one

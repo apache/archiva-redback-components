@@ -1,4 +1,4 @@
-package org.codehaus.plexus.cache.test.examples.wine;
+package org.apache.archiva.redback.components.cache.test.examples.wine;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -24,7 +24,7 @@ package org.codehaus.plexus.cache.test.examples.wine;
  * @version $Id$
  * @since 5 February, 2007
  */
-public interface WineDao
+public interface WineService
 {
     Wine getWine( String name );
 }

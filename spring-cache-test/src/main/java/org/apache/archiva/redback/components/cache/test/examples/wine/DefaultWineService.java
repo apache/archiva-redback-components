@@ -1,4 +1,4 @@
-package org.codehaus.plexus.cache.test.examples.wine;
+package org.apache.archiva.redback.components.cache.test.examples.wine;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,12 +19,35 @@ package org.codehaus.plexus.cache.test.examples.wine;
  * under the License.
  */
 
+import org.apache.archiva.redback.components.cache.builder.CacheBuilder;
+import org.springframework.stereotype.Service;
+
+import javax.inject.Inject;
+
 /**
- * @author Olivier Lamy
- * @version $Id$
  * @since 5 February, 2007
+ * @version $Id$
+ * @author Olivier Lamy
  */
-public interface WineService
+@Service
+public class DefaultWineService
+    implements WineService
 {
-    Wine getWine( String name );
+    @Inject
+    private CacheBuilder cacheBuilder;
+
+    @Inject
+    private WineDao wineDao;
+
+    public Wine getWine( String name )
+    {
+        Wine wine = (Wine) cacheBuilder.getCache( Wine.class ).get( name );
+        if ( wine == null )
+        {
+            wine = wineDao.getWine( name );
+            cacheBuilder.getCache( Wine.class ).put( name, wine );
+        }
+        return wine;
+    }
+
 }

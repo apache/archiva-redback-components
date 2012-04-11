@@ -1,4 +1,4 @@
-package org.codehaus.plexus.cache.test.examples.wine;
+package org.apache.archiva.redback.components.cache.test.examples.wine;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,44 +19,29 @@ package org.codehaus.plexus.cache.test.examples.wine;
  * under the License.
  */
 
-import java.io.Serializable;
+import org.springframework.stereotype.Repository;
 
 /**
  * @since 5 February, 2007
  * @version $Id$
  * @author Olivier Lamy
  */
-public class Wine
-    implements Serializable
+@Repository
+public class MockWineDao
+    implements WineDao
 {
-    private String name;
 
-    private String localisation;
-
-    public Wine( String name, String localisation )
+    public Wine getWine( String name )
     {
-        this.name = name;
-        this.localisation = localisation;
-    }
-
-    public String getLocalisation()
-    {
-        return localisation;
-    }
-
-    public void setLocalisation( String localisation )
-    {
-        this.localisation = localisation;
-    }
-
-    public String getName()
-    {
-        return name;
-    }
-
-    public void setName( String name )
-    {
-        this.name = name;
+        if ( name.equals( "bordeaux" ) )
+        {
+            return new Wine( "bordeaux", "west/south of France" );
+        }
+        if ( name.equals( "bourgogne" ) )
+        {
+            return new Wine( "bourgogne", "center of France" );
+        }
+        return null;
     }
 
 }

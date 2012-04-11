@@ -1,4 +1,4 @@
-package org.codehaus.plexus.cache.test.examples.wine;
+package org.apache.archiva.redback.components.cache.test.examples.wine;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,29 +19,12 @@ package org.codehaus.plexus.cache.test.examples.wine;
  * under the License.
  */
 
-import org.springframework.stereotype.Repository;
-
 /**
- * @since 5 February, 2007
- * @version $Id$
  * @author Olivier Lamy
+ * @version $Id$
+ * @since 5 February, 2007
  */
-@Repository
-public class MockWineDao
-    implements WineDao
+public interface WineDao
 {
-
-    public Wine getWine( String name )
-    {
-        if ( name.equals( "bordeaux" ) )
-        {
-            return new Wine( "bordeaux", "west/south of France" );
-        }
-        if ( name.equals( "bourgogne" ) )
-        {
-            return new Wine( "bourgogne", "center of France" );
-        }
-        return null;
-    }
-
+    Wine getWine( String name );
 }
