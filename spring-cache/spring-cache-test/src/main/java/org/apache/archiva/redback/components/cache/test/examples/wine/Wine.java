@@ -1,4 +1,4 @@
-package org.codehaus.plexus.cache.test.examples.wine;
+package org.apache.archiva.redback.components.cache.test.examples.wine;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,35 +19,44 @@ package org.codehaus.plexus.cache.test.examples.wine;
  * under the License.
  */
 
-import org.apache.archiva.redback.components.cache.builder.CacheBuilder;
-import org.springframework.stereotype.Service;
-
-import javax.inject.Inject;
+import java.io.Serializable;
 
 /**
  * @since 5 February, 2007
  * @version $Id$
  * @author Olivier Lamy
  */
-@Service
-public class DefaultWineService
-    implements WineService
+public class Wine
+    implements Serializable
 {
-    @Inject
-    private CacheBuilder cacheBuilder;
+    private String name;
 
-    @Inject
-    private WineDao wineDao;
+    private String localisation;
 
-    public Wine getWine( String name )
+    public Wine( String name, String localisation )
     {
-        Wine wine = (Wine) cacheBuilder.getCache( Wine.class ).get( name );
-        if ( wine == null )
-        {
-            wine = wineDao.getWine( name );
-            cacheBuilder.getCache( Wine.class ).put( name, wine );
-        }
-        return wine;
+        this.name = name;
+        this.localisation = localisation;
+    }
+
+    public String getLocalisation()
+    {
+        return localisation;
+    }
+
+    public void setLocalisation( String localisation )
+    {
+        this.localisation = localisation;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public void setName( String name )
+    {
+        this.name = name;
     }
 
 }

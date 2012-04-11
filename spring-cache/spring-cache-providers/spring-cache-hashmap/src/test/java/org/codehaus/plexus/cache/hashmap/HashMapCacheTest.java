@@ -17,7 +17,7 @@ package org.codehaus.plexus.cache.hashmap;
  */
 
 import org.apache.archiva.redback.components.cache.Cache;
-import org.codehaus.plexus.cache.test.AbstractCacheTestCase;
+import org.apache.archiva.redback.components.cache.test.AbstractCacheTestCase;
 
 import javax.inject.Inject;
 import javax.inject.Named;

@@ -1,4 +1,4 @@
-package org.codehaus.plexus.cache.test;
+package org.apache.archiva.redback.components.cache.test;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one

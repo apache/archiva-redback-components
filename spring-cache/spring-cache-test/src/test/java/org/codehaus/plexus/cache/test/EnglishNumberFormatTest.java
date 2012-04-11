@@ -20,6 +20,7 @@ package org.codehaus.plexus.cache.test;
  */
 
 import junit.framework.TestCase;
+import org.apache.archiva.redback.components.cache.test.EnglishNumberFormat;
 
 /**
  * EnglishNumberFormatTest
