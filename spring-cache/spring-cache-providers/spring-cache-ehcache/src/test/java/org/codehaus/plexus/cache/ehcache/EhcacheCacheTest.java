@@ -16,7 +16,7 @@ package org.codehaus.plexus.cache.ehcache;
  * limitations under the License.
  */
 
-import org.codehaus.plexus.cache.Cache;
+import org.apache.archiva.redback.components.cache.Cache;
 import org.codehaus.plexus.cache.test.AbstractCacheTestCase;
 
 import javax.inject.Inject;

@@ -1,4 +1,4 @@
-package org.codehaus.plexus.cache.factory;
+package org.apache.archiva.redback.components.cache.factory;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -26,10 +26,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-import org.codehaus.plexus.cache.Cache;
-import org.codehaus.plexus.cache.CacheException;
-import org.codehaus.plexus.cache.CacheHints;
-import org.codehaus.plexus.cache.impl.NoCacheCache;
+import org.apache.archiva.redback.components.cache.Cache;
+import org.apache.archiva.redback.components.cache.CacheHints;
+import org.apache.archiva.redback.components.cache.CacheException;
+import org.apache.archiva.redback.components.cache.impl.NoCacheCache;
 
 /**
  * CacheFactory - dynamic cache creation (and tracking) facility for non-plexus objects to use.

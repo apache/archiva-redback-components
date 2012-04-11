@@ -1,4 +1,4 @@
-package org.codehaus.plexus.cache;
+package org.apache.archiva.redback.components.cache;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one

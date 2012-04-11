@@ -19,7 +19,7 @@ package org.codehaus.plexus.cache.test.examples.wine;
  * under the License.
  */
 
-import org.codehaus.plexus.cache.builder.CacheBuilder;
+import org.apache.archiva.redback.components.cache.builder.CacheBuilder;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;

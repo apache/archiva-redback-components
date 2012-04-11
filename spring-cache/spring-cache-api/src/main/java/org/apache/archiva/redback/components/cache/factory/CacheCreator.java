@@ -1,4 +1,4 @@
-package org.codehaus.plexus.cache;
+package org.apache.archiva.redback.components.cache.factory;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,44 +19,24 @@ package org.codehaus.plexus.cache;
  * under the License.
  */
 
+import org.apache.archiva.redback.components.cache.Cache;
+import org.apache.archiva.redback.components.cache.CacheException;
+import org.apache.archiva.redback.components.cache.CacheHints;
+
 /**
- * CacheStatistics
+ * CacheCreator - an interface for CacheCreators
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
  * @version $Id$
  */
-public interface CacheStatistics
+public interface CacheCreator
 {
     /**
-     * Return the number of hits to content present in the cache.
-     *
-     * @return the number of hits to content present in the cache.
+     * Create a Cache, initialize it, and return it.
+     * 
+     * @param cacheHint the cache hints to use.
+     * @return the created cache.
+     * @throws CacheException if there was a cache creation error.
      */
-    long getCacheHits();
-
-    /**
-     * Return the number of hits to keys that are not (yet) in the cache.
-     *
-     * @return the number of requests for content missing from the cache.
-     */
-    long getCacheMiss();
-
-    /**
-     * Compute for the efficiency of this cache.
-     *
-     * @return the ratio of cache hits to the cache misses to queries for cache objects
-     */
-    double getCacheHitRate();
-
-    /**
-     * Return the size of the current cache.
-     *
-     * @return the size of the current cache.
-     */
-    long getSize();
-
-    /**
-     * Clear the statistics of the cache.
-     */
-    void clear();
+    public Cache createCache( CacheHints hints ) throws CacheException;
 }
