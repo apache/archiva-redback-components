@@ -24,7 +24,7 @@ import java.io.Serializable;
 /**
  * @since 5 February, 2007
  * @version $Id$
- * @author <a href="mailto:Olivier.LAMY@accor.com">Olivier Lamy</a>
+ * @author Olivier Lamy
  */
 public class Wine
     implements Serializable
