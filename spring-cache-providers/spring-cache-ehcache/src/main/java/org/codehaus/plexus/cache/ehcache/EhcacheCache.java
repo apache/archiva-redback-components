@@ -37,7 +37,6 @@ import javax.annotation.PostConstruct;
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
  * @version $Id$
  * 
- * @plexus.component role="org.apache.archiva.redback.components.cache.Cache" role-hint="ehcache"
  */
 public class EhcacheCache
     implements org.apache.archiva.redback.components.cache.Cache
@@ -86,63 +85,59 @@ public class EhcacheCache
     /**
      * how often to run the disk store expiry thread. A large number of 120 seconds plus is recommended
      * 
-     * @plexus.configuration default-value="600"
      */
     private long diskExpiryThreadIntervalSeconds = 600;
 
     /**
      * Whether to persist the cache to disk between JVM restarts.
      * 
-     * @plexus.configuration default-value="true"
      */
     private boolean diskPersistent = true;
 
     /**
      * Location on disk for the ehcache store.
      * 
-     * @plexus.configuration default-value="${java.io.tmpdir}/ehcache"
      */
     private String diskStorePath = System.getProperty( "java.io.tmpdir" ) + "/ehcache";
 
     /**
-     * @plexus.configuration default-value="false"
+     *
      */
     private boolean eternal = false;
 
     /**
-     * @plexus.configuration default-value="1000"
+     *
      */
     private int maxElementsInMemory = 1000;
 
     /**
-     * @plexus.configuration default-value="LRU"
+     *
      */
     private String memoryEvictionPolicy = "LRU";
 
     /**
-     * @plexus.configuration default-value="cache"
+     *
      */
     private String name = "cache";
 
     /**
      * Flag indicating when to use the disk store.
      * 
-     * @plexus.configuration default-value="false"
      */
     private boolean overflowToDisk = false;
 
     /**
-     * @plexus.configuration default-value="600"
+     *
      */
     private int timeToIdleSeconds = 600;
 
     /**
-     * @plexus.configuration default-value="300"
+     *
      */
     private int timeToLiveSeconds = 300;
     
     /**
-     * @plexus.configuration default-value="false"
+     *
      */    
     private boolean failOnDuplicateCache = false;
 

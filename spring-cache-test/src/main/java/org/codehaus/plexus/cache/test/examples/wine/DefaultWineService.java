@@ -28,8 +28,6 @@ import javax.inject.Inject;
  * @since 5 February, 2007
  * @version $Id$
  * @author Olivier Lamy
- * @plexus.component
- *   role="org.codehaus.plexus.cache.test.examples.wine.WineService" role-hint="default"
  */
 @Service
 public class DefaultWineService
