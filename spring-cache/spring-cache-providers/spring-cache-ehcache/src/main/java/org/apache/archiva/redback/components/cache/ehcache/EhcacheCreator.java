@@ -1,4 +1,4 @@
-package org.codehaus.plexus.cache.ehcache;
+package org.apache.archiva.redback.components.cache.ehcache;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
