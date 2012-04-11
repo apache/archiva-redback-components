@@ -1,4 +1,4 @@
-package org.codehaus.plexus.jdo;
+package org.apache.archiva.redback.components.jdo;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -18,16 +18,17 @@ package org.codehaus.plexus.jdo;
  * specific language governing permissions and limitations
  * under the License.
  */
+import java.util.Properties;
 
 /**
- * @author <a href="mailto:evenisse@codehaus.org">Emmanuel Venisse</a>
+ * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
  * @version $Id$
  */
-public class PlexusObjectNotFoundException
-    extends PlexusStoreException
+public interface ConfigurableJdoFactory
+    extends JdoFactory
 {
-    public PlexusObjectNotFoundException( String type, String id )
-    {
-        super( "Could not find object. Type '" + type + "'. Id: '" + id + "'." );
-    }
+
+    void setPersistenceManagerFactoryClass( String persistenceManagerFactoryClass );
+
+    Properties getProperties();
 }

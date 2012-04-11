@@ -1,4 +1,4 @@
-package org.codehaus.plexus.jdo;
+package org.apache.archiva.redback.components.jdo;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -18,17 +18,16 @@ package org.codehaus.plexus.jdo;
  * specific language governing permissions and limitations
  * under the License.
  */
-import java.util.Properties;
+
+import javax.jdo.PersistenceManagerFactory;
 
 /**
- * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
- * @version $Id$
+ * @author David Wynter
  */
-public interface ConfigurableJdoFactory
-    extends JdoFactory
+public interface JdoFactory
 {
+    PersistenceManagerFactory getPersistenceManagerFactory();
 
-    void setPersistenceManagerFactoryClass( String persistenceManagerFactoryClass );
-
-    Properties getProperties();
+    void shutdown()
+        throws Exception;
 }

@@ -1,4 +1,4 @@
-package org.codehaus.plexus.jdo;
+package org.apache.archiva.redback.components.jdo;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,15 +19,20 @@ package org.codehaus.plexus.jdo;
  * under the License.
  */
 
-import javax.jdo.PersistenceManagerFactory;
-
 /**
- * @author David Wynter
+ * @author <a href="mailto:evenisse@codehaus.org">Emmanuel Venisse</a>
+ * @version $Id$
  */
-public interface JdoFactory
+public class PlexusStoreException
+    extends Exception
 {
-    PersistenceManagerFactory getPersistenceManagerFactory();
+    public PlexusStoreException( String msg )
+    {
+        super( msg );
+    }
 
-    void shutdown()
-        throws Exception;
+    public PlexusStoreException( String msg, Exception ex )
+    {
+        super( msg, ex );
+    }
 }

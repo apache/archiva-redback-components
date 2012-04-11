@@ -29,7 +29,7 @@
 
   <context:annotation-config />
   <context:component-scan 
-    base-package="org.codehaus.plexus.jdo"/>
+    base-package="org.apache.archiva.redback.components.jdo"/>
 
  
 </beans>

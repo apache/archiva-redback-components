@@ -1,4 +1,4 @@
-package org.codehaus.plexus.jdo;
+package org.apache.archiva.redback.components.jdo;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -18,60 +18,42 @@ package org.codehaus.plexus.jdo;
  * specific language governing permissions and limitations
  * under the License.
  */
-import junit.framework.TestCase;
+
+import org.jpox.PersistenceManagerFactoryImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.inject.Inject;
-import javax.jdo.PersistenceManager;
-import javax.jdo.PersistenceManagerFactory;
+import javax.inject.Named;
 
 /**
- * @author David Wynter
- * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
+ * Test for {@link org.apache.archiva.redback.components.jdo.DefaultConfigurableJdoFactory}
+ *
+ * @author <a href="mailto:carlos@apache.org">Carlos Sanchez</a>
  * @version $Id$
  */
 @RunWith( SpringJUnit4ClassRunner.class )
-@ContextConfiguration( locations = { "classpath*:/META-INF/spring-context.xml", "classpath*:/spring-context.xml" } )
-public class DefaultJdoFactoryTest
-    extends TestCase
+@ContextConfiguration(
+    locations = { "classpath*:/META-INF/spring-context.xml", "classpath*:/spring-context-configurable.xml" } )
+public class DefaultConfigurableJdoFactoryTest
+    extends DefaultJdoFactoryTest
 {
 
     @Inject
-    JdoFactory jdoFactory;
+    @Named( value = "jdoFactory" )
+    DefaultConfigurableJdoFactory jdoFactory;
 
     @Test
-    public void testBasic()
+    public void testLoad()
         throws Exception
     {
+        String password = jdoFactory.getProperties().getProperty( "javax.jdo.option.ConnectionPassword" );
+        assertNull( password );
 
-        PersistenceManagerFactory pmf = jdoFactory.getPersistenceManagerFactory();
-
-        PersistenceManager pm = pmf.getPersistenceManager();
-/*
-        Transaction tx = pm.currentTransaction();
-
-        try
-        {
-            tx.begin();
-
-            Parent parent = new Parent( "Sony Discman", "A standard discman from Sony", 49.99 );
-
-            pm.makePersistent( parent );
-
-            tx.commit();
-        }
-        finally
-        {
-            if ( tx.isActive() )
-            {
-                tx.rollback();
-            }
-
-            pm.close();
-        }
-*/
+        PersistenceManagerFactoryImpl pmf = (PersistenceManagerFactoryImpl) jdoFactory.getPersistenceManagerFactory();
+        assertTrue( pmf.getAutoCreateTables() );
     }
+
 }
