@@ -28,6 +28,6 @@
 
   <context:annotation-config />
   <context:component-scan 
-    base-package="org.codehaus.plexus.cache.hashmap"/>
+    base-package="org.apache.archiva.redback.components.cache.hashmap"/>
  
 </beans>
