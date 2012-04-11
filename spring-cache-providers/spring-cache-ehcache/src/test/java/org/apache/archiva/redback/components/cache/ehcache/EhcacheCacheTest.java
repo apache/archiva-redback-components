@@ -1,4 +1,4 @@
-package org.codehaus.plexus.cache.ehcache;
+package org.apache.archiva.redback.components.cache.ehcache;
 
 /*
  * Copyright 2001-2007 The Codehaus.
@@ -17,6 +17,7 @@ package org.codehaus.plexus.cache.ehcache;
  */
 
 import org.apache.archiva.redback.components.cache.Cache;
+import org.apache.archiva.redback.components.cache.ehcache.EhcacheCache;
 import org.apache.archiva.redback.components.cache.test.AbstractCacheTestCase;
 
 import javax.inject.Inject;
