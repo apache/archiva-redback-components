@@ -19,10 +19,10 @@ package org.codehaus.plexus.cache.hashmap;
  * under the License.
  */
 
-import org.codehaus.plexus.cache.Cache;
-import org.codehaus.plexus.cache.CacheException;
-import org.codehaus.plexus.cache.CacheHints;
-import org.codehaus.plexus.cache.factory.CacheCreator;
+import org.apache.archiva.redback.components.cache.Cache;
+import org.apache.archiva.redback.components.cache.CacheException;
+import org.apache.archiva.redback.components.cache.CacheHints;
+import org.apache.archiva.redback.components.cache.factory.CacheCreator;
 
 /**
  * HashMapCacheCreator

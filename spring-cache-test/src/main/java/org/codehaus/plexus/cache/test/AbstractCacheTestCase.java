@@ -20,10 +20,10 @@ package org.codehaus.plexus.cache.test;
  */
 
 import junit.framework.TestCase;
-import org.codehaus.plexus.cache.Cache;
-import org.codehaus.plexus.cache.CacheException;
-import org.codehaus.plexus.cache.CacheStatistics;
-import org.codehaus.plexus.cache.factory.CacheFactory;
+import org.apache.archiva.redback.components.cache.Cache;
+import org.apache.archiva.redback.components.cache.CacheStatistics;
+import org.apache.archiva.redback.components.cache.CacheException;
+import org.apache.archiva.redback.components.cache.factory.CacheFactory;
 import org.codehaus.plexus.cache.test.examples.wine.Wine;
 import org.junit.Before;
 import org.junit.Test;

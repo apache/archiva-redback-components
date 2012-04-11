@@ -1,4 +1,4 @@
-package org.codehaus.plexus.cache.factory;
+package org.apache.archiva.redback.components.cache.builder;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,24 +19,28 @@ package org.codehaus.plexus.cache.factory;
  * under the License.
  */
 
-import org.codehaus.plexus.cache.Cache;
-import org.codehaus.plexus.cache.CacheException;
-import org.codehaus.plexus.cache.CacheHints;
+import org.apache.archiva.redback.components.cache.Cache;
+
 
 /**
- * CacheCreator - an interface for CacheCreators
+ * CacheBuilder Interface, for obtaining caches from plexus using hints or clazz names.
  *
- * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
+ * @author Olivier Lamy
  * @version $Id$
+ * @since 3 February, 2007
  */
-public interface CacheCreator
+public interface CacheBuilder
 {
     /**
-     * Create a Cache, initialize it, and return it.
-     * 
-     * @param cacheHint the cache hints to use.
-     * @return the created cache.
-     * @throws CacheException if there was a cache creation error.
+     * @param roleHint
+     * @return
      */
-    public Cache createCache( CacheHints hints ) throws CacheException;
+    Cache getCache( String roleHint );
+
+    /**
+     * @param clazz
+     * @return
+     */
+    Cache getCache( Class clazz );
+
 }

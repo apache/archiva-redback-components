@@ -1,4 +1,4 @@
-package org.codehaus.plexus.cache;
+package org.apache.archiva.redback.components.cache;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -20,33 +20,43 @@ package org.codehaus.plexus.cache;
  */
 
 /**
- * CacheException 
+ * CacheStatistics
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
  * @version $Id$
  */
-public class CacheException
-    extends Exception
+public interface CacheStatistics
 {
+    /**
+     * Return the number of hits to content present in the cache.
+     *
+     * @return the number of hits to content present in the cache.
+     */
+    long getCacheHits();
 
-    public CacheException()
-    {
-        super();
-    }
+    /**
+     * Return the number of hits to keys that are not (yet) in the cache.
+     *
+     * @return the number of requests for content missing from the cache.
+     */
+    long getCacheMiss();
 
-    public CacheException( String message, Throwable cause )
-    {
-        super( message, cause );
-    }
+    /**
+     * Compute for the efficiency of this cache.
+     *
+     * @return the ratio of cache hits to the cache misses to queries for cache objects
+     */
+    double getCacheHitRate();
 
-    public CacheException( String message )
-    {
-        super( message );
-    }
+    /**
+     * Return the size of the current cache.
+     *
+     * @return the size of the current cache.
+     */
+    long getSize();
 
-    public CacheException( Throwable cause )
-    {
-        super( cause );
-    }
-
+    /**
+     * Clear the statistics of the cache.
+     */
+    void clear();
 }

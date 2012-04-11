@@ -1,4 +1,4 @@
-package org.codehaus.plexus.cache.builder;
+package org.apache.archiva.redback.components.cache;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,28 +19,34 @@ package org.codehaus.plexus.cache.builder;
  * under the License.
  */
 
-import org.codehaus.plexus.cache.Cache;
-
-
 /**
- * CacheBuilder Interface, for obtaining caches from plexus using hints or clazz names.
+ * CacheException 
  *
- * @author Olivier Lamy
+ * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
  * @version $Id$
- * @since 3 February, 2007
  */
-public interface CacheBuilder
+public class CacheException
+    extends Exception
 {
-    /**
-     * @param roleHint
-     * @return
-     */
-    Cache getCache( String roleHint );
 
-    /**
-     * @param clazz
-     * @return
-     */
-    Cache getCache( Class clazz );
+    public CacheException()
+    {
+        super();
+    }
+
+    public CacheException( String message, Throwable cause )
+    {
+        super( message, cause );
+    }
+
+    public CacheException( String message )
+    {
+        super( message );
+    }
+
+    public CacheException( Throwable cause )
+    {
+        super( cause );
+    }
 
 }

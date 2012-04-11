@@ -19,8 +19,8 @@ package org.codehaus.plexus.cache.oscache;
  * under the License.
  */
 
-import org.codehaus.plexus.cache.CacheStatistics;
-import org.codehaus.plexus.cache.AbstractCacheStatistics;
+import org.apache.archiva.redback.components.cache.CacheStatistics;
+import org.apache.archiva.redback.components.cache.AbstractCacheStatistics;
 
 import com.opensymphony.oscache.base.Cache;
 
@@ -42,7 +42,7 @@ public class OsCacheStatistics
     }
 
     /** 
-     * @see org.codehaus.plexus.cache.AbstractCacheStatistics#getSize()
+     * @see org.apache.archiva.redback.components.cache.AbstractCacheStatistics#getSize()
      */
     public long getSize()
     {

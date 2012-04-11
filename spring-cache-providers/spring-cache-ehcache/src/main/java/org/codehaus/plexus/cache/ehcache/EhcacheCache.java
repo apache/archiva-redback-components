@@ -24,7 +24,7 @@ import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Element;
 import net.sf.ehcache.Status;
 import net.sf.ehcache.store.MemoryStoreEvictionPolicy;
-import org.codehaus.plexus.cache.CacheStatistics;
+import org.apache.archiva.redback.components.cache.CacheStatistics;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,10 +37,10 @@ import javax.annotation.PostConstruct;
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
  * @version $Id$
  * 
- * @plexus.component role="org.codehaus.plexus.cache.Cache" role-hint="ehcache"
+ * @plexus.component role="org.apache.archiva.redback.components.cache.Cache" role-hint="ehcache"
  */
 public class EhcacheCache
-    implements org.codehaus.plexus.cache.Cache
+    implements org.apache.archiva.redback.components.cache.Cache
 {
     
     private Logger log = LoggerFactory.getLogger( getClass() );    

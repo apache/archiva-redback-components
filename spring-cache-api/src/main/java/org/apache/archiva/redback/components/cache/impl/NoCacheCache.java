@@ -1,4 +1,4 @@
-package org.codehaus.plexus.cache.impl;
+package org.apache.archiva.redback.components.cache.impl;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,8 +19,8 @@ package org.codehaus.plexus.cache.impl;
  * under the License.
  */
 
-import org.codehaus.plexus.cache.Cache;
-import org.codehaus.plexus.cache.CacheStatistics;
+import org.apache.archiva.redback.components.cache.CacheStatistics;
+import org.apache.archiva.redback.components.cache.Cache;
 
 
 /**

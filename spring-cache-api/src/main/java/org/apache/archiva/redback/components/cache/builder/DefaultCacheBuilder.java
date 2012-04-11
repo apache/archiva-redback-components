@@ -1,4 +1,4 @@
-package org.codehaus.plexus.cache.builder;
+package org.apache.archiva.redback.components.cache.builder;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,8 +19,8 @@ package org.codehaus.plexus.cache.builder;
  * under the License.
  */
 
-import org.codehaus.plexus.cache.Cache;
-import org.codehaus.plexus.cache.impl.NoCacheCache;
+import org.apache.archiva.redback.components.cache.Cache;
+import org.apache.archiva.redback.components.cache.impl.NoCacheCache;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -35,7 +35,7 @@ import javax.inject.Inject;
  *
  * @author Olivier Lamy
  * @version $Id$
- * @plexus.component role="org.codehaus.plexus.cache.builder.CacheBuilder" role-hint="default"
+ * @plexus.component role="org.apache.archiva.redback.components.cache.builder.CacheBuilder" role-hint="default"
  */
 @Service
 public class DefaultCacheBuilder

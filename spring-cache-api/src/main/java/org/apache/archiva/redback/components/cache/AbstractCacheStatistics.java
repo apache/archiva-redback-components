@@ -1,4 +1,4 @@
-package org.codehaus.plexus.cache;
+package org.apache.archiva.redback.components.cache;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,44 +19,55 @@ package org.codehaus.plexus.cache;
  * under the License.
  */
 
-import java.io.Serializable;
-
 /**
- * CacheableWrapper 
- *
- * @author Olivier Lamy
  * @version $Id$
+ * @author Olivier Lamy
  */
-public class CacheableWrapper
-    implements Serializable
+public abstract class AbstractCacheStatistics
+    implements CacheStatistics
 {
-    private Object value;
 
-    private long storedTime;
+    private long cacheHits;
 
-    public CacheableWrapper( Object value, long storedTime )
+    private long cacheMiss;
+
+    public AbstractCacheStatistics()
     {
-        this.value = value;
-        this.storedTime = storedTime;
+        this.cacheHits = 0;
+        this.cacheMiss = 0;
     }
 
-    public Object getValue()
+    public long getCacheHits()
     {
-        return value;
+        return this.cacheHits;
     }
 
-    public void setValue( Object value )
+    public long getCacheMiss()
     {
-        this.value = value;
+        return this.cacheMiss;
     }
 
-    public long getStoredTime()
+    public double getCacheHitRate()
     {
-        return storedTime;
+        return cacheHits == 0 && cacheMiss == 0 ? 0 : (double) cacheHits / (double) ( cacheHits + cacheMiss );
     }
 
-    public void setStoredTime( long storedTime )
+    public abstract long getSize();
+
+    public void hit()
     {
-        this.storedTime = storedTime;
+        this.cacheHits++;
     }
+
+    public void miss()
+    {
+        this.cacheMiss++;
+    }
+
+    public void clear()
+    {
+        this.cacheHits = 0;
+        this.cacheMiss = 0;
+    }
+
 }

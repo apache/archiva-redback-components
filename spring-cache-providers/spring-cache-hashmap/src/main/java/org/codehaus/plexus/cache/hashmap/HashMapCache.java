@@ -19,10 +19,10 @@ package org.codehaus.plexus.cache.hashmap;
  * under the License.
  */
 
-import org.codehaus.plexus.cache.AbstractCacheStatistics;
-import org.codehaus.plexus.cache.Cache;
-import org.codehaus.plexus.cache.CacheStatistics;
-import org.codehaus.plexus.cache.CacheableWrapper;
+import org.apache.archiva.redback.components.cache.AbstractCacheStatistics;
+import org.apache.archiva.redback.components.cache.CacheableWrapper;
+import org.apache.archiva.redback.components.cache.Cache;
+import org.apache.archiva.redback.components.cache.CacheStatistics;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -55,7 +55,7 @@ import java.util.Map;
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
  * @version $Id$
  * 
- * @plexus.component role="org.codehaus.plexus.cache.Cache" role-hint="hashmap"
+ * @plexus.component role="org.apache.archiva.redback.components.cache.Cache" role-hint="hashmap"
  */
 @Service("cache#hashmap")
 public class HashMapCache
@@ -330,7 +330,7 @@ public class HashMapCache
     }
 
     /** 
-     * @see org.codehaus.plexus.cache.Cache#getRefreshTime()
+     * @see org.apache.archiva.redback.components.cache.Cache#getRefreshTime()
      */
     public int getRefreshTime()
     {

@@ -22,8 +22,8 @@ package org.codehaus.plexus.cache.oscache;
 import com.opensymphony.oscache.base.CacheEntry;
 import com.opensymphony.oscache.base.NeedsRefreshException;
 import com.opensymphony.oscache.general.GeneralCacheAdministrator;
-import org.codehaus.plexus.cache.Cache;
-import org.codehaus.plexus.cache.CacheStatistics;
+import org.apache.archiva.redback.components.cache.Cache;
+import org.apache.archiva.redback.components.cache.CacheStatistics;
 
 import javax.annotation.PostConstruct;
 import java.util.Iterator;
@@ -37,7 +37,7 @@ import java.util.Properties;
  * @version $Id$
  * @author <a href="mailto:olamy@codehaus.org">Olivier Lamy</a>
  * 
- * @plexus.component role="org.codehaus.plexus.cache.Cache" role-hint="oscache"
+ * @plexus.component role="org.apache.archiva.redback.components.cache.Cache" role-hint="oscache"
  */
 public class OsCacheCache
     implements Cache
