@@ -55,7 +55,6 @@ import java.util.Map;
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
  * @version $Id$
  * 
- * @plexus.component role="org.apache.archiva.redback.components.cache.Cache" role-hint="hashmap"
  */
 @Service("cache#hashmap")
 public class HashMapCache
@@ -87,19 +86,18 @@ public class HashMapCache
     private Map cache;
 
     /**
-     * @plexus.configuration default-value="1.0"
+     *
      */
     private double cacheHitRatio = 1.0;
 
     /**
-     * @plexus.configuration default-value="0"
+     *
      */
     private int cacheMaxSize = 0;
 
     /**
      * 
-     * @plexus.configuration
-     *  default-value="0"
+     *
      */
     private int refreshTime;
 

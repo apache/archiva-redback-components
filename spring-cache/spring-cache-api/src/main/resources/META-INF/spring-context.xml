@@ -28,6 +28,6 @@
 
   <context:annotation-config />
   <context:component-scan 
-    base-package="org.codehaus.plexus.cache.builder"/>
+    base-package="org.apache.archiva.redback.components.cache.builder"/>
  
 </beans>

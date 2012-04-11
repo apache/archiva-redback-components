@@ -37,7 +37,6 @@ import java.util.Properties;
  * @version $Id$
  * @author <a href="mailto:olamy@codehaus.org">Olivier Lamy</a>
  * 
- * @plexus.component role="org.apache.archiva.redback.components.cache.Cache" role-hint="oscache"
  */
 public class OsCacheCache
     implements Cache
@@ -53,62 +52,58 @@ public class OsCacheCache
     /**
      * use memory cache
      * 
-     * @plexus.configuration default-value="true"
      */
     private boolean cacheMemory = true;
 
     /**
      * maximum item numbers default value -1 means unlimited
      * 
-     * @plexus.configuration default-value="-1"
      */
     private int capacity = -1;
 
     /**
      * cache algorithm
-     * @plexus.configuration default-value="com.opensymphony.oscache.base.algorithm.UnlimitedCache"
      */
     private String cacheAlgorithm;
 
     /**
-     * @plexus.configuration default-value="false"
+     *
      */
     private boolean blockingCache = false;
 
     /**
-     * @plexus.configuration default-value="false"
+     *
      */
     private boolean cacheUnlimitedDisk = false;
 
     /**
-     * @plexus.configuration
+     *
      */
     private String cachePersistenceClass;
 
     /**
-     * @plexus.configuration
+     *
      */
     private String cachePath;
 
     /**
-     * @plexus.configuration default-value="false"
+     *
      */
     private boolean cachePersistenceOverflowOnly = false;
 
     /**
      * A default one will be added to provided CacheStatistics
-     * 
-     * @plexus.configuration
+     *
      */
     private List cacheEventListeners;
 
     /**
-     * @plexus.configuration default-value="oscache"
+     *
      */
     private String cacheKey;
 
     /**
-     * @plexus.configuration default-value="false"
+     *
      */
     private boolean cacheUseHostDomainInKey = false;
 
@@ -119,7 +114,6 @@ public class OsCacheCache
 
     /**
      * default Value {@link CacheEntry#INDEFINITE_EXPIRY}
-     * @plexus.configuration
      */
     private int refreshPeriod = CacheEntry.INDEFINITE_EXPIRY;
 

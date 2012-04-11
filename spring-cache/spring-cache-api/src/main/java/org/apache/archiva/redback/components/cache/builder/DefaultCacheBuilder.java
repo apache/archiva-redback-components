@@ -35,7 +35,6 @@ import javax.inject.Inject;
  *
  * @author Olivier Lamy
  * @version $Id$
- * @plexus.component role="org.apache.archiva.redback.components.cache.builder.CacheBuilder" role-hint="default"
  */
 @Service
 public class DefaultCacheBuilder
