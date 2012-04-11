@@ -1,4 +1,4 @@
-package org.codehaus.plexus.cache.hashmap;
+package org.apache.archiva.redback.components.cache.hashmap;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one

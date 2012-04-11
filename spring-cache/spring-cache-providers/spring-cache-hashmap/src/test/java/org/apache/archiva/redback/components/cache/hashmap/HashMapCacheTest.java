@@ -1,4 +1,4 @@
-package org.codehaus.plexus.cache.hashmap;
+package org.apache.archiva.redback.components.cache.hashmap;
 
 /*
  * Copyright 2001-2007 The Codehaus.
@@ -17,6 +17,7 @@ package org.codehaus.plexus.cache.hashmap;
  */
 
 import org.apache.archiva.redback.components.cache.Cache;
+import org.apache.archiva.redback.components.cache.hashmap.HashMapCache;
 import org.apache.archiva.redback.components.cache.test.AbstractCacheTestCase;
 
 import javax.inject.Inject;
