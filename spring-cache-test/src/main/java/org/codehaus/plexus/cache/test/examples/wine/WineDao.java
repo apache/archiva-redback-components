@@ -20,13 +20,11 @@ package org.codehaus.plexus.cache.test.examples.wine;
  */
 
 /**
- * @since 5 February, 2007
- * @version $Id$
  * @author <a href="mailto:Olivier.LAMY@accor.com">Olivier Lamy</a>
+ * @version $Id$
+ * @since 5 February, 2007
  */
 public interface WineDao
 {
-    String ROLE = WineDao.class.getName();
-
-    public Wine getWine( String name );
+    Wine getWine( String name );
 }
