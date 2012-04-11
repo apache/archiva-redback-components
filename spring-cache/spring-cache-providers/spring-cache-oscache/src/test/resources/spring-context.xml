@@ -27,35 +27,35 @@
            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 
-  <bean name="cache#default" class="org.codehaus.plexus.cache.oscache.OsCacheCache">
+  <bean name="cache#default" class="org.apache.archiva.redback.components.cache.oscache.OsCacheCache">
     <property name="cacheKey" value="default"/>
   </bean>
 
-  <bean name="cache#oscache" class="org.codehaus.plexus.cache.oscache.OsCacheCache">
+  <bean name="cache#oscache" class="org.apache.archiva.redback.components.cache.oscache.OsCacheCache">
     <property name="cacheKey" value="oscache"/>
   </bean>
 
-  <bean name="cache#neverrefresh" class="org.codehaus.plexus.cache.oscache.OsCacheCache">
+  <bean name="cache#neverrefresh" class="org.apache.archiva.redback.components.cache.oscache.OsCacheCache">
     <property name="cacheKey" value="neverrefresh"/>
     <property name="refreshPeriod" value="-2"/>
   </bean>
 
-  <bean name="cache#alwaysrefresh" class="org.codehaus.plexus.cache.oscache.OsCacheCache">
+  <bean name="cache#alwaysrefresh" class="org.apache.archiva.redback.components.cache.oscache.OsCacheCache">
     <property name="cacheKey" value="alwaysrefresh"/>
     <property name="refreshPeriod" value="0"/>
   </bean>
 
-  <bean name="cache#onesecondrefresh" class="org.codehaus.plexus.cache.oscache.OsCacheCache">
+  <bean name="cache#onesecondrefresh" class="org.apache.archiva.redback.components.cache.oscache.OsCacheCache">
     <property name="cacheKey" value="onesecondrefresh"/>
     <property name="refreshPeriod" value="1"/>
   </bean>
 
-  <bean name="cache#twosecondrefresh" class="org.codehaus.plexus.cache.oscache.OsCacheCache">
+  <bean name="cache#twosecondrefresh" class="org.apache.archiva.redback.components.cache.oscache.OsCacheCache">
     <property name="cacheKey" value="onesecondrefresh"/>
     <property name="refreshPeriod" value="15"/>
   </bean>
 
-  <bean name="cache#wine" class="org.codehaus.plexus.cache.oscache.OsCacheCache">
+  <bean name="cache#wine" class="org.apache.archiva.redback.components.cache.oscache.OsCacheCache">
   </bean>
 
 </beans>
