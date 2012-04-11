@@ -25,7 +25,7 @@ import javax.inject.Named;
 /**
  * Tests for OsCacheCache.
  *
- * @author <a href="mailto:Olivier.LAMY@accor.com">Olivier Lamy</a>
+ * @author Olivier Lamy
  * @version $Id$
  * @since 3 February, 2007
  */

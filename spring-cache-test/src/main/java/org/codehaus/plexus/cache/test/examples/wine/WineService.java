@@ -20,7 +20,7 @@ package org.codehaus.plexus.cache.test.examples.wine;
  */
 
 /**
- * @author <a href="mailto:Olivier.LAMY@accor.com">Olivier Lamy</a>
+ * @author Olivier Lamy
  * @version $Id$
  * @since 5 February, 2007
  */

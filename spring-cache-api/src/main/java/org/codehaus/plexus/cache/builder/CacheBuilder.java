@@ -25,7 +25,7 @@ import org.codehaus.plexus.cache.Cache;
 /**
  * CacheBuilder Interface, for obtaining caches from plexus using hints or clazz names.
  *
- * @author <a href="mailto:Olivier.LAMY@accor.com">Olivier Lamy</a>
+ * @author Olivier Lamy
  * @version $Id$
  * @since 3 February, 2007
  */

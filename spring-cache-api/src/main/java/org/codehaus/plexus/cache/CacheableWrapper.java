@@ -24,7 +24,7 @@ import java.io.Serializable;
 /**
  * CacheableWrapper 
  *
- * @author <a href="mailto:Olivier.LAMY@accor.com">Olivier Lamy</a>
+ * @author Olivier Lamy
  * @version $Id$
  */
 public class CacheableWrapper

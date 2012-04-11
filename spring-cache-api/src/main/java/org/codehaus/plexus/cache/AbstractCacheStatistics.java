@@ -21,7 +21,7 @@ package org.codehaus.plexus.cache;
 
 /**
  * @version $Id$
- * @author <a href="mailto:Olivier.LAMY@accor.com">Olivier Lamy</a>
+ * @author Olivier Lamy
  */
 public abstract class AbstractCacheStatistics
     implements CacheStatistics
