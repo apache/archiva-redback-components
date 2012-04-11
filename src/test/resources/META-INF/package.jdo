@@ -23,7 +23,7 @@
   "http://java.sun.com/dtd/jdo_2_0.dtd">
 
 <jdo>
-  <package name="org.codehaus.plexus.jdo">
+  <package name="org.apache.archiva.redback.components.jdo">
     <class name="Basic" detachable="true" identity-type="application" objectid-class="javax.jdo.identity.LongIdentity">
       <field name="id" primary-key="true" value-strategy="native"/>
       <field name="name"/>

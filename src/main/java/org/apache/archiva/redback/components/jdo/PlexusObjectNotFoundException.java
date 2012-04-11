@@ -1,4 +1,4 @@
-package org.codehaus.plexus.jdo;
+package org.apache.archiva.redback.components.jdo;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -23,16 +23,11 @@ package org.codehaus.plexus.jdo;
  * @author <a href="mailto:evenisse@codehaus.org">Emmanuel Venisse</a>
  * @version $Id$
  */
-public class PlexusStoreException
-    extends Exception
+public class PlexusObjectNotFoundException
+    extends PlexusStoreException
 {
-    public PlexusStoreException( String msg )
+    public PlexusObjectNotFoundException( String type, String id )
     {
-        super( msg );
-    }
-
-    public PlexusStoreException( String msg, Exception ex )
-    {
-        super( msg, ex );
+        super( "Could not find object. Type '" + type + "'. Id: '" + id + "'." );
     }
 }

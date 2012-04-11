@@ -24,7 +24,7 @@
   <defaults>
     <default>
       <key>package</key>
-      <value>org.codehaus.plexus.jdo</value>
+      <value>org.apache.archiva.redback.components.jdo</value>
     </default>
   </defaults>
 
