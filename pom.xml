@@ -312,7 +312,6 @@
         <module>../plexus-expression-evaluator</module>
         <module>../plexus-jabber</module>
         <module>../plexus-msn</module>
-        <module>../plexus-spring</module>
         <module>../plexus-xmlrpc</module>
       </modules>
       <reporting>
