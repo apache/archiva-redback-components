@@ -36,7 +36,6 @@
     <module>plexus-msn</module>
     <module>spring-registry</module>
     <module>spring-taskqueue</module>
-    <module>plexus-spring</module>
     <module>plexus-xmlrpc</module>
     <module>spring-apacheds</module>
     <module>spring-utils</module>
