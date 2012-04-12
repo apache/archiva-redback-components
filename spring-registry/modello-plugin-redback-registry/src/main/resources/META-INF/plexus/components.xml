@@ -25,7 +25,7 @@
     <component>
       <role>org.codehaus.modello.plugin.ModelloGenerator</role>
       <role-hint>registry-reader</role-hint>
-      <implementation>org.codehaus.modello.plugin.registry.RegistryReaderGenerator</implementation>
+      <implementation>org.apache.archiva.redback.components.registry.modello.RegistryReaderGenerator</implementation>
       <requirements>
         <requirement>
           <role>org.codehaus.plexus.velocity.VelocityComponent</role>
@@ -35,7 +35,7 @@
     <component>
       <role>org.codehaus.modello.plugin.ModelloGenerator</role>
       <role-hint>registry-writer</role-hint>
-      <implementation>org.codehaus.modello.plugin.registry.RegistryWriterGenerator</implementation>
+      <implementation>org.apache.archiva.redback.components.registry.modello.RegistryWriterGenerator</implementation>
       <requirements>
         <requirement>
           <role>org.codehaus.plexus.velocity.VelocityComponent</role>
