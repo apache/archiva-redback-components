@@ -19,9 +19,9 @@ package org.codehaus.redback.components.registry;
  * under the License.
  */
 
+import org.apache.archiva.redback.components.registry.Registry;
 import org.apache.commons.configuration.XMLConfiguration;
-import org.codehaus.plexus.registry.Registry;
-import org.codehaus.plexus.registry.RegistryException;
+import org.apache.archiva.redback.components.registry.RegistryException;
 import org.codehaus.plexus.util.FileUtils;
 import org.junit.Test;
 
