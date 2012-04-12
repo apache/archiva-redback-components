@@ -29,8 +29,8 @@ import org.codehaus.modello.verifier.Verifier;
 import org.codehaus.plexus.logging.Logger;
 import org.codehaus.plexus.logging.console.ConsoleLogger;
 import org.codehaus.plexus.personality.plexus.lifecycle.phase.Initializable;
-import org.codehaus.plexus.registry.commons.CommonsConfigurationRegistry;
-import org.codehaus.plexus.registry.Registry;
+import org.codehaus.redback.components.registry.commons.CommonsConfigurationRegistry;
+import org.apache.archiva.redback.components.registry.Registry;
 
 import junit.framework.Assert;
 
@@ -48,8 +48,7 @@ public class RegistryReaderVerifier
         throws Exception
     {
         Registry registry = new CommonsConfigurationRegistry();
-        ( (CommonsConfigurationRegistry) registry ).enableLogging( new ConsoleLogger( Logger.LEVEL_DISABLED, "" ) );
-        ( (Initializable) registry ).initialize();
+        registry.initialize();
         registry.addConfigurationFromFile( new File( "src/test/verifiers/registry-reader/test.properties" ) );
         registry.addConfigurationFromFile( new File( "src/test/verifiers/registry-reader/test.xml" ) );
 
