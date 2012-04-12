@@ -20,7 +20,7 @@ package org.codehaus.redback.components.registry;
  */
 
 import junit.framework.TestCase;
-import org.codehaus.plexus.registry.Registry;
+import org.apache.archiva.redback.components.registry.Registry;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.context.ApplicationContext;
