@@ -41,7 +41,7 @@ public abstract class AbstractConfigurableJdoFactory
     private Logger logger = LoggerFactory.getLogger( getClass() );
 
     /**
-     * @plexus.configuration default-value="org.jpox.PersistenceManagerFactoryImpl"
+     * default-value="org.jpox.PersistenceManagerFactoryImpl"
      */
     protected String persistenceManagerFactoryClass;
 

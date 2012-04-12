@@ -37,24 +37,12 @@ public class DefaultConfigurableJdoFactory
     // Configuration
     // ----------------------------------------------------------------------
 
-    /**
-     * @plexus.configuration
-     */
     private String driverName;
 
-    /**
-     * @plexus.configuration
-     */
     private String url;
 
-    /**
-     * @plexus.configuration
-     */
     private String userName;
 
-    /**
-     * @plexus.configuration
-     */
     private String password;
 
     public void setDriverName( String driverName )

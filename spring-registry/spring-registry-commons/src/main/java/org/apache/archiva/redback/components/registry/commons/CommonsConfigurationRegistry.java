@@ -60,7 +60,6 @@ import java.util.Set;
  * <a href="http://jakarta.apache.org/commons/configuration/howto_configurationbuilder.html">configuration
  * builder</a>.
  *
- * @plexus.component role-hint="commons-configuration"
  */
 @Service("commons-configuration")
 public class CommonsConfigurationRegistry
