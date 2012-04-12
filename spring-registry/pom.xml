@@ -46,6 +46,7 @@
   <modules>
     <module>spring-registry-api</module>
     <module>spring-registry-commons</module>
+    <module>modello-plugin-redback-registry</module>
   </modules>
   <dependencyManagement>
     <dependencies>
@@ -57,6 +58,11 @@
       <dependency>
         <groupId>org.apache.archiva.redback.components.registry</groupId>
         <artifactId>spring-registry-api</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.archiva.redback.components.registry</groupId>
+        <artifactId>spring-registry-commons</artifactId>
         <version>${project.version}</version>
       </dependency>
     </dependencies>
