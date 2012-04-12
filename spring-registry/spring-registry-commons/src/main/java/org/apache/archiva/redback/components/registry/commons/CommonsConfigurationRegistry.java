@@ -1,4 +1,4 @@
-package org.codehaus.redback.components.registry.commons;
+package org.apache.archiva.redback.components.registry.commons;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one

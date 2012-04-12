@@ -41,7 +41,7 @@
 
     <component>
       <role>org.codehaus.plexus.registry.Registry</role>
-      <implementation>org.codehaus.redback.components.registry.commons.CommonsConfigurationRegistry</implementation>
+      <implementation>org.apache.archiva.redback.components.registry.commons.CommonsConfigurationRegistry</implementation>
       <role-hint>commons-configuration-exists</role-hint>
       <configuration>
           <properties>

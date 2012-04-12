@@ -19,20 +19,16 @@ package org.codehaus.modello.plugin.registry;
  * under the License.
  */
 
+import org.apache.archiva.redback.components.registry.commons.CommonsConfigurationRegistry;
 import org.codehaus.modello.test.model.Model;
 import org.codehaus.modello.test.model.Reference;
 import org.codehaus.modello.test.model.EmptyReference;
 import org.codehaus.modello.test.model.io.registry.ModelRegistryWriter;
 import org.codehaus.modello.verifier.Verifier;
-import org.codehaus.plexus.logging.Logger;
-import org.codehaus.plexus.logging.console.ConsoleLogger;
-import org.codehaus.plexus.personality.plexus.lifecycle.phase.Initializable;
-import org.codehaus.redback.components.registry.commons.CommonsConfigurationRegistry;
 import org.apache.archiva.redback.components.registry.Registry;
 
 import junit.framework.Assert;
 
-import java.io.File;
 import java.util.*;
 
 /**

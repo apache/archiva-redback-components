@@ -29,7 +29,7 @@
 
   <context:annotation-config />
   <context:component-scan 
-    base-package="org.codehaus.redback.components.registry.commons"/>
+    base-package="org.apache.archiva.redback.components.registry.commons"/>
 
  
 </beans>
