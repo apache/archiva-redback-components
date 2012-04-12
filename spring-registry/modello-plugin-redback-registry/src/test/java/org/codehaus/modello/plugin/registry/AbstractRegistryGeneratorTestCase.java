@@ -79,13 +79,16 @@ public abstract class AbstractRegistryGeneratorTestCase
         String registryVersion = System.getProperty( "registryVersion" );
 
         addDependency( "org.codehaus.modello", "modello-core", getModelloVersion() );
-        addDependency( "org.codehaus.plexus.registry", "plexus-registry-api", "1.0-alpha-2" );
-        addDependency( "org.codehaus.plexus.registry", "plexus-registry-commons", "1.0-alpha-2" );
+        addDependency( "org.apache.archiva.redback.components.registry", "spring-registry-api", registryVersion );
+        addDependency( "org.apache.archiva.redback.components.registry", "spring-registry-commons", registryVersion );
         addDependency( "org.codehaus.plexus", "plexus-container-default", "1.0-alpha-30" );
         addDependency( "commons-collections", "commons-collections", "3.1" );
         addDependency( "commons-configuration", "commons-configuration", "1.3" );
         addDependency( "commons-lang", "commons-lang", "2.1" );
         addDependency( "commons-logging", "commons-logging-api", "1.0.4" );
+        addDependency( "org.codehaus.plexus", "plexus-interpolation", "1.14" );
+        addDependency( "org.slf4j", "slf4j-api", System.getProperty( "slf4jVersion" ) );
+
         if ( "1.5".compareTo( System.getProperty( "java.specification.version" ) ) <= 0 )
         {
             // causes a conflict with JDK 1.4 => add this dependency only with JDK 1.5+

@@ -120,6 +120,7 @@
         <configuration>
           <systemPropertyVariables>
             <registryVersion>${project.version}</registryVersion>
+            <slf4jVersion>${slf4jVersion}</slf4jVersion>
           </systemPropertyVariables>
         </configuration>
       </plugin>
