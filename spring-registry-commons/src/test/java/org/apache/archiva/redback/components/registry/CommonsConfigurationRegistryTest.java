@@ -1,4 +1,4 @@
-package org.codehaus.redback.components.registry;
+package org.apache.archiva.redback.components.registry;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,9 +19,7 @@ package org.codehaus.redback.components.registry;
  * under the License.
  */
 
-import org.apache.archiva.redback.components.registry.Registry;
 import org.apache.commons.configuration.XMLConfiguration;
-import org.apache.archiva.redback.components.registry.RegistryException;
 import org.codehaus.plexus.util.FileUtils;
 import org.junit.Test;
 

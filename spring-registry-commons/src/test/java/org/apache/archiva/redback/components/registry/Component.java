@@ -1,4 +1,4 @@
-package org.codehaus.redback.components.registry;
+package org.apache.archiva.redback.components.registry;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,15 +19,42 @@ package org.codehaus.redback.components.registry;
  * under the License.
  */
 
-/**
- * Nested class for testing.
- */
-public class Nested
-{
-    private String foo;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 
-    public String getFoo()
-    {
-        return foo;
-    }
+/**
+ * Test component.
+ */
+public interface Component
+{
+    String ROLE = Component.class.getName();
+
+    String getKey();
+
+    Properties getProperties();
+
+    String getConfigKey();
+
+    Properties getConfigProperties();
+
+    Map getMap();
+
+    List getList();
+
+    Map getConfigMap();
+
+    List getConfigList();
+
+    Properties getMergeProperties();
+
+    int getNumber();
+
+    int getConfigNumber();
+
+    Nested getNested();
+
+    Nested getConfigNested();
+
+    List getMergeList();
 }

@@ -20,16 +20,13 @@
   -->
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
-           http://www.springframework.org/schema/context 
-           http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
 
   <alias name="commons-configuration" alias="default"/>
 
-  <bean name="builder" class="org.codehaus.redback.components.registry.commons.CommonsConfigurationRegistry">
+  <bean name="builder" class="org.apache.archiva.redback.components.registry.commons.CommonsConfigurationRegistry">
     <property name="properties">
       <value>
         <![CDATA[
@@ -43,7 +40,7 @@
     </property>
   </bean>
 
-  <bean name="test-save" class="org.codehaus.redback.components.registry.commons.CommonsConfigurationRegistry">
+  <bean name="test-save" class="org.apache.archiva.redback.components.registry.commons.CommonsConfigurationRegistry">
     <property name="properties">
       <value>
         <![CDATA[
@@ -78,7 +75,7 @@
     </property>
   </bean>
 
-  <bean name="forceCreate" class="org.codehaus.redback.components.registry.commons.CommonsConfigurationRegistry">
+  <bean name="forceCreate" class="org.apache.archiva.redback.components.registry.commons.CommonsConfigurationRegistry">
     <property name="properties">
       <value>
         <![CDATA[
@@ -90,7 +87,7 @@
     </property>
   </bean>
 
-  <bean name="noForceCreate" class="org.codehaus.redback.components.registry.commons.CommonsConfigurationRegistry">
+  <bean name="noForceCreate" class="org.apache.archiva.redback.components.registry.commons.CommonsConfigurationRegistry">
     <property name="properties">
       <value>
         <![CDATA[
