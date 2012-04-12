@@ -1,4 +1,4 @@
-package org.codehaus.modello.plugin.registry;
+package org.apache.archiva.redback.components.registry.modello;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,21 +19,23 @@ package org.codehaus.modello.plugin.registry;
  * under the License.
  */
 
-import org.codehaus.modello.ModelloException;
-import org.codehaus.modello.model.Model;
-
-import java.util.Properties;
-
 /**
  * @author <a href="mailto:brett@apache.org">Brett Porter</a>
  * @version $Id$
  */
-public class RegistryReaderGenerator
-    extends AbstractRegistryGenerator
+public class RegistryReaderGeneratorTest
+    extends AbstractRegistryGeneratorTestCase
 {
-    public void generate( Model model, Properties parameters )
-        throws ModelloException
+    public RegistryReaderGeneratorTest()
     {
-        generate( model, parameters, "RegistryReader" );
+        super( "registry-reader" );
+    }
+
+    public void testRegistryReader()
+        throws Throwable
+    {
+        prepareTest( "registry-reader" );
+        
+        verify( "org.codehaus.modello.plugin.registry.RegistryReaderVerifier", "registry-reader" );
     }
 }

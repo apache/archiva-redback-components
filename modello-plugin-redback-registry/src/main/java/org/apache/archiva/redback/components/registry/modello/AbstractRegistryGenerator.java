@@ -1,4 +1,4 @@
-package org.codehaus.modello.plugin.registry;
+package org.apache.archiva.redback.components.registry.modello;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -53,7 +53,7 @@ public abstract class AbstractRegistryGenerator
         // Generate the reader
         String className = model.getName() + outputType;
 
-        writeClass( "org/codehaus/modello/plugin/registry/" + outputType + ".java.vm", getOutputDirectory(),
-                    packageName, className, context );
+        writeClass( getClass().getPackage().getName().replaceAll( "\\.", "/" ) + "/" + outputType + ".java.vm",
+                    getOutputDirectory(), packageName, className, context );
     }
 }
