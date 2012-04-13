@@ -30,10 +30,8 @@
     <module>spring-cache</module>
     <module>plexus-command-line</module>
     <module>plexus-expression-evaluator</module>
-    <module>plexus-jabber</module>
     <module>spring-jdo2</module>
     <module>spring-quartz</module>
-    <module>plexus-msn</module>
     <module>spring-registry</module>
     <module>spring-taskqueue</module>
     <module>plexus-xmlrpc</module>
