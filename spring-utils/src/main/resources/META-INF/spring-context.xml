@@ -29,7 +29,7 @@
 
   <context:annotation-config />
   <context:component-scan 
-    base-package="org.codehaus.redback.components.springutils"/>
+    base-package="org.apache.archiva.redback.components.springutils"/>
 
  
 </beans>

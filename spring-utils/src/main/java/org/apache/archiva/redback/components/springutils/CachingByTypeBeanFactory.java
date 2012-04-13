@@ -1,4 +1,4 @@
-package org.codehaus.redback.components.springutils;
+package org.apache.archiva.redback.components.springutils;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
