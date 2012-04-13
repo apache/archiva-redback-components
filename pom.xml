@@ -182,7 +182,7 @@
         <version>2.1</version>
         <configuration>
           <useReleaseProfile>false</useReleaseProfile>
-          <tagBase>https://svn.codehaus.org/redback/components/tags/</tagBase>
+          <tagBase>https://svn.apache.org/repos/asf/archiva/redback/redback-components/tags</tagBase>
           <arguments>-Prelease</arguments>
           <goals>clean deploy</goals>
         </configuration>
