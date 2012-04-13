@@ -140,7 +140,7 @@
     </snapshotRepository>
     <site>
       <id>apache.website</id>
-      <url>scp://people.apache.org/www/archiva.apache.org/redback/components/${project.artifactId}</url>
+      <url>scp://people.apache.org/www/archiva.apache.org/redback/components/</url>
     </site>
   </distributionManagement>
 
