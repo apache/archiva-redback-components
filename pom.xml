@@ -133,8 +133,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <!-- see MJAVADOC-322 -->
-        <version>2.8.1-SNAPSHOT</version>
         <configuration>
           <additionnalDependencies>
             <additionnalDependency>
