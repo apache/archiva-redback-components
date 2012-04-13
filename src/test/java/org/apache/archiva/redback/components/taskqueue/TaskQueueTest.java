@@ -1,4 +1,4 @@
-package org.codehaus.plexus.taskqueue;
+package org.apache.archiva.redback.components.taskqueue;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -22,8 +22,6 @@ package org.codehaus.plexus.taskqueue;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.scheduling.TaskScheduler;
-import org.springframework.scheduling.backportconcurrent.ThreadPoolTaskExecutor;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 

@@ -1,4 +1,4 @@
-package org.codehaus.plexus.taskqueue;
+package org.apache.archiva.redback.components.taskqueue;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,22 +19,19 @@ package org.codehaus.plexus.taskqueue;
  * under the License.
  */
 
-import java.util.Collection;
+import org.springframework.stereotype.Service;
 
 /**
- * @author <a href="mailto:jason@maven.org">Jason van Zyl</a>
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
  * @version $Id$
  */
-public interface TaskViabilityEvaluator
+@Service("taskEntryEvaluator#a")
+public class ATaskEntryEvaluator
+    implements TaskEntryEvaluator
 {
-    String ROLE = TaskViabilityEvaluator.class.getName();
-
-    /**
-     * @param tasks The tasks to evaluate
-     * @return Returns a list of tasks to remove from the queue.
-     * @throws TaskQueueException
-     */
-    Collection<Task> evaluate( Collection tasks )
-        throws TaskQueueException;
+    public boolean evaluate( Task task )
+        throws TaskQueueException
+    {
+        return ( (BuildProjectTask) task).isPassAEntryEvaluator();
+    }
 }

@@ -1,4 +1,4 @@
-package org.codehaus.plexus.taskqueue;
+package org.apache.archiva.redback.components.taskqueue.execution;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,19 +19,31 @@ package org.codehaus.plexus.taskqueue;
  * under the License.
  */
 
-import org.springframework.stereotype.Service;
+import org.apache.archiva.redback.components.taskqueue.Task;
+
+
 
 /**
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
  * @version $Id$
  */
-@Service("taskExitEvaluator#b")
-public class BTaskExitEvaluator
-    implements TaskExitEvaluator
+public interface TaskQueueExecutor
 {
-    public boolean evaluate( Task task )
-        throws TaskQueueException
-    {
-        return ( (BuildProjectTask) task ).isPassBExitEvaluator();
-    }
+    String ROLE = TaskQueueExecutor.class.getName();
+
+    /**
+     * Returns the currently executing task.
+     *
+     * @return the currently executing task.
+     */
+    Task getCurrentTask();
+
+    /**
+     * Cancels execution of this task, if it's currently running.
+     * Does NOT remove it from the associated queue!
+     *
+     * @param task The task to cancel
+     * @return true if the task was cancelled, false if the task was not executing.
+     */
+    boolean cancelTask( Task task );
 }

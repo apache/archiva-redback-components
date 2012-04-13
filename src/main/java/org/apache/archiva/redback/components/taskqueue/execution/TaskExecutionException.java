@@ -1,4 +1,4 @@
-package org.codehaus.plexus.taskqueue;
+package org.apache.archiva.redback.components.taskqueue.execution;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,19 +19,20 @@ package org.codehaus.plexus.taskqueue;
  * under the License.
  */
 
-import org.springframework.stereotype.Service;
-
 /**
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
  * @version $Id$
  */
-@Service("taskEntryEvaluator#b")
-public class BTaskEntryEvaluator
-    implements TaskEntryEvaluator
+public class TaskExecutionException
+    extends Exception
 {
-    public boolean evaluate( Task task )
-        throws TaskQueueException
+    public TaskExecutionException( String message )
     {
-        return ( (BuildProjectTask) task ).isPassBEntryEvaluator();
+        super( message );
+    }
+
+    public TaskExecutionException( String message, Throwable cause )
+    {
+        super( message, cause );
     }
 }

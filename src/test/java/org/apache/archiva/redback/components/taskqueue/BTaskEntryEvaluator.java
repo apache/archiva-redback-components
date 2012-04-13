@@ -1,4 +1,4 @@
-package org.codehaus.plexus.taskqueue;
+package org.apache.archiva.redback.components.taskqueue;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -21,43 +21,17 @@ package org.codehaus.plexus.taskqueue;
 
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-
 /**
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
  * @version $Id$
  */
-@Service( "taskViabilityEvaluator#build-project" )
-public class BuildProjectTaskViabilityEvaluator
-    implements TaskViabilityEvaluator
+@Service("taskEntryEvaluator#b")
+public class BTaskEntryEvaluator
+    implements TaskEntryEvaluator
 {
-    public Collection evaluate( Collection tasks )
+    public boolean evaluate( Task task )
         throws TaskQueueException
     {
-        BuildProjectTask okTask = null;
-
-        List toBeRemoved = new ArrayList( tasks.size() );
-
-        for ( Iterator it = tasks.iterator(); it.hasNext(); )
-        {
-            BuildProjectTask buildProjectTask = (BuildProjectTask) it.next();
-
-            if ( okTask == null )
-            {
-                okTask = buildProjectTask;
-
-                continue;
-            }
-
-            if ( buildProjectTask.getTimestamp() - okTask.getTimestamp() < 100 )
-            {
-                toBeRemoved.add( buildProjectTask );
-            }
-        }
-
-        return toBeRemoved;
+        return ( (BuildProjectTask) task ).isPassBEntryEvaluator();
     }
 }

@@ -1,4 +1,4 @@
-package org.codehaus.plexus.taskqueue;
+package org.apache.archiva.redback.components.taskqueue;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -24,10 +24,10 @@ package org.codehaus.plexus.taskqueue;
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
  * @version $Id$
  */
-public interface TaskEntryEvaluator
+public interface Task
 {
-    String ROLE = TaskEntryEvaluator.class.getName();
-
-    boolean evaluate( Task task )
-        throws TaskQueueException;
+    /**
+     * @return the maximum time in milliseconds this task may run before it's cancelled.
+     */
+    long getMaxExecutionTime();
 }

@@ -1,4 +1,4 @@
-package org.codehaus.plexus.taskqueue;
+package org.apache.archiva.redback.components.taskqueue;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -18,6 +18,8 @@ package org.codehaus.plexus.taskqueue;
  * specific language governing permissions and limitations
  * under the License.
  */
+
+import org.apache.archiva.redback.components.taskqueue.Task;
 
 /**
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>

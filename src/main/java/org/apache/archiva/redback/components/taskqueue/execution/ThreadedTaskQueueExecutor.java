@@ -1,4 +1,4 @@
-package org.codehaus.plexus.taskqueue.execution;
+package org.apache.archiva.redback.components.taskqueue.execution;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -20,14 +20,13 @@ package org.codehaus.plexus.taskqueue.execution;
  */
 
 import org.apache.commons.lang.StringUtils;
-import org.codehaus.plexus.taskqueue.Task;
-import org.codehaus.plexus.taskqueue.TaskQueue;
+import org.apache.archiva.redback.components.taskqueue.Task;
+import org.apache.archiva.redback.components.taskqueue.TaskQueue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import javax.inject.Inject;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;

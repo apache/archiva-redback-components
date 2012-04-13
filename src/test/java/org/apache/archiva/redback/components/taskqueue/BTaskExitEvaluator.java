@@ -1,4 +1,4 @@
-package org.codehaus.plexus.taskqueue;
+package org.apache.archiva.redback.components.taskqueue;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,15 +19,19 @@ package org.codehaus.plexus.taskqueue;
  * under the License.
  */
 
+import org.springframework.stereotype.Service;
+
 /**
- * @author <a href="mailto:jason@maven.org">Jason van Zyl</a>
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
  * @version $Id$
  */
-public interface Task
+@Service("taskExitEvaluator#b")
+public class BTaskExitEvaluator
+    implements TaskExitEvaluator
 {
-    /**
-     * @return the maximum time in milliseconds this task may run before it's cancelled.
-     */
-    long getMaxExecutionTime();
+    public boolean evaluate( Task task )
+        throws TaskQueueException
+    {
+        return ( (BuildProjectTask) task ).isPassBExitEvaluator();
+    }
 }

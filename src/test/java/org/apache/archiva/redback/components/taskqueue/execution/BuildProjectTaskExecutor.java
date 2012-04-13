@@ -1,4 +1,4 @@
-package org.codehaus.plexus.taskqueue.execution;
+package org.apache.archiva.redback.components.taskqueue.execution;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -18,8 +18,8 @@ package org.codehaus.plexus.taskqueue.execution;
  * specific language governing permissions and limitations
  * under the License.
  */
-import org.codehaus.plexus.taskqueue.BuildProjectTask;
-import org.codehaus.plexus.taskqueue.Task;
+import org.apache.archiva.redback.components.taskqueue.BuildProjectTask;
+import org.apache.archiva.redback.components.taskqueue.Task;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
