@@ -1,4 +1,4 @@
-package org.codehaus.plexus.taskqueue;
+package org.apache.archiva.redback.components.taskqueue.execution;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,15 +19,14 @@ package org.codehaus.plexus.taskqueue;
  * under the License.
  */
 
+import org.apache.archiva.redback.components.taskqueue.Task;
+
 /**
- * @author <a href="mailto:jason@maven.org">Jason van Zyl</a>
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
  * @version $Id$
  */
-public interface TaskExitEvaluator
+public interface TaskExecutor
 {
-    String ROLE = TaskExitEvaluator.class.getName();
-
-    boolean evaluate( Task task )
-        throws TaskQueueException;
+    void executeTask( Task task )
+        throws TaskExecutionException;
 }

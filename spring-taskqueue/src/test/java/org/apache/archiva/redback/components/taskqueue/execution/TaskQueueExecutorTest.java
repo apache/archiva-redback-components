@@ -1,4 +1,4 @@
-package org.codehaus.plexus.taskqueue.execution;
+package org.apache.archiva.redback.components.taskqueue.execution;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -20,9 +20,9 @@ package org.codehaus.plexus.taskqueue.execution;
  */
 
 import junit.framework.TestCase;
-import org.codehaus.plexus.taskqueue.BuildProjectTask;
-import org.codehaus.plexus.taskqueue.TaskQueue;
-import org.codehaus.plexus.taskqueue.TaskQueueException;
+import org.apache.archiva.redback.components.taskqueue.BuildProjectTask;
+import org.apache.archiva.redback.components.taskqueue.TaskQueue;
+import org.apache.archiva.redback.components.taskqueue.TaskQueueException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;

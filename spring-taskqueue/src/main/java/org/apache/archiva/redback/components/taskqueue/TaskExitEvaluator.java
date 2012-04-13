@@ -1,4 +1,4 @@
-package org.codehaus.plexus.taskqueue.execution;
+package org.apache.archiva.redback.components.taskqueue;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -20,19 +20,14 @@ package org.codehaus.plexus.taskqueue.execution;
  */
 
 /**
+ * @author <a href="mailto:jason@maven.org">Jason van Zyl</a>
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
  * @version $Id$
  */
-public class TaskExecutionException
-    extends Exception
+public interface TaskExitEvaluator
 {
-    public TaskExecutionException( String message )
-    {
-        super( message );
-    }
+    String ROLE = TaskExitEvaluator.class.getName();
 
-    public TaskExecutionException( String message, Throwable cause )
-    {
-        super( message, cause );
-    }
+    boolean evaluate( Task task )
+        throws TaskQueueException;
 }

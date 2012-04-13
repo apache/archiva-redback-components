@@ -1,4 +1,4 @@
-package org.codehaus.plexus.taskqueue.execution;
+package org.apache.archiva.redback.components.taskqueue;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,14 +19,20 @@ package org.codehaus.plexus.taskqueue.execution;
  * under the License.
  */
 
-import org.codehaus.plexus.taskqueue.Task;
-
 /**
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
  * @version $Id$
  */
-public interface TaskExecutor
+public class TaskQueueException
+    extends Exception
 {
-    void executeTask( Task task )
-        throws TaskExecutionException;
+    public TaskQueueException( String message )
+    {
+        super( message );
+    }
+
+    public TaskQueueException( String message, Throwable cause )
+    {
+        super( message, cause );
+    }
 }

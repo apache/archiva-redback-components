@@ -1,4 +1,4 @@
-package org.codehaus.plexus.taskqueue.execution;
+package org.apache.archiva.redback.components.taskqueue;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,31 +19,15 @@ package org.codehaus.plexus.taskqueue.execution;
  * under the License.
  */
 
-import org.codehaus.plexus.taskqueue.Task;
-
-
-
 /**
+ * @author <a href="mailto:jason@maven.org">Jason van Zyl</a>
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
  * @version $Id$
  */
-public interface TaskQueueExecutor
+public interface TaskEntryEvaluator
 {
-    String ROLE = TaskQueueExecutor.class.getName();
+    String ROLE = TaskEntryEvaluator.class.getName();
 
-    /**
-     * Returns the currently executing task.
-     *
-     * @return the currently executing task.
-     */
-    Task getCurrentTask();
-
-    /**
-     * Cancels execution of this task, if it's currently running.
-     * Does NOT remove it from the associated queue!
-     *
-     * @param task The task to cancel
-     * @return true if the task was cancelled, false if the task was not executing.
-     */
-    boolean cancelTask( Task task );
+    boolean evaluate( Task task )
+        throws TaskQueueException;
 }
