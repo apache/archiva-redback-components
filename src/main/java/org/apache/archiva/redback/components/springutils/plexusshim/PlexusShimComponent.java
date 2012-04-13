@@ -1,4 +1,4 @@
-package org.codehaus.redback.components.springutils.plexusshim;
+package org.apache.archiva.redback.components.springutils.plexusshim;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
