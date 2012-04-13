@@ -314,7 +314,6 @@
         <module>../spring-registry</module>
         <module>../plexus-command-line</module>
         <module>../plexus-expression-evaluator</module>
-        <module>../plexus-xmlrpc</module>
       </modules>
       <reporting>
         <plugins>
