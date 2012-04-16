@@ -78,7 +78,7 @@ public abstract class AbstractRegistryGeneratorTestCase
         addDependency( "org.codehaus.modello", "modello-core", getModelloVersion() );
         addDependency( "org.apache.archiva.redback.components.registry", "spring-registry-api", registryVersion );
         addDependency( "org.apache.archiva.redback.components.registry", "spring-registry-commons", registryVersion );
-        addDependency( "org.codehaus.plexus", "plexus-container-default", "1.0-alpha-30" );
+        addDependency( "org.codehaus.plexus", "plexus-container-default", "1.0-alpha-33" );
         addDependency( "commons-collections", "commons-collections", "3.1" );
         addDependency( "commons-configuration", "commons-configuration", "1.3" );
         addDependency( "commons-lang", "commons-lang", "2.1" );
