@@ -25,9 +25,9 @@
     <version>2.0-SNAPSHOT</version>
     <relativePath>../redback-components-parent/pom.xml</relativePath>
   </parent>
-  <artifactId>plexus-expression-evaluator</artifactId>
+  <artifactId>expression-evaluator</artifactId>
   <version>2.0-SNAPSHOT</version>
-  <name>Plexus Expression Evaluator Components</name>
+  <name>Expression Evaluator Components</name>
   <packaging>jar</packaging>
 
   <url>http://archiva.apache.org/redback/components/${project.artifactId}</url>
@@ -40,9 +40,9 @@
   </distributionManagement>
 
   <scm>
-    <connection>scm:svn:http://svn.apache.org/repos/asf/archiva/redback/redback-components/trunk/plexus-expression-evaluator</connection>
-    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/archiva/redback/redback-components/trunk/plexus-expression-evaluator</developerConnection>
-    <url>http://svn.apache.org/viewvc/archiva/redback/redback-components/trunk/plexus-expression-evaluator</url>
+    <connection>scm:svn:http://svn.apache.org/repos/asf/archiva/redback/redback-components/trunk/expression-evaluator</connection>
+    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/archiva/redback/redback-components/trunk/expression-evaluator</developerConnection>
+    <url>http://svn.apache.org/viewvc/archiva/redback/redback-components/trunk/expression-evaluator</url>
   </scm>
 
   <dependencies>
