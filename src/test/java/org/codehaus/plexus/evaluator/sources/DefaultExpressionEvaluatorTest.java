@@ -19,20 +19,21 @@ package org.codehaus.plexus.evaluator.sources;
  * under the License.
  */
 
-import org.codehaus.plexus.PlexusTestCase;
+import junit.framework.TestCase;
+import org.codehaus.plexus.evaluator.DefaultExpressionEvaluator;
 import org.codehaus.plexus.evaluator.EvaluatorException;
 import org.codehaus.plexus.evaluator.ExpressionEvaluator;
 
 import java.util.Properties;
 
 /**
- * DefaultExpressionEvaluatorTest 
+ * DefaultExpressionEvaluatorTest
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
  * @version $Id$
  */
 public class DefaultExpressionEvaluatorTest
-    extends PlexusTestCase
+    extends TestCase
 {
     private ExpressionEvaluator evaluator;
 
@@ -41,7 +42,7 @@ public class DefaultExpressionEvaluatorTest
     {
         super.setUp();
 
-        evaluator = (ExpressionEvaluator) lookup( ExpressionEvaluator.ROLE, "default" );
+        evaluator = new DefaultExpressionEvaluator();
     }
 
     public void testSimple()
@@ -125,7 +126,7 @@ public class DefaultExpressionEvaluatorTest
     /**
      * This use case was discovered by a user of archiva.
      * The last expression doesn't get evaluated properly.
-     * 
+     * <p/>
      * The result (with the bug) was "2.0.4${prj.ver.suf}"
      */
     public void testMultiExpressionVersionBug()
