@@ -282,7 +282,7 @@
         <module>../spring-apacheds</module>
         <module>../spring-registry</module>
         <module>../plexus-command-line</module>
-        <module>../plexus-expression-evaluator</module>
+        <module>../expression-evaluator</module>
       </modules>
       <reporting>
         <plugins>
