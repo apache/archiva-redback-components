@@ -22,14 +22,12 @@ package org.apache.archiva.redback.components.taskqueue.execution;
 import org.apache.archiva.redback.components.taskqueue.Task;
 
 
-
 /**
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
  * @version $Id$
  */
 public interface TaskQueueExecutor
 {
-    String ROLE = TaskQueueExecutor.class.getName();
 
     /**
      * Returns the currently executing task.

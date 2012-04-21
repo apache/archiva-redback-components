@@ -28,7 +28,6 @@ import java.util.Collection;
  */
 public interface TaskViabilityEvaluator
 {
-    String ROLE = TaskViabilityEvaluator.class.getName();
 
     /**
      * @param tasks The tasks to evaluate
