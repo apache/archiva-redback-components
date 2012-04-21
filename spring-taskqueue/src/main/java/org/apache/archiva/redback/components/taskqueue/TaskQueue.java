@@ -31,15 +31,13 @@ import java.util.concurrent.TimeUnit;
  */
 public interface TaskQueue
 {
-    String ROLE = TaskQueue.class.getName();
 
     // ----------------------------------------------------------------------
     // Queue operations
     // ----------------------------------------------------------------------
 
     /**
-     * @param task
-     *            The task to add to the queue.
+     * @param task The task to add to the queue.
      * @return Returns true if the task was accepted into the queue.
      */
     boolean put( Task task )
@@ -50,7 +48,7 @@ public interface TaskQueue
 
     boolean remove( Task task )
         throws ClassCastException, NullPointerException;
-    
+
     boolean removeAll( List tasks )
         throws ClassCastException, NullPointerException;
 
@@ -64,13 +62,10 @@ public interface TaskQueue
     /**
      * Retrieves and removes the head of the queue, waiting at most timeout timeUnit when no element is available.
      *
-     * @param timeout
-     *            time to wait, in timeUnit units
-     * @param timeUnit
-     *            how to interpret the timeout parameter.
+     * @param timeout  time to wait, in timeUnit units
+     * @param timeUnit how to interpret the timeout parameter.
      * @return the head of the queue, or null if the timeout elapsed
-     * @throws InterruptedException
-     *             when this thread is interrupted while waiting
+     * @throws InterruptedException when this thread is interrupted while waiting
      */
     Task poll( int timeout, TimeUnit timeUnit )
         throws InterruptedException;

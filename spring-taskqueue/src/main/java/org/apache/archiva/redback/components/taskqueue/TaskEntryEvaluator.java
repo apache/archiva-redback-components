@@ -26,8 +26,6 @@ package org.apache.archiva.redback.components.taskqueue;
  */
 public interface TaskEntryEvaluator
 {
-    String ROLE = TaskEntryEvaluator.class.getName();
-
     boolean evaluate( Task task )
         throws TaskQueueException;
 }

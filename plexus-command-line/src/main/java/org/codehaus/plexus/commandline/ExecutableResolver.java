@@ -28,7 +28,6 @@ import java.io.File;
  */
 public interface ExecutableResolver
 {
-    String ROLE = ExecutableResolver.class.getName();
 
     List getDefaultPath();
 
