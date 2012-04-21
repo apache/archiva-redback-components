@@ -1,4 +1,4 @@
-package org.codehaus.plexus.evaluator.sources;
+package org.apache.archiva.redback.components.evaluator;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,29 +19,32 @@ package org.codehaus.plexus.evaluator.sources;
  * under the License.
  */
 
-import org.codehaus.plexus.evaluator.ExpressionSource;
-
 /**
- * SystemPropertyExpressionSource 
+ * EvaluatorException 
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
  * @version $Id$
- * 
- * @plexus.component role="org.codehaus.plexus.evaluator.ExpressionSource"
- *                   role-hint="sysprops"
  */
-public class SystemPropertyExpressionSource
-    implements ExpressionSource
+public class EvaluatorException
+    extends Exception
 {
-    public String getExpressionValue( String expression )
+    public EvaluatorException()
     {
-        try
-        {
-            return System.getProperty( expression );
-        }
-        catch ( Exception e )
-        {
-            return null;
-        }
+        super();
+    }
+
+    public EvaluatorException( String message, Throwable cause )
+    {
+        super( message, cause );
+    }
+
+    public EvaluatorException( String message )
+    {
+        super( message );
+    }
+
+    public EvaluatorException( Throwable cause )
+    {
+        super( cause );
     }
 }

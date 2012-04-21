@@ -1,4 +1,4 @@
-package org.codehaus.plexus.evaluator.sources;
+package org.apache.archiva.redback.components.evaluator.sources;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -20,9 +20,11 @@ package org.codehaus.plexus.evaluator.sources;
  */
 
 import junit.framework.TestCase;
-import org.codehaus.plexus.evaluator.DefaultExpressionEvaluator;
-import org.codehaus.plexus.evaluator.EvaluatorException;
-import org.codehaus.plexus.evaluator.ExpressionEvaluator;
+import org.apache.archiva.redback.components.evaluator.DefaultExpressionEvaluator;
+import org.apache.archiva.redback.components.evaluator.EvaluatorException;
+import org.apache.archiva.redback.components.evaluator.sources.PropertiesExpressionSource;
+import org.apache.archiva.redback.components.evaluator.sources.SystemPropertyExpressionSource;
+import org.apache.archiva.redback.components.evaluator.ExpressionEvaluator;
 
 import java.util.Properties;
 

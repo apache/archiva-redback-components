@@ -1,4 +1,4 @@
-package org.codehaus.plexus.evaluator;
+package org.apache.archiva.redback.components.evaluator;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -32,7 +32,7 @@ import java.util.regex.Pattern;
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
  * @version $Id$
- * @plexus.component role="org.codehaus.plexus.evaluator.ExpressionEvaluator" 
+ * @plexus.component role="org.apache.archiva.redback.components.evaluator.ExpressionEvaluator"
  *                   role-hint="default"
  *                   instantiation-strategy="per-lookup"
  */
