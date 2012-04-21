@@ -26,9 +26,6 @@ import org.apache.archiva.redback.components.evaluator.ExpressionSource;
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
  * @version $Id$
- * 
- * @plexus.component role="org.apache.archiva.redback.components.evaluator.ExpressionSource"
- *                   role-hint="sysprops"
  */
 public class SystemPropertyExpressionSource
     implements ExpressionSource

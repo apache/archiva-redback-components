@@ -29,8 +29,6 @@ import java.util.Properties;
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
  * @version $Id$
  * 
- * @plexus.component role="org.apache.archiva.redback.components.evaluator.ExpressionSource"
- *                   role-hint="properties"
  */
 public class PropertiesExpressionSource
     implements ExpressionSource

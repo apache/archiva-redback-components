@@ -32,9 +32,6 @@ import java.util.regex.Pattern;
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
  * @version $Id$
- * @plexus.component role="org.apache.archiva.redback.components.evaluator.ExpressionEvaluator"
- *                   role-hint="default"
- *                   instantiation-strategy="per-lookup"
  */
 public class DefaultExpressionEvaluator
     implements ExpressionEvaluator
