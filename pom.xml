@@ -276,13 +276,14 @@
     <profile>
       <id>all</id>
       <modules>
+        <module>../expression-evaluator</module>
+        <module>../spring-apacheds</module>
         <module>../spring-cache</module>
         <module>../spring-jdo2</module>
         <module>../spring-quartz</module>
-        <module>../spring-apacheds</module>
         <module>../spring-registry</module>
-        <module>../plexus-command-line</module>
-        <module>../expression-evaluator</module>
+        <module>../spring-taskqueue</module>
+        <module>../spring-utils</module>
       </modules>
       <reporting>
         <plugins>
