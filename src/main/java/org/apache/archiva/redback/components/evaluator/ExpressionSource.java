@@ -20,7 +20,7 @@ package org.apache.archiva.redback.components.evaluator;
  */
 
 /**
- * ExpressionSource 
+ * ExpressionSource
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
  * @version $Id$
@@ -29,7 +29,7 @@ public interface ExpressionSource
 {
     /**
      * Gets a value for a provided Expression.
-     * 
+     *
      * @param expression the expression to attempt to get a value for.
      * @return the value for the expression, or null if no value found.
      */

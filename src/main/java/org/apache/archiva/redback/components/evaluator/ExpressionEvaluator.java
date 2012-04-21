@@ -22,18 +22,16 @@ package org.apache.archiva.redback.components.evaluator;
 import java.util.List;
 
 /**
- * ExpressionEvaluator 
+ * ExpressionEvaluator
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
  * @version $Id$
  */
 public interface ExpressionEvaluator
 {
-    String ROLE = ExpressionEvaluator.class.getName();
-
     /**
      * Add a source for expression resolution.
-     * 
+     *
      * @param source the source to add.
      */
     void addExpressionSource( ExpressionSource source );
@@ -50,14 +48,14 @@ public interface ExpressionEvaluator
 
     /**
      * Get the List of expression sources.
-     * 
+     *
      * @return the list of expression sources.
      */
     List getExpressionSourceList();
 
     /**
      * Remove a specific expression source.
-     * 
+     *
      * @param source the source to remove.
      * @return true if expression source was removed.
      */
