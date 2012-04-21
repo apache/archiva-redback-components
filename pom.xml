@@ -28,7 +28,6 @@
   <modules>
     <module>redback-components-parent</module>
     <module>spring-cache</module>
-    <module>plexus-command-line</module>
     <module>expression-evaluator</module>
     <module>spring-jdo2</module>
     <module>spring-quartz</module>
