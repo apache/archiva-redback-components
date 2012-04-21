@@ -1,4 +1,4 @@
-package org.codehaus.plexus.evaluator.sources;
+package org.apache.archiva.redback.components.evaluator.sources;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,7 +19,7 @@ package org.codehaus.plexus.evaluator.sources;
  * under the License.
  */
 
-import org.codehaus.plexus.evaluator.ExpressionSource;
+import org.apache.archiva.redback.components.evaluator.ExpressionSource;
 
 import java.util.Properties;
 
@@ -29,7 +29,7 @@ import java.util.Properties;
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
  * @version $Id$
  * 
- * @plexus.component role="org.codehaus.plexus.evaluator.ExpressionSource"
+ * @plexus.component role="org.apache.archiva.redback.components.evaluator.ExpressionSource"
  *                   role-hint="properties"
  */
 public class PropertiesExpressionSource
