@@ -132,7 +132,7 @@
             <Bundle-SymbolicName>org.apache.archiva.common.plexusbridge</Bundle-SymbolicName>
             <Bundle-Version>${project.version}</Bundle-Version>
             <Export-Package>
-              org.apache.archiva.redback.components.springutils;;version=${project.version},
+              org.apache.archiva.redback.components.springutils;version=${project.version},
               org.apache.archiva.redback.components.springutils.plexusshim;version=${project.version}
             </Export-Package>
             <Import-Package>
