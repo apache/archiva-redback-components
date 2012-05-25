@@ -34,10 +34,18 @@
 
       NOTE: JPOX 1.1.1 won't create the tables on start
       http://www.jpox.org/servlet/jira/browse/CORE-2946
-    -->
+
     <property name="driverName" value="org.hsqldb.jdbcDriver"/>
     <property name="url" value="jdbc:hsqldb:mem:test"/>
     <property name="userName" value="sa"/>
+     -->
+
+    <!-- H2 Configuration -->
+
+    <property name="driverName" value="org.h2.Driver"/>
+    <property name="url" value="jdbc:h2:mem:test-db;create=true"/>
+    <property name="userName" value="sa"/>
+
 
     <!-- Apache Derby Configuration -->
     <!--
