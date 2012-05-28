@@ -38,6 +38,56 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <description>Parent Pom for various components used in Redback, Apache Archiva and Apache Continuum.</description>
+
+  <scm>
+    <connection>scm:svn:http://svn.apache.org/repos/asf/archiva/redback/redback-components/trunk/redback-components-parent/</connection>
+    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/archiva/redback/redback-components/trunk/redback-components-parent/</developerConnection>
+    <url>http://svn.apache.org/viewvc/archiva/redback/redback-components/trunk/redback-components-parent/</url>
+  </scm>
+  <distributionManagement>
+    <repository>
+      <id>archiva-repository</id>
+      <name>Archiva VM Repository</name>
+      <url>${distUrlReleaseRepo}</url>
+    </repository>
+    <snapshotRepository>
+      <id>archiva-repository</id>
+      <name>Archiva VM Snapshots</name>
+      <url>${distUrlSnapshotRepo}</url>
+    </snapshotRepository>
+    <site>
+      <id>apache.website</id>
+      <url>${siteBaseDeployment}/redback/components/</url>
+    </site>
+  </distributionManagement>
+
+  <repositories>
+    <repository>
+      <id>archiva.snapshots</id>
+      <name>Archiva VM Snapshots Repository</name>
+      <url>https://archiva-repository.apache.org/archiva/repository/snapshots</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>apache.snapshots</id>
+      <name>Apache Snapshots</name>
+      <url>https://repository.apache.org/content/groups/snapshots/</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -127,54 +177,6 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  <scm>
-    <connection>scm:svn:http://svn.apache.org/repos/asf/archiva/redback/redback-components/trunk/redback-components-parent/</connection>
-    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/archiva/redback/redback-components/trunk/redback-components-parent/</developerConnection>
-    <url>http://svn.apache.org/viewvc/archiva/redback/redback-components/trunk/redback-components-parent/</url>
-  </scm>
-  <distributionManagement>
-    <repository>
-      <id>archiva-repository</id>
-      <name>Archiva VM Repository</name>
-      <url>${distUrlReleaseRepo}</url>
-    </repository>
-    <snapshotRepository>
-      <id>archiva-repository</id>
-      <name>Archiva VM Snapshots</name>
-      <url>${distUrlSnapshotRepo}</url>
-    </snapshotRepository>
-    <site>
-      <id>apache.website</id>
-      <url>${siteBaseDeployment}/redback/components/</url>
-    </site>
-  </distributionManagement>
-
-  <repositories>
-    <repository>
-      <id>archiva.snapshots</id>
-      <name>Archiva VM Snapshots Repository</name>
-      <url>https://archiva-repository.apache.org/archiva/repository/snapshots</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
-  <pluginRepositories>
-    <pluginRepository>
-      <id>apache.snapshots</id>
-      <name>Apache Snapshots</name>
-      <url>https://repository.apache.org/content/groups/snapshots/</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </pluginRepository>
-  </pluginRepositories>
 
   <build>
     <pluginManagement>
