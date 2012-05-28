@@ -34,7 +34,6 @@
     <slf4jVersion>1.6.4</slf4jVersion>
     <springVersion>3.1.1.RELEASE</springVersion>
     <distUrlReleaseRepo>https://archiva-repository.apache.org/archiva/repository/archiva-releases-stage/</distUrlReleaseRepo>
-    <distUrlSnapshotRepo>https://archiva-repository.apache.org/archiva/repository/snapshots/</distUrlSnapshotRepo>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <description>Parent Pom for various components used in Redback, Apache Archiva and Apache Continuum.</description>
@@ -45,16 +44,6 @@
     <url>http://svn.apache.org/viewvc/archiva/redback/redback-components/trunk/redback-components-parent/</url>
   </scm>
   <distributionManagement>
-    <repository>
-      <id>archiva-repository</id>
-      <name>Archiva VM Repository</name>
-      <url>${distUrlReleaseRepo}</url>
-    </repository>
-    <snapshotRepository>
-      <id>archiva-repository</id>
-      <name>Archiva VM Snapshots</name>
-      <url>${distUrlSnapshotRepo}</url>
-    </snapshotRepository>
     <site>
       <id>apache.website</id>
       <url>${siteBaseDeployment}/redback/components/</url>
