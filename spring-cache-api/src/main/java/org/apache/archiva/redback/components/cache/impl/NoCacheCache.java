@@ -64,7 +64,7 @@ public class NoCacheCache
             return 0;
         }
 
-        public long inMemorySize()
+        public long getInMemorySize()
         {
             return 0;
         }
