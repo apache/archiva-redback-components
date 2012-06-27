@@ -31,19 +31,17 @@ import org.slf4j.LoggerFactory;
 import javax.annotation.PostConstruct;
 
 /**
- * EhcacheCache 
- * configuration document  available <a href="http://www.ehcache.org/documentation/configuration/index">EhcacheUserGuide</a>
- *  
- * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
+ * EhcacheCache
+ * configuration document available <a href="http://www.ehcache.org/documentation/configuration/index">EhcacheUserGuide</a>
  *
- * 
+ * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
  */
 public class EhcacheCache
     implements org.apache.archiva.redback.components.cache.Cache
 {
-    
-    private Logger log = LoggerFactory.getLogger( getClass() );    
-    
+
+    private Logger log = LoggerFactory.getLogger( getClass() );
+
     class Stats
         implements CacheStatistics
     {
@@ -80,23 +78,24 @@ public class EhcacheCache
             return ehcache.getMemoryStoreSize() + ehcache.getDiskStoreSize();
         }
 
+        public long inMemorySize()
+        {
+            return ehcache.calculateInMemorySize();
+        }
     }
 
     /**
      * how often to run the disk store expiry thread. A large number of 120 seconds plus is recommended
-     * 
      */
     private long diskExpiryThreadIntervalSeconds = 600;
 
     /**
      * Whether to persist the cache to disk between JVM restarts.
-     * 
      */
     private boolean diskPersistent = true;
 
     /**
      * Location on disk for the ehcache store.
-     * 
      */
     private String diskStorePath = System.getProperty( "java.io.tmpdir" ) + "/ehcache";
 
@@ -122,7 +121,6 @@ public class EhcacheCache
 
     /**
      * Flag indicating when to use the disk store.
-     * 
      */
     private boolean overflowToDisk = false;
 
@@ -135,10 +133,10 @@ public class EhcacheCache
      *
      */
     private int timeToLiveSeconds = 300;
-    
+
     /**
      *
-     */    
+     */
     private boolean failOnDuplicateCache = false;
 
     private boolean statisticsEnabled = true;
@@ -175,17 +173,17 @@ public class EhcacheCache
             }
         }
 
-        if (!cacheExists)
+        if ( !cacheExists )
         {
-            ehcache = new Cache( getName(), getMaxElementsInMemory(), getMemoryStoreEvictionPolicy(), isOverflowToDisk(),
-                                 getDiskStorePath(), isEternal(), getTimeToLiveSeconds(), getTimeToIdleSeconds(),
-                                 isDiskPersistent(), getDiskExpiryThreadIntervalSeconds(), null );
-
+            ehcache =
+                new Cache( getName(), getMaxElementsInMemory(), getMemoryStoreEvictionPolicy(), isOverflowToDisk(),
+                           getDiskStorePath(), isEternal(), getTimeToLiveSeconds(), getTimeToIdleSeconds(),
+                           isDiskPersistent(), getDiskExpiryThreadIntervalSeconds(), null );
 
             cacheManager.addCache( ehcache );
             ehcache.setStatisticsEnabled( statisticsEnabled );
         }
-    }    
+    }
 
     public void dispose()
     {
@@ -206,7 +204,7 @@ public class EhcacheCache
 
     public Object get( Object key )
     {
-        if (key == null)
+        if ( key == null )
         {
             return null;
         }
@@ -287,7 +285,7 @@ public class EhcacheCache
     {
         ehcache.put( new Element( key, value ) );
     }
-    
+
     public Object put( Object key, Object value )
     {
         // Multiple steps done to satisfy Cache API requirement for Previous object return.
