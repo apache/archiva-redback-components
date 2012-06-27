@@ -49,9 +49,9 @@ public interface CacheStatistics
     double getCacheHitRate();
 
     /**
-     * Return the size of the current cache.
+     * Return the size  (items number) of the current cache.
      *
-     * @return the size of the current cache.
+     * @return the size (items number) of the current cache.
      */
     long getSize();
 
