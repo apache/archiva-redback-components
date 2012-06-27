@@ -23,6 +23,7 @@ import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Element;
 import net.sf.ehcache.Status;
+import net.sf.ehcache.config.CacheConfiguration;
 import net.sf.ehcache.store.MemoryStoreEvictionPolicy;
 import org.apache.archiva.redback.components.cache.CacheStatistics;
 import org.slf4j.Logger;
@@ -135,6 +136,21 @@ public class EhcacheCache
     private int timeToLiveSeconds = 300;
 
     /**
+     * @since 2.0
+     */
+    private boolean overflowToOffHeap = false;
+
+    /**
+     * @since 2.0
+     */
+    private long maxBytesLocalHeap;
+
+    /**
+     * @since 2.0
+     */
+    private long maxBytesLocalOffHeap;
+
+    /**
      *
      */
     private boolean failOnDuplicateCache = false;
@@ -175,10 +191,23 @@ public class EhcacheCache
 
         if ( !cacheExists )
         {
-            ehcache =
-                new Cache( getName(), getMaxElementsInMemory(), getMemoryStoreEvictionPolicy(), isOverflowToDisk(),
-                           getDiskStorePath(), isEternal(), getTimeToLiveSeconds(), getTimeToIdleSeconds(),
-                           isDiskPersistent(), getDiskExpiryThreadIntervalSeconds(), null );
+            CacheConfiguration cacheConfiguration = new CacheConfiguration().name( getName() ).maxEntriesLocalHeap(
+                getMaxElementsInMemory() ).memoryStoreEvictionPolicy( getMemoryStoreEvictionPolicy() ).overflowToDisk(
+                isOverflowToDisk() ).diskStorePath( getDiskStorePath() ).eternal( isEternal() ).timeToLiveSeconds(
+                getTimeToLiveSeconds() ).timeToIdleSeconds( getTimeToIdleSeconds() ).diskPersistent(
+                isDiskPersistent() ).diskExpiryThreadIntervalSeconds(
+                getDiskExpiryThreadIntervalSeconds() ).overflowToOffHeap( isOverflowToOffHeap() );
+
+            if ( getMaxBytesLocalHeap() > 0 )
+            {
+                cacheConfiguration.setMaxBytesLocalHeap( getMaxBytesLocalHeap() );
+            }
+            if ( getMaxBytesLocalOffHeap() > 0 )
+            {
+                cacheConfiguration.setMaxBytesLocalOffHeap( getMaxBytesLocalOffHeap() );
+            }
+
+            ehcache = new Cache( cacheConfiguration );
 
             cacheManager.addCache( ehcache );
             ehcache.setStatisticsEnabled( statisticsEnabled );
@@ -383,5 +412,35 @@ public class EhcacheCache
     public void setFailOnDuplicateCache( boolean failOnDuplicateCache )
     {
         this.failOnDuplicateCache = failOnDuplicateCache;
+    }
+
+    public boolean isOverflowToOffHeap()
+    {
+        return overflowToOffHeap;
+    }
+
+    public void setOverflowToOffHeap( boolean overflowToOffHeap )
+    {
+        this.overflowToOffHeap = overflowToOffHeap;
+    }
+
+    public long getMaxBytesLocalHeap()
+    {
+        return maxBytesLocalHeap;
+    }
+
+    public void setMaxBytesLocalHeap( long maxBytesLocalHeap )
+    {
+        this.maxBytesLocalHeap = maxBytesLocalHeap;
+    }
+
+    public long getMaxBytesLocalOffHeap()
+    {
+        return maxBytesLocalOffHeap;
+    }
+
+    public void setMaxBytesLocalOffHeap( long maxBytesLocalOffHeap )
+    {
+        this.maxBytesLocalOffHeap = maxBytesLocalOffHeap;
     }
 }
