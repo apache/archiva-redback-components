@@ -34,7 +34,7 @@ import javax.inject.Inject;
  * Ability to obtain cache
  *
  * @author Olivier Lamy
- * @version $Id$
+ *
  */
 @Service
 public class DefaultCacheBuilder

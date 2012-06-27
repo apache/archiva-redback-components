@@ -34,7 +34,7 @@ import java.util.Properties;
 /**
  * For configuration see documentation : http://opensymphony.com/oscache/wiki/Configuration.html
  * 
- * @version $Id$
+ *
  * @author <a href="mailto:olamy@codehaus.org">Olivier Lamy</a>
  * 
  */

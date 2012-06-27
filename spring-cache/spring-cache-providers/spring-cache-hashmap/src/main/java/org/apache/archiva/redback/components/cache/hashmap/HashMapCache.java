@@ -53,7 +53,7 @@ import java.util.Map;
  * </p>
  * @author Edwin Punzalan
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
- * @version $Id$
+ *
  * 
  */
 @Service("cache#hashmap")

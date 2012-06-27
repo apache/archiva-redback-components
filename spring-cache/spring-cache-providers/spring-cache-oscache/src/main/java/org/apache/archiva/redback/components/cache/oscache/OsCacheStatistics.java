@@ -25,7 +25,7 @@ import org.apache.archiva.redback.components.cache.AbstractCacheStatistics;
 import com.opensymphony.oscache.base.Cache;
 
 /**
- * @version $Id$
+ *
  * @author <a href="mailto:olamy@codehaus.org">Olivier Lamy</a>
  */
 public class OsCacheStatistics

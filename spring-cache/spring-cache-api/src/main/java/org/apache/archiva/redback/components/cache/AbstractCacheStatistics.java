@@ -20,7 +20,7 @@ package org.apache.archiva.redback.components.cache;
  */
 
 /**
- * @version $Id$
+ *
  * @author Olivier Lamy
  */
 public abstract class AbstractCacheStatistics

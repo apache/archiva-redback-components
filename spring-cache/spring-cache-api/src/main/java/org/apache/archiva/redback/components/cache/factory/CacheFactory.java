@@ -35,7 +35,7 @@ import org.apache.archiva.redback.components.cache.impl.NoCacheCache;
  * CacheFactory - dynamic cache creation (and tracking) facility for non-plexus objects to use.
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
- * @version $Id$
+ *
  */
 public class CacheFactory
 {

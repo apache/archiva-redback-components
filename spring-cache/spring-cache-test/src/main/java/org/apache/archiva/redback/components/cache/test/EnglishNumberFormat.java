@@ -27,7 +27,7 @@ import org.apache.commons.lang.math.NumberUtils;
  * Used in the generation of large data sets for the Cache testing.
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
- * @version $Id$
+ *
  */
 public class EnglishNumberFormat
 {

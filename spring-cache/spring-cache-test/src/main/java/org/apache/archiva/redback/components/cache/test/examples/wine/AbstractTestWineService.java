@@ -31,7 +31,7 @@ import javax.inject.Named;
 
 /**
  * 
- * @version $Id$
+ *
  * @author Olivier Lamy
  */
  @RunWith( SpringJUnit4ClassRunner.class )

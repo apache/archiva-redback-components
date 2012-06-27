@@ -26,7 +26,7 @@ import javax.inject.Inject;
 
 /**
  * @since 5 February, 2007
- * @version $Id$
+ *
  * @author Olivier Lamy
  */
 @Service

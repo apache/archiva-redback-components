@@ -28,7 +28,7 @@ import java.io.File;
  * CacheHints 
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
- * @version $Id$
+ *
  */
 public class CacheHints
 {

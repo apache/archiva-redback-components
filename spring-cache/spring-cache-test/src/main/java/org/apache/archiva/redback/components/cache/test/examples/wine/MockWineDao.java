@@ -23,7 +23,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  * @since 5 February, 2007
- * @version $Id$
+ *
  * @author Olivier Lamy
  */
 @Repository

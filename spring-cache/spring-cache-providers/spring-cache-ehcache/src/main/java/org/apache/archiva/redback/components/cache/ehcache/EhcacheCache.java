@@ -35,7 +35,7 @@ import javax.annotation.PostConstruct;
  * configuration document  available <a href="http://ehcache.sourceforge.net/EhcacheUserGuide.html>EhcacheUserGuide</a>
  *  
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
- * @version $Id$
+ *
  * 
  */
 public class EhcacheCache

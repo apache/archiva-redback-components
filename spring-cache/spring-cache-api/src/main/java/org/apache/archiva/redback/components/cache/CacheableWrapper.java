@@ -25,7 +25,7 @@ import java.io.Serializable;
  * CacheableWrapper 
  *
  * @author Olivier Lamy
- * @version $Id$
+ *
  */
 public class CacheableWrapper
     implements Serializable
