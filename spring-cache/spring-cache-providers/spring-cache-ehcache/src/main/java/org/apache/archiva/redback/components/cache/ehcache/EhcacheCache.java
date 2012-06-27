@@ -78,7 +78,7 @@ public class EhcacheCache
             return ehcache.getMemoryStoreSize() + ehcache.getDiskStoreSize();
         }
 
-        public long inMemorySize()
+        public long getInMemorySize()
         {
             return ehcache.calculateInMemorySize();
         }

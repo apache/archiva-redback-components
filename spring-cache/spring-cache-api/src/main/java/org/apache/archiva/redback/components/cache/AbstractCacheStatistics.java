@@ -73,7 +73,7 @@ public abstract class AbstractCacheStatistics
     /**
      * @return default implementation return 0
      */
-    public long inMemorySize()
+    public long getInMemorySize()
     {
         return 0;
     }

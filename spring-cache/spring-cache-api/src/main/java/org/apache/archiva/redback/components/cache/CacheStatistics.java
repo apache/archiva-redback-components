@@ -64,5 +64,5 @@ public interface CacheStatistics
      * <b>can be not implemented by some caches implementation</b>
      * @since 2.0
      */
-    long inMemorySize();
+    long getInMemorySize();
 }
