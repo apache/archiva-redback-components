@@ -58,4 +58,11 @@ public interface CacheStatistics
      * Clear the statistics of the cache.
      */
     void clear();
+
+    /**
+     * return the memory used by the cache in memory
+     * <b>can be not implemented by some caches implementation</b>
+     * @since 2.0
+     */
+    long inMemorySize();
 }

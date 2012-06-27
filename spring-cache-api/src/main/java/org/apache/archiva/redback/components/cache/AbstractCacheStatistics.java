@@ -70,4 +70,11 @@ public abstract class AbstractCacheStatistics
         this.cacheMiss = 0;
     }
 
+    /**
+     * @return default implementation return 0
+     */
+    public long inMemorySize()
+    {
+        return 0;
+    }
 }

@@ -63,6 +63,11 @@ public class NoCacheCache
         {
             return 0;
         }
+
+        public long inMemorySize()
+        {
+            return 0;
+        }
     }
 
     private CacheStatistics stats = new NoStats();
