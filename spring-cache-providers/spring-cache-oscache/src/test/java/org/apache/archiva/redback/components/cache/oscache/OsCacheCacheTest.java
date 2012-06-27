@@ -27,7 +27,7 @@ import javax.inject.Named;
  * Tests for OsCacheCache.
  *
  * @author Olivier Lamy
- * @version $Id$
+ *
  * @since 3 February, 2007
  */
 public class OsCacheCacheTest

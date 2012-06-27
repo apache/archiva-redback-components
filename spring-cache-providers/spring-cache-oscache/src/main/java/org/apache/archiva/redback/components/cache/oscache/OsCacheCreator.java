@@ -31,7 +31,7 @@ import java.io.File;
  * OsCacheCreator
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
- * @version $Id$
+ *
  */
 public class OsCacheCreator
     implements CacheCreator

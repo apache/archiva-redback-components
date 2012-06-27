@@ -26,7 +26,7 @@ import org.apache.archiva.redback.components.cache.test.EnglishNumberFormat;
  * EnglishNumberFormatTest
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
- * @version $Id$
+ *
  */
 public class EnglishNumberFormatTest
     extends TestCase

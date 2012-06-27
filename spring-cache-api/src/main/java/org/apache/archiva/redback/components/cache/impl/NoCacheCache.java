@@ -29,7 +29,7 @@ import org.apache.archiva.redback.components.cache.Cache;
  * Nothing is stored, nothing is tracked, no statistics even.
  *
  * @author Olivier Lamy
- * @version $Id$
+ *
  * @since 5 February, 2007
  */
 public class NoCacheCache

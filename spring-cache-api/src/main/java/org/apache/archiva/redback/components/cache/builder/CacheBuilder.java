@@ -26,7 +26,7 @@ import org.apache.archiva.redback.components.cache.Cache;
  * CacheBuilder Interface, for obtaining caches from plexus using hints or clazz names.
  *
  * @author Olivier Lamy
- * @version $Id$
+ *
  * @since 3 February, 2007
  */
 public interface CacheBuilder

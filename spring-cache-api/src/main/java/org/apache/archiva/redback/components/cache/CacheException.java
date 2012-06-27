@@ -23,7 +23,7 @@ package org.apache.archiva.redback.components.cache;
  * CacheException 
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
- * @version $Id$
+ *
  */
 public class CacheException
     extends Exception

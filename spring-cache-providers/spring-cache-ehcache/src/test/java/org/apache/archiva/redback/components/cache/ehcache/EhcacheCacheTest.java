@@ -27,7 +27,7 @@ import javax.inject.Named;
  * EhcacheCacheTest 
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
- * @version $Id$
+ *
  */
 public class EhcacheCacheTest
     extends AbstractCacheTestCase

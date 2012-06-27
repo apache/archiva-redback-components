@@ -23,7 +23,6 @@ package org.apache.archiva.redback.components.cache;
  * CacheStatistics
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
- * @version $Id$
  */
 public interface CacheStatistics
 {

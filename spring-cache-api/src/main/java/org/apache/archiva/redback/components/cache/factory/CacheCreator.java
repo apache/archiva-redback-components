@@ -27,7 +27,7 @@ import org.apache.archiva.redback.components.cache.CacheHints;
  * CacheCreator - an interface for CacheCreators
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
- * @version $Id$
+ *
  */
 public interface CacheCreator
 {

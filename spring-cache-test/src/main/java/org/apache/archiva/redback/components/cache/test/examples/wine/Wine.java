@@ -23,7 +23,7 @@ import java.io.Serializable;
 
 /**
  * @since 5 February, 2007
- * @version $Id$
+ *
  * @author Olivier Lamy
  */
 public class Wine

@@ -21,7 +21,7 @@ package org.apache.archiva.redback.components.cache.test.examples.wine;
 
 /**
  * @author Olivier Lamy
- * @version $Id$
+ *
  * @since 5 February, 2007
  */
 public interface WineDao

@@ -28,7 +28,7 @@ import org.apache.archiva.redback.components.cache.factory.CacheCreator;
  * HashMapCacheCreator
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
- * @version $Id$
+ *
  */
 public class HashMapCacheCreator
     implements CacheCreator
