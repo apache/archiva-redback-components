@@ -35,7 +35,7 @@ import java.util.Properties;
  * For configuration see documentation : http://opensymphony.com/oscache/wiki/Configuration.html
  * 
  *
- * @author <a href="mailto:olamy@codehaus.org">Olivier Lamy</a>
+ * @author @author Olivier Lamy
  * 
  */
 public class OsCacheCache

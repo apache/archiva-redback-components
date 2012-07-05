@@ -31,7 +31,7 @@ import javax.inject.Inject;
 import java.util.NoSuchElementException;
 
 /**
- * @author <a href="mailto:olamy@codehaus.org">olamy</a>
+ * @author Olivier Lamy
  *
  * @since 8 feb. 07
  */
