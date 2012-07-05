@@ -32,7 +32,7 @@ import javax.inject.Named;
  * Test for {@link org.apache.archiva.redback.components.jdo.DefaultConfigurableJdoFactory}
  *
  * @author <a href="mailto:carlos@apache.org">Carlos Sanchez</a>
- * @version $Id$
+ *
  */
 @RunWith( SpringJUnit4ClassRunner.class )
 @ContextConfiguration(

@@ -22,7 +22,7 @@ package org.apache.archiva.redback.components.jdo;
 /**
  * Basic Object (post-processed from modello:java)
  * 
- * @version $Id$
+ *
  */
 public class Basic implements java.io.Serializable {
 
