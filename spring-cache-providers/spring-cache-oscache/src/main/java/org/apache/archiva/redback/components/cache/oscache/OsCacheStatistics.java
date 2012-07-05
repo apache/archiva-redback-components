@@ -26,7 +26,7 @@ import com.opensymphony.oscache.base.Cache;
 
 /**
  *
- * @author <a href="mailto:olamy@codehaus.org">Olivier Lamy</a>
+ * @author Olivier Lamy
  */
 public class OsCacheStatistics
     extends AbstractCacheStatistics
