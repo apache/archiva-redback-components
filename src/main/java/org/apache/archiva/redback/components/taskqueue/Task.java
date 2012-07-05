@@ -22,7 +22,7 @@ package org.apache.archiva.redback.components.taskqueue;
 /**
  * @author <a href="mailto:jason@maven.org">Jason van Zyl</a>
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
- * @version $Id$
+ *
  */
 public interface Task
 {

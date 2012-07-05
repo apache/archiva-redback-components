@@ -38,7 +38,7 @@ import java.util.concurrent.TimeoutException;
 /**
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
  * @author <a href="mailto:kenney@codehaus.org">Kenney Westerhof</a>
- * @version $Id$
+ *
  */
 public class ThreadedTaskQueueExecutor
     implements TaskQueueExecutor
