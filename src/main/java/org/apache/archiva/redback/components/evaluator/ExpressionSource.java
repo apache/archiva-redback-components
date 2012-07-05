@@ -23,7 +23,7 @@ package org.apache.archiva.redback.components.evaluator;
  * ExpressionSource
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
- * @version $Id$
+ *
  */
 public interface ExpressionSource
 {

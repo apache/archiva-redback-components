@@ -31,7 +31,7 @@ import java.util.regex.Pattern;
  * DefaultExpressionEvaluator 
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
- * @version $Id$
+ *
  */
 public class DefaultExpressionEvaluator
     implements ExpressionEvaluator

@@ -27,7 +27,7 @@ import java.util.Properties;
  * PropertiesExpressionSource 
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
- * @version $Id$
+ *
  * 
  */
 public class PropertiesExpressionSource
