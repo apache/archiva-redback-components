@@ -44,7 +44,7 @@ import java.util.Set;
 /**
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
  * @author Olivier Lamy
- * @version $Id$
+ *
  */
 public class DefaultApacheDs
     implements ApacheDs
