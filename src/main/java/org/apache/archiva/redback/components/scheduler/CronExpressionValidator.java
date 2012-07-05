@@ -32,7 +32,7 @@ import java.util.StringTokenizer;
 
 /**
  * @author <a href="mailto:evenisse@codehaus.org">Emmanuel Venisse</a>
- * @version $Id$
+ *
  */
 @Service
 public final class CronExpressionValidator
