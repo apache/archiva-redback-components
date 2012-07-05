@@ -34,7 +34,7 @@ import org.slf4j.LoggerFactory;
  * ServiceBroker.
  *
  * @author <a href="mailto:jason@zenplex.com">Jason van Zyl</a>
- * @version $Id$
+ *
  */
 public abstract class AbstractJob
     implements InterruptableJob

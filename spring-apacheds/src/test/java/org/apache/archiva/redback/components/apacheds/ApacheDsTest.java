@@ -43,7 +43,7 @@ import java.io.File;
 /**
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
  * @author Olivier Lamy
- * @version $Id$
+ *
  */
 
 @RunWith( SpringJUnit4ClassRunner.class )

@@ -32,7 +32,7 @@ import java.util.Properties;
 /**
  * AbstractConfigurableJdoFactory 
  *
- * @version $Id$
+ *
  */
 public abstract class AbstractConfigurableJdoFactory
     implements ConfigurableJdoFactory

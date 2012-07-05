@@ -23,7 +23,7 @@ package org.apache.archiva.redback.components.jdo;
  * modello:java generated file.
  * 
  * @author <a href="mailto:mattis@inamo.no">Mathias Bjerke</a>
- * @version $Id$
+ *
  */
 public class Child
     implements java.io.Serializable

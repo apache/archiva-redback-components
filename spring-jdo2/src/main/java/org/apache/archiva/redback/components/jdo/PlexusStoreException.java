@@ -21,7 +21,7 @@ package org.apache.archiva.redback.components.jdo;
 
 /**
  * @author <a href="mailto:evenisse@codehaus.org">Emmanuel Venisse</a>
- * @version $Id$
+ *
  */
 public class PlexusStoreException
     extends Exception

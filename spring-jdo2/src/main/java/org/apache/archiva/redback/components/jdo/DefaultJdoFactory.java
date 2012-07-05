@@ -33,7 +33,7 @@ import java.util.Properties;
 /**
  * @author David Wynter
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
- * @version $Id$
+ *
  */
 public class DefaultJdoFactory
     implements JdoFactory

@@ -29,7 +29,7 @@ import org.quartz.JobListener;
  * service broker and configuration will work as expected.
  *
  * @author <a href="mailto:jason@zenplex.com">Jason van Zyl</a>
- * @version $Id$
+ *
  */
 public class DefaultJobListener
     implements JobListener

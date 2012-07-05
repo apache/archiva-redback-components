@@ -26,7 +26,7 @@ import java.util.Properties;
 
 /**
  * @author <a href="mailto:brett@apache.org">Brett Porter</a>
- * @version $Id$
+ *
  */
 public class RegistryReaderGenerator
     extends AbstractRegistryGenerator

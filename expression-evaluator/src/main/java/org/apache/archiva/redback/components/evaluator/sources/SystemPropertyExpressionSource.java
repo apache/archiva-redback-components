@@ -25,7 +25,7 @@ import org.apache.archiva.redback.components.evaluator.ExpressionSource;
  * SystemPropertyExpressionSource 
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
- * @version $Id$
+ *
  */
 public class SystemPropertyExpressionSource
     implements ExpressionSource
