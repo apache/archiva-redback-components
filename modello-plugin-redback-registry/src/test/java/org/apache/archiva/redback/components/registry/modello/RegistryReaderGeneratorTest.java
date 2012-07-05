@@ -21,7 +21,7 @@ package org.apache.archiva.redback.components.registry.modello;
 
 /**
  * @author <a href="mailto:brett@apache.org">Brett Porter</a>
- * @version $Id$
+ *
  */
 public class RegistryReaderGeneratorTest
     extends AbstractRegistryGeneratorTestCase

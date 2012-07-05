@@ -32,7 +32,7 @@ import java.util.NoSuchElementException;
 
 /**
  * @author <a href="mailto:olamy@codehaus.org">olamy</a>
- * @version $Id$
+ *
  * @since 8 feb. 07
  */
 @RunWith( value = SpringJUnit4ClassRunner.class )
