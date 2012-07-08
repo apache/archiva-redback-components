@@ -105,9 +105,9 @@ public class DefaultJdoFactory
                 {
                     String databasePath = databaseUrl.substring( "jdbc:derby:".length() );
 
-                    if ( databasePath.indexOf( ";" ) > 0 )
+                    if ( databasePath.indexOf( ';' ) > 0 )
                     {
-                        databasePath = databasePath.substring( 0, databasePath.indexOf( ";" ) );
+                        databasePath = databasePath.substring( 0, databasePath.indexOf( ';' ) );
                     }
 
                     try
