@@ -20,11 +20,7 @@ package org.apache.archiva.redback.components.jdo;
  */
 
 import org.apache.commons.lang.StringUtils;
-
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import org.slf4j.LoggerFactory;
 
 import javax.jdo.Extent;
 import javax.jdo.JDOException;
@@ -34,10 +30,13 @@ import javax.jdo.JDOUserException;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
- *
  */
 public class PlexusJdoUtils
 {
@@ -48,7 +47,7 @@ public class PlexusJdoUtils
      * requires that the object be previously added using
      * {@link #addObject(PersistenceManager, Object)} or
      * {@link #addObject(PersistenceManager, Object, String[])}.
-     * 
+     *
      * @param pm
      * @param object
      * @param fetchGroups
@@ -152,14 +151,15 @@ public class PlexusJdoUtils
      * the object be previously added using
      * {@link #addObject(PersistenceManager, Object)} or
      * {@link #addObject(PersistenceManager, Object, String[])}.
-     * 
+     *
      * @param pm
      * @param object
      * @return
      * @throws PlexusStoreException
      * @see {@link #saveObject(PersistenceManager, Object, String[])}
      */
-    public static Object updateObject( PersistenceManager pm, Object object ) throws PlexusStoreException
+    public static Object updateObject( PersistenceManager pm, Object object )
+        throws PlexusStoreException
     {
         Object ret = object;
         Transaction tx = pm.currentTransaction();
@@ -267,7 +267,7 @@ public class PlexusJdoUtils
     }
 
     /**
-     * @deprecated Use {@link #getObjectById(PersistenceManager,Class,long)}
+     * @deprecated Use {@link #getObjectById(PersistenceManager, Class, long)}
      *             instead
      */
     public static Object getObjectById( PersistenceManager pm, Class clazz, int id )
@@ -279,16 +279,16 @@ public class PlexusJdoUtils
     /**
      * Obtain and return an {@link Object} instance from the underlying data
      * store based on the passed in identifier.
-     * 
-     * @param pm {@link PersistenceManager} manager to use to query database.
+     *
+     * @param pm    {@link PersistenceManager} manager to use to query database.
      * @param clazz Expected {@link Class} of the Object instance to be
-     *            returned.
-     * @param id Object identifier to match in the database.
+     *              returned.
+     * @param id    Object identifier to match in the database.
      * @return Object instance that matches the passed in identifier.
-     * @throws PlexusStoreException if there was an error querying the database
-     *             for the object.
+     * @throws PlexusStoreException          if there was an error querying the database
+     *                                       for the object.
      * @throws PlexusObjectNotFoundException if a matching object could not be
-     *             found.
+     *                                       found.
      */
     public static Object getObjectById( PersistenceManager pm, Class clazz, long id )
         throws PlexusStoreException, PlexusObjectNotFoundException
@@ -298,7 +298,7 @@ public class PlexusJdoUtils
 
     /**
      * @deprecated Use
-     *             {@link #getObjectById(PersistenceManager,Class,long, String)}
+     *             {@link #getObjectById(PersistenceManager, Class, long, String)}
      *             instead
      */
     public static Object getObjectById( PersistenceManager pm, Class clazz, int id, String fetchGroup )
@@ -310,17 +310,17 @@ public class PlexusJdoUtils
     /**
      * Obtain and return an {@link Object} instance from the underlying data
      * store based on the passed in identifier.
-     * 
-     * @param pm {@link PersistenceManager} manager to use to query database.
-     * @param clazz Expected {@link Class} of the Object instance to be
-     *            returned.
-     * @param id Object identifier to match in the database.
+     *
+     * @param pm         {@link PersistenceManager} manager to use to query database.
+     * @param clazz      Expected {@link Class} of the Object instance to be
+     *                   returned.
+     * @param id         Object identifier to match in the database.
      * @param fetchGroup TODO: Document!
      * @return Object instance that matches the passed in identifier.
-     * @throws PlexusStoreException if there was an error querying the database
-     *             for the object.
+     * @throws PlexusStoreException          if there was an error querying the database
+     *                                       for the object.
      * @throws PlexusObjectNotFoundException if a matching object could not be
-     *             found.
+     *                                       found.
      */
     public static Object getObjectById( PersistenceManager pm, Class clazz, long id, String fetchGroup )
         throws PlexusStoreException, PlexusObjectNotFoundException
@@ -352,7 +352,7 @@ public class PlexusJdoUtils
         }
         catch ( JDOException e )
         {
-            e.printStackTrace();
+            LoggerFactory.getLogger( PlexusJdoUtils.class ).error( e.getMessage(), e );
             throw new PlexusStoreException( "Error handling JDO", e );
         }
         finally
@@ -390,8 +390,9 @@ public class PlexusJdoUtils
 
             if ( result.size() > 1 )
             {
-                throw new PlexusStoreException( "A query for object of " + "type " + clazz.getName() + " on the "
-                                + "field '" + idField + "' returned more than one object." );
+                throw new PlexusStoreException(
+                    "A query for object of " + "type " + clazz.getName() + " on the " + "field '" + idField
+                        + "' returned more than one object." );
             }
 
             pm.getFetchPlan().addGroup( fetchGroup );
