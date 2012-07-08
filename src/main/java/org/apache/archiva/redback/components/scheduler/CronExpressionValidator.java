@@ -141,15 +141,15 @@ public final class CronExpressionValidator
             return true;
         }
 
-        if ( dayOfMonthField.indexOf( "L" ) >= 0 )
+        if ( dayOfMonthField.indexOf( 'L' ) >= 0 )
         {
             return checkFieldWithLetter( dayOfMonthField, "L", 1, 7, -1, -1 );
         }
-        else if ( dayOfMonthField.indexOf( "W" ) >= 0 )
+        else if ( dayOfMonthField.indexOf( 'W' ) >= 0 )
         {
             return checkFieldWithLetter( dayOfMonthField, "W", 1, 31, -1, -1 );
         }
-        else if ( dayOfMonthField.indexOf( "C" ) >= 0 )
+        else if ( dayOfMonthField.indexOf( 'C' ) >= 0 )
         {
             return checkFieldWithLetter( dayOfMonthField, "C", 1, 31, -1, -1 );
         }
