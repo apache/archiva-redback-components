@@ -19,6 +19,13 @@ package org.apache.archiva.redback.components.cache.factory;
  * under the License.
  */
 
+import org.apache.archiva.redback.components.cache.Cache;
+import org.apache.archiva.redback.components.cache.CacheException;
+import org.apache.archiva.redback.components.cache.CacheHints;
+import org.apache.archiva.redback.components.cache.impl.NoCacheCache;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.Enumeration;
@@ -26,16 +33,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-import org.apache.archiva.redback.components.cache.Cache;
-import org.apache.archiva.redback.components.cache.CacheHints;
-import org.apache.archiva.redback.components.cache.CacheException;
-import org.apache.archiva.redback.components.cache.impl.NoCacheCache;
-
 /**
  * CacheFactory - dynamic cache creation (and tracking) facility for non-plexus objects to use.
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
- *
  */
 public class CacheFactory
 {
@@ -47,6 +48,8 @@ public class CacheFactory
     private static Map caches;
 
     private static CacheCreator creator;
+
+    private Logger logger = LoggerFactory.getLogger( getClass() );
 
     private CacheFactory()
     {
@@ -77,8 +80,8 @@ public class CacheFactory
 
             if ( cachePropResources.hasMoreElements() )
             {
-                System.err.println( "More than 1 CacheCreator provider exists in classpath. "
-                    + "Using first one found [" + creator.getClass().getName() + "]." );
+                logger.error( "More than 1 CacheCreator provider exists in classpath. Using first one found [{}].",
+                              creator.getClass().getName() );
             }
         }
         catch ( IOException e )
