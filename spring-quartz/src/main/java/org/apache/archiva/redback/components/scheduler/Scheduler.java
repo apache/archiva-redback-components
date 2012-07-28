@@ -19,6 +19,7 @@ package org.apache.archiva.redback.components.scheduler;
  * under the License.
  */
 
+import org.quartz.JobDetail;
 import org.quartz.JobListener;
 import org.quartz.SchedulerException;
 import org.quartz.Trigger;
@@ -30,7 +31,7 @@ import java.util.Properties;
 public interface Scheduler
 {
 
-    void scheduleJob( JobDetailImpl jobDetail, Trigger trigger )
+    void scheduleJob( JobDetail jobDetail, Trigger trigger )
         throws SchedulerException;
 
     /**
