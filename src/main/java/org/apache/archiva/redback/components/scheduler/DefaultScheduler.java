@@ -19,6 +19,7 @@ package org.apache.archiva.redback.components.scheduler;
  * under the License.
  */
 
+import org.quartz.JobDetail;
 import org.quartz.JobKey;
 import org.quartz.JobListener;
 import org.quartz.Matcher;
@@ -47,18 +48,19 @@ public class DefaultScheduler
 
     private StdScheduler scheduler;
 
-    public void scheduleJob( JobDetailImpl jobDetail, Trigger trigger )
+    public void scheduleJob( JobDetail jobDetail, Trigger trigger )
         throws SchedulerException
     {
-        if ( jobDetail == null || jobDetail.getName() == null )
+
+        if ( jobDetail == null || jobDetail.getKey() == null || jobDetail.getKey().getName() == null )
         {
             throw new SchedulerException( "No job or no job name - cannot schedule this job" );
         }
 
-        if ( jobExists( jobDetail.getName(), jobDetail.getGroup() ) )
+        if ( jobExists( jobDetail.getKey() ) )
         {
-            log.warn( "Will not schedule this job as a job {" + jobDetail.getName() + ":" + jobDetail.getGroup()
-                          + "} already exists." );
+            log.warn( "Will not schedule this job as a job {" + jobDetail.getKey().getName() + ":"
+                          + jobDetail.getKey().getGroup() + "} already exists." );
 
             return;
         }
@@ -89,7 +91,8 @@ public class DefaultScheduler
         scheduler.getListenerManager().addTriggerListener( listener, new AllMatch() );
     }
 
-    private static class AllMatch<R extends Key<?>> implements Matcher<R>
+    private static class AllMatch<R extends Key<?>>
+        implements Matcher<R>
     {
         public boolean isMatch( R key )
         {
@@ -153,7 +156,13 @@ public class DefaultScheduler
         throws SchedulerException
     {
 
-        return ( scheduler.getJobDetail( new JobKey( jobName, jobGroup ) ) != null );
+        return jobExists( new JobKey( jobName, jobGroup ) );
+    }
+
+    private boolean jobExists( JobKey jobKey )
+        throws SchedulerException
+    {
+        return scheduler.getJobDetail( jobKey ) != null;
     }
 
     public void shutdown( boolean waitForJobsToComplete )
