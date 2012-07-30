@@ -23,6 +23,7 @@
     <groupId>org.apache.archiva</groupId>
     <artifactId>archiva-parent</artifactId>
     <version>9-SNAPSHOT</version>
+    <relativePath></relativePath>
   </parent>
   <groupId>org.apache.archiva.redback.components</groupId>
   <artifactId>redback-components</artifactId>
