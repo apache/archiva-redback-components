@@ -45,15 +45,15 @@
     <url>http://svn.apache.org/viewvc/archiva/redback/redback-components/trunk/spring-jdo2</url>
   </scm>
 
-  <developers>
-    <developer>
-      <id>3</id>
+  <contributors>
+    <contributor>
       <name>David Wynter</name>
       <email>david (at) dwynter.plus.com</email>
       <organization>STPenable Ltd.</organization>
       <timezone>UTC+0</timezone>
-    </developer>
-  </developers>
+    </contributor>
+  </contributors>
+
   <dependencies>
     <dependency>
       <groupId>javax.jdo</groupId>
