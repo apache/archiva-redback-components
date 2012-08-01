@@ -193,6 +193,12 @@
             <exclude>DEPENDENCIES</exclude>
             <exclude>README.txt</exclude>
             <exclude>*.sh</exclude>
+            <!-- exclude IntelliJ Idea files -->
+            <exclude>.idea/**</exclude>
+            <!-- exclude Eclipse files -->
+            <exclude>.project</exclude>
+            <exclude>.classpath</exclude>
+            <exclude>.settings</exclude>
           </excludes>
         </configuration>
         <executions>
