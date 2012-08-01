@@ -80,11 +80,12 @@ public abstract class AbstractRegistryGeneratorTestCase
         addDependency( "org.apache.archiva.redback.components.registry", "spring-registry-commons", registryVersion );
         addDependency( "org.codehaus.plexus", "plexus-container-default", "1.0-alpha-33" );
         addDependency( "commons-collections", "commons-collections", "3.1" );
-        addDependency( "commons-configuration", "commons-configuration", "1.3" );
-        addDependency( "commons-lang", "commons-lang", "2.1" );
+        addDependency( "commons-configuration", "commons-configuration", "1.7" );
+        addDependency( "commons-lang", "commons-lang", "2.6" );
         addDependency( "commons-logging", "commons-logging-api", "1.0.4" );
         addDependency( "org.codehaus.plexus", "plexus-interpolation", "1.14" );
         addDependency( "org.slf4j", "slf4j-api", System.getProperty( "slf4jVersion" ) );
+        addDependency( "org.slf4j", "slf4j-simple", System.getProperty( "slf4jVersion" ) );
 
         if ( "1.5".compareTo( System.getProperty( "java.specification.version" ) ) <= 0 )
         {
