@@ -18,18 +18,20 @@
   ~ under the License.
   -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
   <modelVersion>4.0.0</modelVersion>
+
   <parent>
     <groupId>org.apache.archiva.redback.components</groupId>
     <artifactId>redback-components</artifactId>
     <version>2.0-SNAPSHOT</version>
     <relativePath>../redback-components-parent/pom.xml</relativePath>
   </parent>
+
   <artifactId>spring-utils</artifactId>
-  <version>2.0-SNAPSHOT</version>
+  <packaging>bundle</packaging>
   <name>Spring Utils Goodies</name>
   <description>Contains some spring goodies.</description>
-  <packaging>bundle</packaging>
 
   <url>http://archiva.apache.org/redback/components/${project.artifactId}</url>
 
@@ -127,29 +129,6 @@
       <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
-        <configuration>
-          <instructions>
-            <Bundle-SymbolicName>org.apache.archiva.common.plexusbridge</Bundle-SymbolicName>
-            <Bundle-Version>${project.version}</Bundle-Version>
-            <Export-Package>
-              org.apache.archiva.redback.components.springutils;version=${project.version},
-              org.apache.archiva.redback.components.springutils.plexusshim;version=${project.version}
-            </Export-Package>
-            <Import-Package>
-              javax.inject,
-              org.codehaus.plexus,
-              org.codehaus.plexus.classworlds,
-              org.codehaus.plexus.classworlds.realm,
-              org.codehaus.plexus.component.repository.exception,
-              org.springframework.stereotype,
-              org.apache.commons.lang,
-              org.springframework.beans.factory.support,
-              org.springframework.context,
-              org.springframework.web.context.support,
-              org.slf4j;resolution:=optional
-            </Import-Package>
-          </instructions>
-        </configuration>
       </plugin>
     </plugins>
   </build>
