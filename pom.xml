@@ -30,7 +30,6 @@
 
   <artifactId>expression-evaluator</artifactId>
   <packaging>bundle</packaging>
-  <version>2.0-SNAPSHOT</version>
   <name>Expression Evaluator Components</name>
 
   <url>http://archiva.apache.org/redback/components/${project.artifactId}</url>
@@ -61,6 +60,17 @@
       <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
+        <configuration>
+          <instructions>
+            <Export-Package>
+              org.apache.archiva.redback.components.evaluator*;version=${project.version};-split-package:=merge-first
+            </Export-Package>
+            <Import-Package>
+              org.codehaus.plexus.util;version="[1.5,2)",
+              org.slf4j;resolution:=optional
+            </Import-Package>
+          </instructions>
+        </configuration>
       </plugin>
     </plugins>
   </build>
