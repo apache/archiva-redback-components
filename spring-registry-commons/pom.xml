@@ -97,6 +97,22 @@
       <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
+        <configuration>
+          <instructions>
+            <Export-Package>
+              org.apache.archiva.redback.components.registry.commons;version=${project.version};-split-package:=merge-first
+            </Export-Package>
+            <Import-Package>
+              javax.annotation,
+              org.apache.archiva.redback.components.registry;version=${project.version},
+              org.apache.commons.configuration*;version="[1.8,2)",,
+              org.apache.commons.lang;version="[2.6,3)",
+              org.codehaus.plexus.interpolation;version="[1.14,2)",
+              org.springframework*;version="[3,4)",
+              org.slf4j
+            </Import-Package>
+          </instructions>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
