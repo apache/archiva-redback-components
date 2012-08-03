@@ -52,6 +52,19 @@
       <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
+        <configuration>
+          <instructions>
+            <Export-Package>
+              org.apache.archiva.redback.components.cache.oscache;version=${project.version};-split-package:=merge-first
+            </Export-Package>
+            <Import-Package>
+              javax.annotation,
+              com.opensymphony.oscache*;version="[2.4,3)",
+              org.apache.archiva.redback.components.cache*;version=${project.version},
+              org.apache.commons.lang;version="[2.6,3)"
+            </Import-Package>
+          </instructions>
+        </configuration>
       </plugin>
     </plugins>
   </build>

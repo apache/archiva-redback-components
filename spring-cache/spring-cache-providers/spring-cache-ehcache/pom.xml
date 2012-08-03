@@ -57,6 +57,20 @@
       <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
+        <configuration>
+          <instructions>
+            <Export-Package>
+              org.apache.archiva.redback.components.cache.ehcache;version=${project.version};-split-package:=merge-first
+            </Export-Package>
+            <Import-Package>
+              javax.annotation,
+              net.sf.ehcache*;version="[2.5,3)",
+              org.apache.archiva.redback.components.cache*;version=${project.version},
+              org.apache.commons.lang;version="[2.6,3)",
+              org.slf4j;resolution:=optional
+            </Import-Package>
+          </instructions>
+        </configuration>
       </plugin>
     </plugins>
   </build>

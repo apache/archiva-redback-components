@@ -35,6 +35,7 @@
     <module>spring-taskqueue</module>
     <module>spring-apacheds</module>
     <module>spring-utils</module>
+    <module>redback-features</module>
   </modules>
   <build>
     <plugins>

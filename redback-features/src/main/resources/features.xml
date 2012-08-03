@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<features name="redback-components-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
+
+  <feature name="redback-spring-apacheds" version="${project.version}" resolver="(obr)">
+    <!-- Require ApacheDS bundle -->
+    <bundle>mvn:org.apache.archiva.redback.components/spring-apacheds/${project.version}</bundle>
+  </feature>
+
+  <feature name="redback-cache-api" version="${project.version}" resolver="(obr)">
+    <feature>spring</feature>
+    <bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.javax-inject/${javax-inject.bundle.version}</bundle>
+    <bundle dependency="true">mvn:commons-lang/commons-lang/${commons-lang.version}</bundle>
+    <bundle>mvn:org.apache.archiva.redback.components.cache/spring-cache-api/${project.version}</bundle>
+  </feature>
+
+  <feature name="redback-cache-ehcache" version="${project.version}" resolver="(obr)">
+    <feature version="${project.version}">redback-cache-api</feature>
+    <!-- Require ehcache bundle -->
+    <bundle>mvn:org.apache.archiva.redback.components.cache/spring-cache-ehcache/${project.version}</bundle>
+  </feature>
+
+  <feature name="redback-cache-hashmap" version="${project.version}" resolver="(obr)">
+    <feature version="${project.version}">redback-cache-api</feature>
+    <bundle>mvn:org.apache.archiva.redback.components.cache/spring-cache-hashmap/${project.version}</bundle>
+  </feature>
+
+  <feature name="redback-cache-oscache" version="${project.version}" resolver="(obr)">
+    <feature version="${project.version}">redback-cache-api</feature>
+    <!-- Require oscache bundle -->
+    <bundle>mvn:org.apache.archiva.redback.components.cache/spring-cache-oscache/${project.version}</bundle>
+  </feature>
+
+  <feature name="redback-spring-jdo2" version="${project.version}" resolver="(obr)">
+    <!-- javax.jdo2 bundle require -->
+    <bundle>mvn:org.apache.archiva.redback.components/spring-jdo2/${project.version}</bundle>
+  </feature>
+
+  <feature name="redback-spring-quartz" version="${project.version}" resolver="(obr)">
+    <bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.javax-inject/${javax-inject.bundle.version}</bundle>
+    <bundle>mvn:org.apache.archiva.redback.components/spring-quartz/${project.version}</bundle>
+  </feature>
+
+</features>

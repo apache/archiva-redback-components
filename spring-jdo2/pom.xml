@@ -149,6 +149,21 @@
       <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
+        <configuration>
+          <instructions>
+            <Export-Package>
+              org.apache.archiva.redback.components.jdo;version=${project.version}
+            </Export-Package>
+            <Import-Package>
+              javax.annotation,
+              javax.jdo,
+              javax.naming,
+              javax.sql,
+              org.apache.commons.lang;version="[2.6,3)",
+              org.slf4j;resolution:=optional
+            </Import-Package>
+          </instructions>
+        </configuration>
       </plugin>
       <!-- I Couldn't get the test classes to generate from modello.
            So I just placed the pre-generated classes into the src/test/* tree instead.
