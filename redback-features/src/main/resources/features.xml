@@ -15,8 +15,8 @@
 -->
 <features name="redback-components-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
 
-  <feature name="redback-spring-apacheds" version="${project.version}" resolver="(obr)">
-    <!-- Require ApacheDS bundle -->
+  <feature name="redback-apacheds" version="${project.version}" resolver="(obr)">
+    <!-- TODO add ApacheDS bundle -->
     <bundle>mvn:org.apache.archiva.redback.components/spring-apacheds/${project.version}</bundle>
   </feature>
 
@@ -29,7 +29,7 @@
 
   <feature name="redback-cache-ehcache" version="${project.version}" resolver="(obr)">
     <feature version="${project.version}">redback-cache-api</feature>
-    <!-- Require ehcache bundle -->
+    <bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.ehcache/${ehcache.bundle.version}</bundle>
     <bundle>mvn:org.apache.archiva.redback.components.cache/spring-cache-ehcache/${project.version}</bundle>
   </feature>
 
@@ -40,18 +40,42 @@
 
   <feature name="redback-cache-oscache" version="${project.version}" resolver="(obr)">
     <feature version="${project.version}">redback-cache-api</feature>
-    <!-- Require oscache bundle -->
+    <bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.oscache/${oscache.bundle.version}</bundle>
     <bundle>mvn:org.apache.archiva.redback.components.cache/spring-cache-oscache/${project.version}</bundle>
   </feature>
 
-  <feature name="redback-spring-jdo2" version="${project.version}" resolver="(obr)">
-    <!-- javax.jdo2 bundle require -->
+  <feature name="redback-jdo2" version="${project.version}" resolver="(obr)">
+    <bundle dependency="true">mvn:commons-lang/commons-lang/${commons-lang.version}</bundle>
+    <bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jdo2-api/${jdo2-api.bundle.version}</bundle>
     <bundle>mvn:org.apache.archiva.redback.components/spring-jdo2/${project.version}</bundle>
   </feature>
 
-  <feature name="redback-spring-quartz" version="${project.version}" resolver="(obr)">
+  <feature name="redback-quartz" version="${project.version}" resolver="(obr)">
+    <feature>spring</feature>
     <bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.javax-inject/${javax-inject.bundle.version}</bundle>
+    <bundle dependency="true">mvn:commons-lang/commons-lang/${commons-lang.version}</bundle>
+    <bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.quartz/${quartz.bundle.version}</bundle>
     <bundle>mvn:org.apache.archiva.redback.components/spring-quartz/${project.version}</bundle>
+  </feature>
+
+  <feature name="redback-registry" version="${project.version}" resolver="(obr)">
+    <!-- TODO add jackrabbit bundle -->
+    <feature>war</feature>
+    <bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.commons-net/${commons-net.bundle.version}</bundle>
+    <bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.commons-httpclient/${commons-httpclient.bundle.version}</bundle>
+    <bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jsch/${jsch.bundle.version}</bundle>
+    <bundle dependency="true">mvn:org.apache.commons/commons-vfs2/${commons-vfs2.version}</bundle>
+    <bundle dependency="true">mvn:commons-lang/commons-lang/${commons-lang.version}</bundle>
+    <bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jdom/${jdom.bundle.version}</bundle>
+    <bundle dependency="true">mvn:commons-jxpath/commons-jxpath/${commons-jxpath.version}</bundle>
+    <bundle dependency="true">mvn:org.apache.commons/commons-jexl/${commons-jexl.version}</bundle>
+    <bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.commons-digester/${commons-digester.bundle.version}</bundle>
+    <bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.commons-collections/${commons-collections.bundle.version}</bundle>
+    <bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.commons-codec/${commons-codec.bundle.version}</bundle>
+    <bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.commons-beanutils/${commons-beanutils.bundle.version}</bundle>
+    <bundle dependency="true">mvn:commons-configuration/commons-configuration/${commons-configuration.version}</bundle>
+    <bundle>mvn:org.apache.archiva.redback.components.registry/spring-registry-api/${project.version}</bundle>
+    <bundle>mvn:org.apache.archiva.redback.components.registry/spring-registry-commons/${project.version}</bundle>
   </feature>
 
 </features>
