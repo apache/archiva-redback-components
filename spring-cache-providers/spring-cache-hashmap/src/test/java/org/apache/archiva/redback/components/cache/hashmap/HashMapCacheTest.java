@@ -41,7 +41,7 @@ public class HashMapCacheTest
     @Inject @Named(value = "cache#onesecondrefresh")
     Cache cacheonesecondrefresh;
 
-    @Inject @Named(value = "cache#onesecondrefresh")
+    @Inject @Named(value = "cache#twosecondrefresh")
     Cache cachetwosecondrefresh;
 
     @Override
