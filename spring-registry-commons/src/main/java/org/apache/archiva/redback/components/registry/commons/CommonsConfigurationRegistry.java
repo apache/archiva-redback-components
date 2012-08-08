@@ -98,7 +98,7 @@ public class CommonsConfigurationRegistry
 
     public String dump()
     {
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
         buffer.append( "Configuration Dump." );
         for ( Iterator i = configuration.getKeys(); i.hasNext(); )
         {
