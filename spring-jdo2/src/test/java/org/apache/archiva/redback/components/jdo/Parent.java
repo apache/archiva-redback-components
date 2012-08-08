@@ -205,9 +205,9 @@ public class Parent
     /**
      * Method toString
      */
-    public java.lang.String toString()
+    public String toString()
     {
-        StringBuffer buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
         buf.append( "id = '" );
         buf.append( getId() + "'" );
         return buf.toString();

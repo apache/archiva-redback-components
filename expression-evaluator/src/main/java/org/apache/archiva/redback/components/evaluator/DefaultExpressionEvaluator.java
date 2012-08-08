@@ -79,7 +79,7 @@ public class DefaultExpressionEvaluator
         int offset = 0;
         String expression;
         String value;
-        StringBuffer expanded = new StringBuffer();
+        StringBuilder expanded = new StringBuilder();
 
         while ( mat.find( offset ) )
         {

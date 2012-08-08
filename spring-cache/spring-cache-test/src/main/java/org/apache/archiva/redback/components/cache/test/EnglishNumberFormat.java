@@ -105,13 +105,13 @@ public class EnglishNumberFormat
 
     class NumberText
     {
-        private StringBuffer txt;
+        private StringBuilder txt;
 
         private String potentialMulti = null;
 
         public NumberText()
         {
-            txt = new StringBuffer();
+            txt = new StringBuilder();
         }
 
         public void setPotentialMultiple( String multiple )
