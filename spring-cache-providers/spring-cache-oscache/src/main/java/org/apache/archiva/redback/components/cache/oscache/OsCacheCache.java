@@ -307,7 +307,7 @@ public class OsCacheCache
         {
             return null;
         }
-        StringBuffer stringBuffer = new StringBuffer();
+        StringBuilder stringBuffer = new StringBuilder();
         for ( Iterator iterator = this.getCacheEventListeners().iterator(); iterator.hasNext(); )
         {
             stringBuffer.append( iterator.next() ).append( ',' );
