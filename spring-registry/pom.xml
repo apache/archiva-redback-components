@@ -30,13 +30,6 @@
 
   <url>http://archiva.apache.org/redback/components/${project.artifactId}</url>
 
-  <distributionManagement>
-    <site>
-      <id>apache.website</id>
-      <url>scp://people.apache.org/www/archiva.apache.org/redback/components/${project.artifactId}</url>
-    </site>
-  </distributionManagement>
-
   <scm>
     <connection>scm:svn:http://svn.apache.org/repos/asf/archiva/redback/redback-components/trunk/spring-registry/</connection>
     <developerConnection>scm:svn:https://svn.apache.org/repos/asf/archiva/redback/redback-components/trunk/spring-registry/</developerConnection>
