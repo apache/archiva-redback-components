@@ -51,11 +51,12 @@
 
   <body>
     <links>
+      <item name="Archiva" href="http://archiva.apache.org"/>
       <item name="Redback" href="http://archiva.apache.org/redback"/>
     </links>
-    <menu ref="parent" inherit="top"/>
-    <menu ref="modules" inherit="bottom"/>
-    <menu ref="reports" inherit="bottom"/>
+
+    <menu ref="modules" />
+    <menu ref="reports" />
 
     <menu name="ASF" inherit="bottom">
       <item name="How Apache Works" href="http://www.apache.org/foundation/how-it-works.html"/>
