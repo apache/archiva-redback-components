@@ -32,7 +32,7 @@
   <artifactId>redback-components</artifactId>
   <version>2.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>Apache Archiva Redback Components Parent Project</name>
+  <name>Apache Archiva Redback Components</name>
   <url>http://archiva.apache.org/redback/components</url>
 
   <properties>
