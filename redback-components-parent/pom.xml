@@ -43,7 +43,6 @@
     <distUrlReleaseRepo>https://archiva-repository.apache.org/archiva/repository/archiva-releases-stage/</distUrlReleaseRepo>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <siteFilePath>${user.home}/redback-components-site-deploy</siteFilePath>
     <scmPubCheckoutDirectory>${user.home}/redback-components-site-content</scmPubCheckoutDirectory>
 
   </properties>
@@ -58,7 +57,7 @@
   <distributionManagement>
     <site>
       <id>apache.website</id>
-      <url>${siteUrlDeployment}</url>
+      <url>scm:svn:https://svn.apache.org/repos/asf/archiva/site-content/redback/components</url>
     </site>
   </distributionManagement>
 
@@ -196,7 +195,6 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-scm-publish-plugin</artifactId>
           <configuration>
-            <pubScmUrl>scm:svn:https://svn.apache.org/repos/asf/archiva/site-content/redback/components</pubScmUrl>
             <checkinComment>Apache Redback Components site deployment</checkinComment>
           </configuration>
         </plugin>
@@ -237,7 +235,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>${javadocVersion}</version>
+        <version>${javadocPluginVersion}</version>
         <configuration>
           <docletArtifact>
             <groupId>com.google.doclava</groupId>
