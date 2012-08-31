@@ -1,1 +1,1 @@
-mvn clean site-deploy -f redback-components-parent/pom.xml -Pall scm-publish:publish-scm
+mvn clean site-deploy scm-publish:publish-scm
