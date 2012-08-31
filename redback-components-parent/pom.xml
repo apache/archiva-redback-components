@@ -43,8 +43,6 @@
     <distUrlReleaseRepo>https://archiva-repository.apache.org/archiva/repository/archiva-releases-stage/</distUrlReleaseRepo>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <scmPubCheckoutDirectory>${user.home}/redback-components-site-content</scmPubCheckoutDirectory>
-
   </properties>
 
   <description>Parent Pom for various components used in Redback, Apache Archiva and Apache Continuum.</description>
@@ -54,10 +52,11 @@
     <developerConnection>scm:svn:https://svn.apache.org/repos/asf/archiva/redback/redback-components/trunk/redback-components-parent/</developerConnection>
     <url>http://svn.apache.org/viewvc/archiva/redback/redback-components/trunk/redback-components-parent/</url>
   </scm>
+
   <distributionManagement>
     <site>
       <id>apache.website</id>
-      <url>scm:svn:https://svn.apache.org/repos/asf/archiva/site-content/redback/components</url>
+      <url>file://${user.home}/redback-components-site-deploy/${project.artifactId}</url>
     </site>
   </distributionManagement>
 
@@ -191,13 +190,6 @@
             <goals>clean deploy</goals>
           </configuration>
         </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-scm-publish-plugin</artifactId>
-          <configuration>
-            <checkinComment>Apache Redback Components site deployment</checkinComment>
-          </configuration>
-        </plugin>
       </plugins>
     </pluginManagement>
     <plugins>
@@ -230,6 +222,7 @@
       </plugin>
     </plugins>
   </build>
+
   <reporting>
     <plugins>
       <plugin>
@@ -295,6 +288,7 @@
     </plugins>
   </reporting>
 
+
   <profiles>
     <profile>
       <id>maven-3</id>
@@ -321,29 +315,6 @@
           </plugin>
         </plugins>
       </build>
-    </profile>
-    <profile>
-      <id>all</id>
-      <modules>
-        <module>../expression-evaluator</module>
-        <module>../spring-apacheds</module>
-        <module>../spring-cache</module>
-        <module>../spring-jdo2</module>
-        <module>../spring-quartz</module>
-        <module>../spring-registry</module>
-        <module>../spring-taskqueue</module>
-        <module>../spring-utils</module>
-      </modules>
-      <reporting>
-        <plugins>
-          <plugin>
-            <artifactId>maven-javadoc-plugin</artifactId>
-            <configuration>
-              <aggregate>true</aggregate>
-            </configuration>
-          </plugin>
-        </plugins>
-      </reporting>
     </profile>
   </profiles>
 

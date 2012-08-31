@@ -20,12 +20,6 @@
 
 <project>
 
-  <!--skin>
-    <groupId>org.apache.maven.skins</groupId>
-    <artifactId>maven-fluido-skin</artifactId>
-    <version>1.3.0-SNAPSHOT</version>
-  </skin-->
-
   <custom>
     <fluidoSkin>
       <topBarEnabled>true</topBarEnabled>
@@ -52,7 +46,6 @@
   <body>
     <links>
       <item name="Archiva" href="http://archiva.apache.org"/>
-      <item name="Redback" href="http://archiva.apache.org/redback"/>
     </links>
 
     <menu ref="modules" />

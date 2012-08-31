@@ -23,7 +23,27 @@
   <artifactId>redback-components-aggregator</artifactId>
   <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>Apache Archiva Redback Components Aggregator Project</name>
+  <name>Apache Archiva Redback Components</name>
+
+  <parent>
+    <groupId>org.apache.archiva</groupId>
+    <artifactId>archiva-parent</artifactId>
+    <version>9-SNAPSHOT</version>
+    <relativePath>../parent/pom.xml</relativePath>
+  </parent>
+
+  <properties>
+    <scmPubCheckoutDirectory>${user.home}/redback-components-site-content</scmPubCheckoutDirectory>
+    <siteDeployPath>${user.home}/redback-components-site-deploy</siteDeployPath>
+    <scmTryUpdate>true</scmTryUpdate>
+  </properties>
+
+  <distributionManagement>
+    <site>
+      <id>apache.website</id>
+      <url>file://${user.home}/redback-components-site-deploy</url>
+    </site>
+  </distributionManagement>
 
   <modules>
     <module>redback-components-parent</module>
@@ -42,7 +62,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-deploy-plugin</artifactId>
-        <version>2.6</version>
         <inherited>false</inherited>
         <configuration>
           <skip>true</skip>
@@ -50,14 +69,71 @@
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-site-plugin</artifactId>
-        <version>3.1</version>
+        <artifactId>maven-scm-publish-plugin</artifactId>
         <configuration>
-          <skip>true</skip>
-          <skipDeploy>true</skipDeploy>
+          <checkinComment>Apache Redback Components site deployment</checkinComment>
+          <tryUpdate>${scmTryUpdate}</tryUpdate>
+          <content>${user.home}/redback-components-site-deploy</content>
+          <pubScmUrl>scm:svn:https://svn.apache.org/repos/asf/archiva/site-content/redback/components</pubScmUrl>
+          <providerImplementations>
+            <svn>javasvn</svn>
+          </providerImplementations>
         </configuration>
-
+        <dependencies>
+          <dependency>
+            <groupId>com.google.code.maven-scm-provider-svnjava</groupId>
+            <artifactId>maven-scm-provider-svnjava</artifactId>
+            <version>2.0.4</version>
+          </dependency>
+          <dependency>
+            <groupId>org.tmatesoft.svnkit</groupId>
+            <artifactId>svnkit</artifactId>
+            <version>1.7.5-v1</version>
+          </dependency>
+        </dependencies>
       </plugin>
     </plugins>
   </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>${javadocPluginVersion}</version>
+        <configuration>
+          <docletArtifact>
+            <groupId>com.google.doclava</groupId>
+            <artifactId>doclava</artifactId>
+            <version>1.0.5</version>
+          </docletArtifact>
+          <doclet>com.google.doclava.Doclava</doclet>
+          <!--
+            | bootclasspath required by Sun's JVM
+          -->
+          <bootclasspath>${sun.boot.class.path}</bootclasspath>
+          <additionalparam>
+            <!-- comment as produce an NPE
+             -federate JDK http://download.oracle.com/javase/6/docs/api/index.html?
+              -federationxml JDK http://doclava.googlecode.com/svn/static/api/openjdk-6.xml -->
+             -hdf project.name "${project.name}"
+             -d ${project.build.directory}/site/apidocs
+           </additionalparam>
+          <useStandardDocletOptions>false</useStandardDocletOptions>
+          <!--
+            | Apple's JVM sometimes requires more memory
+          -->
+          <additionalJOption>-J-Xmx1024m</additionalJOption>
+        </configuration>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>aggregate</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+    </plugins>
+  </reporting>
+
 </project>

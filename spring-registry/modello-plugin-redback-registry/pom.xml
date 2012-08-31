@@ -28,6 +28,16 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>modello-plugin-redback-registry</artifactId>
   <name>Redback Registry Reader/Writer</name>
+
+  <url>http://archiva.apache.org/redback/components/spring-registry/${project.artifactId}</url>
+
+  <distributionManagement>
+    <site>
+      <id>apache.website</id>
+      <url>file://${user.home}/redback-components-site-deploy/spring-registry/${project.artifactId}</url>
+    </site>
+  </distributionManagement>
+
   <dependencies>
     <dependency>
       <groupId>org.codehaus.modello</groupId>

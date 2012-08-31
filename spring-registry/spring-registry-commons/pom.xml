@@ -31,6 +31,15 @@
   <packaging>bundle</packaging>
   <name>Redback Spring Registry commons-configuration</name>
 
+  <url>http://archiva.apache.org/redback/components/spring-registry/${project.artifactId}</url>
+
+  <distributionManagement>
+    <site>
+      <id>apache.website</id>
+      <url>file://${user.home}/redback-components-site-deploy/spring-registry/${project.artifactId}</url>
+    </site>
+  </distributionManagement>
+
   <dependencies>
     <dependency>
       <groupId>org.codehaus.plexus</groupId>

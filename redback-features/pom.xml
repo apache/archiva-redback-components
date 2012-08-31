@@ -33,6 +33,15 @@
   <packaging>pom</packaging>
   <name>Redback :: Components :: Karaf features</name>
 
+  <url>http://archiva.apache.org/redback/components/${project.artifactId}</url>
+
+  <distributionManagement>
+    <site>
+      <id>apache.website</id>
+      <url>file://${user.home}/redback-components-site-deploy/${project.artifactId}</url>
+    </site>
+  </distributionManagement>
+
   <properties>
     <commons-beanutils.bundle.version>1.7.0_5</commons-beanutils.bundle.version>
     <commons-codec.bundle.version>1.3_5</commons-codec.bundle.version>
