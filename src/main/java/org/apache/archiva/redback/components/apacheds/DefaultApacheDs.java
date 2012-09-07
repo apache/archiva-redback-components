@@ -195,7 +195,7 @@ public class DefaultApacheDs
     {
         logger.info( "Starting Apache Directory Server server." );
 
-        logger.info( "ApacheDS basedir: " + basedir.getAbsolutePath() );
+        logger.info( "ApacheDS basedir: {}", basedir.getAbsolutePath() );
 
         File logs = new File( basedir, "logs" );
 
