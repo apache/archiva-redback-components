@@ -18,6 +18,7 @@ package org.apache.archiva.redback.components.taskqueue.execution;
  * specific language governing permissions and limitations
  * under the License.
  */
+
 import org.apache.archiva.redback.components.taskqueue.BuildProjectTask;
 import org.apache.archiva.redback.components.taskqueue.Task;
 import org.slf4j.Logger;
@@ -25,11 +26,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 /**
- *
  * @author <a href="mailto:kenney@apache.org">Kenney Westerhof</a>
- *
  */
-@Service("taskExecutor#build-project")
+@Service ( "taskExecutor#build-project" )
 public class BuildProjectTaskExecutor
     implements TaskExecutor
 {
@@ -43,7 +42,7 @@ public class BuildProjectTaskExecutor
 
         task.start();
 
-        logger.info( "Task: " + task + " cancelled: " + task.isCancelled() + "; done: " + task.isDone() );
+        logger.info( "Task:{} cancelled: {}; done: {}", task, task.isCancelled(), task.isDone() );
 
         long time = System.currentTimeMillis();
 
@@ -53,13 +52,13 @@ public class BuildProjectTaskExecutor
         {
             try
             {
-                logger.info( "Sleeping " + timeToSleep + "ms (interrupts ignored: " + task.ignoreInterrupts() + ")" );
+                logger.info( "Sleeping {} ms (interrupts ignored: {} )", timeToSleep, task.ignoreInterrupts() );
                 Thread.sleep( timeToSleep );
 
                 task.done();
 
-                logger.info( "Task completed normally: " + task + " cancelled: " + task.isCancelled() + "; done: "
-                                 + task.isDone() );
+                logger.info( "Task completed normally: {} cancelled: {}; done: {}", task, task.isCancelled(),
+                             task.isDone() );
             }
             catch ( InterruptedException e )
             {
@@ -67,8 +66,8 @@ public class BuildProjectTaskExecutor
                 {
                     task.cancel();
 
-                    logger.info(
-                        "Task cancelled: " + task + " cancelled: " + task.isCancelled() + "; done: " + task.isDone() );
+                    logger.info( "Task cancelled: {} cancelled: {} ; done: {}", task, task.isCancelled(),
+                                 task.isDone() );
 
                     throw new TaskExecutionException( "Never interrupt sleeping threads! :)", e );
                 }
