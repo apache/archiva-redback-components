@@ -59,6 +59,7 @@ public class CachingByTypeBeanFactory
             return cachedBeanNamesForType.get( typeKey );
         }
         String[] value = super.getBeanNamesForType( type, includeNonSingletons, allowEagerInit );
+        // using this pattern as we prevent building a List
         if ( log.isDebugEnabled() )
         {
             log.debug( "will add to cache: {} : {}", typeKey, Arrays.asList( value ) );
