@@ -30,9 +30,7 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * AbstractConfigurableJdoFactory 
- *
- *
+ * AbstractConfigurableJdoFactory
  */
 public abstract class AbstractConfigurableJdoFactory
     implements ConfigurableJdoFactory
@@ -88,7 +86,7 @@ public abstract class AbstractConfigurableJdoFactory
         {
             otherProperties = new Properties();
         }
-        
+
         setPropertyInner( otherProperties, key, value );
     }
 
@@ -96,7 +94,7 @@ public abstract class AbstractConfigurableJdoFactory
 
     private void configure()
     {
-        synchronized( configured )
+        synchronized ( configured )
         {
             if ( configured == Boolean.TRUE )
             {
@@ -119,7 +117,7 @@ public abstract class AbstractConfigurableJdoFactory
             {
                 Map.Entry entry = (Map.Entry) it.next();
 
-                logger.debug( entry.getKey() + "=" + entry.getValue() );
+                logger.debug( "{}={}", entry.getKey(), entry.getValue() );
             }
         }
 
