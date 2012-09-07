@@ -218,7 +218,7 @@ public class EhcacheCache
     {
         if ( cacheManager.getStatus().equals( Status.STATUS_ALIVE ) )
         {
-            log.info( "Disposing cache: " + ehcache );
+            log.info( "Disposing cache: {}", ehcache );
             if ( this.ehcache != null )
             {
                 cacheManager.removeCache( this.ehcache.getName() );
@@ -227,7 +227,7 @@ public class EhcacheCache
         }
         else
         {
-            log.debug( "Not disposing cache, because cacheManager is not alive: " + ehcache );
+            log.debug( "Not disposing cache, because cacheManager is not alive: {}", ehcache );
         }
     }
 

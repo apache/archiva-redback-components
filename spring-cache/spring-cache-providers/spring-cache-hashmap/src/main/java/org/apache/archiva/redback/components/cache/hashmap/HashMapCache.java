@@ -20,9 +20,9 @@ package org.apache.archiva.redback.components.cache.hashmap;
  */
 
 import org.apache.archiva.redback.components.cache.AbstractCacheStatistics;
-import org.apache.archiva.redback.components.cache.CacheableWrapper;
 import org.apache.archiva.redback.components.cache.Cache;
 import org.apache.archiva.redback.components.cache.CacheStatistics;
+import org.apache.archiva.redback.components.cache.CacheableWrapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -36,33 +36,32 @@ import java.util.Map;
  * <p>
  * HashMapCache - this is a Cache implementation taken from the Archiva project.
  * </p>
- * 
+ * <p/>
  * <p>
- * Original class written by Edwin Punzalan for purposes of addressing the 
+ * Original class written by Edwin Punzalan for purposes of addressing the
  * jira ticket <a href="http://jira.codehaus.org/browse/MRM-39">MRM-39</a>
- * </p>   
+ * </p>
  * <p>
  * Configure the refreshTime in seconds value configure a ttl of object life in cache.
  * Object get( Object key ) :
  * <ul>
- *   <li> &lt; 0 : method will always return null (no cache)</li>
- *   <li> = 0 : first stored object will be return (infinite life in the cache)</li>
- *   <li> > 0 : after a live (stored time) of refreshTime the object will be remove from the cache 
- *              and a no object will be returned by the method</li> 
+ * <li> &lt; 0 : method will always return null (no cache)</li>
+ * <li> = 0 : first stored object will be return (infinite life in the cache)</li>
+ * <li> > 0 : after a live (stored time) of refreshTime the object will be remove from the cache
+ * and a no object will be returned by the method</li>
  * </ul>
  * </p>
+ *
  * @author Edwin Punzalan
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
- *
- * 
  */
-@Service("cache#hashmap")
+@Service ( "cache#hashmap" )
 public class HashMapCache
     implements Cache
 {
-    
+
     private Logger log = LoggerFactory.getLogger( getClass() );
-    
+
     class Stats
         extends AbstractCacheStatistics
         implements CacheStatistics
@@ -96,7 +95,7 @@ public class HashMapCache
     private int cacheMaxSize = 0;
 
     /**
-     * 
+     *
      *
      */
     private int refreshTime;
@@ -171,11 +170,11 @@ public class HashMapCache
         {
             return false;
         }
-        boolean result = ( System.currentTimeMillis() - cacheableWrapper.getStoredTime() ) > ( this.getRefreshTime() * 1000 );
-        if ( log.isDebugEnabled() )
-        {
-            log.debug( cacheableWrapper + " is uptodate" + result );
-        }
+        boolean result =
+            ( System.currentTimeMillis() - cacheableWrapper.getStoredTime() ) > ( this.getRefreshTime() * 1000 );
+
+        log.debug( "{} is uptodate {}", cacheableWrapper, result );
+
         return result;
     }
 
@@ -327,7 +326,7 @@ public class HashMapCache
         }
     }
 
-    /** 
+    /**
      * @see org.apache.archiva.redback.components.cache.Cache#getRefreshTime()
      */
     public int getRefreshTime()
@@ -335,7 +334,7 @@ public class HashMapCache
         return refreshTime;
     }
 
-    /** 
+    /**
      *
      */
     public void setRefreshTime( int refreshTime )
