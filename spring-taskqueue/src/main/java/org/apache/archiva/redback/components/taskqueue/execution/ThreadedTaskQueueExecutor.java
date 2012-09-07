@@ -19,9 +19,9 @@ package org.apache.archiva.redback.components.taskqueue.execution;
  * under the License.
  */
 
-import org.apache.commons.lang.StringUtils;
 import org.apache.archiva.redback.components.taskqueue.Task;
 import org.apache.archiva.redback.components.taskqueue.TaskQueue;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,7 +38,6 @@ import java.util.concurrent.TimeoutException;
 /**
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
  * @author <a href="mailto:kenney@codehaus.org">Kenney Westerhof</a>
- *
  */
 public class ThreadedTaskQueueExecutor
     implements TaskQueueExecutor
@@ -307,11 +306,11 @@ public class ThreadedTaskQueueExecutor
         {
             if ( System.currentTimeMillis() > endTime )
             {
-                logger.warn( "Timeout waiting for executor thread '" + name + "' to stop, aborting" );
+                logger.warn( "Timeout waiting for executor thread '{}' to stop, aborting", name );
                 break;
             }
 
-            logger.info( "Waiting until task executor '" + name + "' is idling..." );
+            logger.info( "Waiting until task executor '{}' is idling...", name );
 
             try
             {
