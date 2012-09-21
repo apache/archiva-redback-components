@@ -28,6 +28,7 @@
     <relativePath>../redback-components-parent/pom.xml</relativePath>
   </parent>
 
+  <version>2.0-SNAPSHOT</version>
   <artifactId>spring-utils</artifactId>
   <packaging>bundle</packaging>
   <name>Spring Utils Goodies</name>

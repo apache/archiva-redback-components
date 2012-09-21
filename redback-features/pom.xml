@@ -28,6 +28,7 @@
     <relativePath>../redback-components-parent/pom.xml</relativePath>
   </parent>
 
+  <version>2.0-SNAPSHOT</version>
   <artifactId>redback-features</artifactId>
   <packaging>pom</packaging>
   <name>Redback :: Components :: Karaf features</name>

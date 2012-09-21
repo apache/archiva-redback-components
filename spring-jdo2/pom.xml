@@ -28,6 +28,7 @@
     <relativePath>../redback-components-parent/pom.xml</relativePath>
   </parent>
 
+  <version>2.0-SNAPSHOT</version>
   <artifactId>spring-jdo2</artifactId>
   <packaging>bundle</packaging>
   <name>Spring JDO2 Component</name>
