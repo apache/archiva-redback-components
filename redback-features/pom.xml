@@ -28,8 +28,7 @@
     <relativePath>../redback-components-parent/pom.xml</relativePath>
   </parent>
 
-  <groupId>org.apache.archiva.redback</groupId>
-  <artifactId>redback-components</artifactId>
+  <artifactId>redback-features</artifactId>
   <packaging>pom</packaging>
   <name>Redback :: Components :: Karaf features</name>
 
