@@ -34,9 +34,9 @@
   <name>Redback :: Components :: Karaf features</name>
 
   <scm>
-    <connection>scm:svn:http://svn.apache.org/repos/asf/archiva/redback/redback-components/trunk/redback-components</connection>
-    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/archiva/redback/redback-components/trunk/redback-components</developerConnection>
-    <url>http://svn.apache.org/viewvc/archiva/redback/redback-components/trunk/redback-components</url>
+    <connection>scm:svn:http://svn.apache.org/repos/asf/archiva/redback/redback-components/trunk/redback-features</connection>
+    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/archiva/redback/redback-components/trunk/redback-features</developerConnection>
+    <url>http://svn.apache.org/viewvc/archiva/redback/redback-components/trunk/redback-features</url>
   </scm>
 
   <url>http://archiva.apache.org/redback/components/${project.artifactId}</url>
