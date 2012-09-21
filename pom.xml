@@ -28,7 +28,7 @@
     <relativePath>../redback-components-parent/pom.xml</relativePath>
   </parent>
 
-  <version>2.0</version>
+  <version>2.1-SNAPSHOT</version>
   <artifactId>spring-quartz</artifactId>
   <packaging>bundle</packaging>
   <name>Spring Quartz Component</name>
@@ -43,9 +43,9 @@
   </distributionManagement>
 
   <scm>
-    <connection>scm:svn:http://svn.apache.org/repos/asf/archiva/redback/redback-components/tags/spring-quartz-2.0</connection>
-    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/archiva/redback/redback-components/tags/spring-quartz-2.0</developerConnection>
-    <url>http://svn.apache.org/viewvc/archiva/redback/redback-components/tags/spring-quartz-2.0</url>
+    <connection>scm:svn:http://svn.apache.org/repos/asf/archiva/redback/redback-components/trunk/spring-quartz/</connection>
+    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/archiva/redback/redback-components/trunk/spring-quartz/</developerConnection>
+    <url>http://svn.apache.org/viewvc/archiva/redback/redback-components/trunk/spring-quartz/</url>
   </scm>
 
   <dependencies>
