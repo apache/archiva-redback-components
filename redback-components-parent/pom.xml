@@ -39,7 +39,7 @@
     <commons-configuration.version>1.8</commons-configuration.version>
     <commons-lang.version>2.6</commons-lang.version>
     <slf4jVersion>1.7.1</slf4jVersion>
-    <log4jVersion>2.0-alpha2</log4jVersion>
+    <log4jVersion>2.0-beta1</log4jVersion>
     <springVersion>3.1.2.RELEASE</springVersion>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
@@ -100,9 +100,10 @@
         <version>${slf4jVersion}</version>
       </dependency>
       <dependency>
-        <groupId>org.apache.logging.log4j</groupId>
+        <groupId>org.apache.logging.log4j.adapters</groupId>
         <artifactId>log4j-jcl</artifactId>
         <version>${log4jVersion}</version>
+        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>junit</groupId>
@@ -170,7 +171,7 @@
       <scope>test</scope>
     </dependency-->
     <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
+      <groupId>org.apache.logging.log4j.adapters</groupId>
       <artifactId>slf4j-impl</artifactId>
       <version>${log4jVersion}</version>
       <scope>test</scope>
