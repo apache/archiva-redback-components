@@ -43,13 +43,13 @@ public class CachingByTypeBeanFactory
      * @see org.springframework.beans.factory.support.DefaultListableBeanFactory#getBeanNamesForType(java.lang.Class)
      */
     @Override
-    public String[] getBeanNamesForType( @SuppressWarnings( "rawtypes" ) Class type )
+    public String[] getBeanNamesForType( @SuppressWarnings ( "rawtypes" ) Class type )
     {
         return getBeanNamesForType( type, true, true );
     }
 
     @Override
-    public String[] getBeanNamesForType( @SuppressWarnings( "rawtypes" ) Class type, boolean includeNonSingletons,
+    public String[] getBeanNamesForType( @SuppressWarnings ( "rawtypes" ) Class type, boolean includeNonSingletons,
                                          boolean allowEagerInit )
     {
         TypeKey typeKey = new TypeKey( type, includeNonSingletons, allowEagerInit );
@@ -60,10 +60,9 @@ public class CachingByTypeBeanFactory
         }
         String[] value = super.getBeanNamesForType( type, includeNonSingletons, allowEagerInit );
         // using this pattern as we prevent building a List
-        if ( log.isDebugEnabled() )
-        {
-            log.debug( "will add to cache: {} : {}", typeKey, Arrays.asList( value ) );
-        }
+
+        log.debug( "will add to cache: {} : {}", typeKey, Arrays.asList( value ) );
+
         cachedBeanNamesForType.putIfAbsent( typeKey, value );
         return value;
     }
