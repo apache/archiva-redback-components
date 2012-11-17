@@ -29,7 +29,6 @@
     <groupId>org.apache.archiva</groupId>
     <artifactId>archiva-parent</artifactId>
     <version>10-SNAPSHOT</version>
-    <relativePath>../parent/pom.xml</relativePath>
   </parent>
 
   <properties>
@@ -92,6 +91,7 @@
         <artifactId>maven-javadoc-plugin</artifactId>
         <version>${javadocPluginVersion}</version>
         <configuration>
+          <notimestamp>true</notimestamp>
           <docletArtifact>
             <groupId>com.google.doclava</groupId>
             <artifactId>doclava</artifactId>
