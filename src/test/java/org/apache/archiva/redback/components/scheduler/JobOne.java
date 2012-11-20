@@ -18,15 +18,21 @@ package org.apache.archiva.redback.components.scheduler;
  * specific language governing permissions and limitations
  * under the License.
  */
+
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Date;
 
 public class JobOne
     implements Job
 {
+
+    private Logger logger = LoggerFactory.getLogger( getClass() );
+
     public JobOne()
     {
     }
@@ -34,7 +40,7 @@ public class JobOne
     public void execute( JobExecutionContext context )
         throws JobExecutionException
     {
-        System.out.println(
+        logger.info(
             "    --- Testing Scheduler Component\n    --- " + context.getJobDetail().getDescription() + " executed.["
                 + new Date() + "]" );
 
