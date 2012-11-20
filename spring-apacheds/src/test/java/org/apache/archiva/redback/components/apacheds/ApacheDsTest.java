@@ -24,6 +24,8 @@ import org.apache.directory.shared.ldap.util.AttributeUtils;
 import org.apache.archiva.redback.components.apacheds.ApacheDs;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -55,6 +57,8 @@ public class ApacheDsTest
 
     @Inject
     private ApacheDs apacheDs;
+
+    private Logger logger = LoggerFactory.getLogger( getClass() );
 
     protected void setUp()
         throws Exception
@@ -101,7 +105,7 @@ public class ApacheDsTest
         
         Attributes attrs = result.getAttributes();
         
-        System.out.println( AttributeUtils.toString( attrs ) );
+        logger.info("Attributes {}", AttributeUtils.toString( attrs ) );
         
         assertFalse( "should only have one result returned", results.hasMoreElements() );
         
