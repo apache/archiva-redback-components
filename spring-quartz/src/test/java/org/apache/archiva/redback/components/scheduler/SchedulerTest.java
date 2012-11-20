@@ -30,18 +30,22 @@ import org.quartz.TriggerBuilder;
 import org.quartz.TriggerListener;
 import org.quartz.impl.JobDetailImpl;
 import org.quartz.impl.triggers.SimpleTriggerImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.inject.Inject;
 
-@RunWith( SpringJUnit4ClassRunner.class )
-@ContextConfiguration( locations = {"classpath*:/META-INF/spring-context.xml","classpath:/spring-context.xml"} )
+@RunWith ( SpringJUnit4ClassRunner.class )
+@ContextConfiguration ( locations = { "classpath*:/META-INF/spring-context.xml", "classpath:/spring-context.xml" } )
 public class SchedulerTest
     extends TestCase
     implements TriggerListener
 {
     private boolean triggerFired;
+
+    private Logger logger = LoggerFactory.getLogger( getClass() );
 
     @Inject
     private Scheduler scheduler;
@@ -56,7 +60,6 @@ public class SchedulerTest
     public void testCreation()
         throws Exception
     {
-
 
         assertNotNull( scheduler );
 
@@ -76,12 +79,11 @@ public class SchedulerTest
 
         scheduler.scheduleJob( jobDetail, trigger );
 
-        while ( ! triggerFired )
+        while ( !triggerFired )
         {
-          //System.out.println("! triggerFired");
-          Thread.sleep( 10 );
+            Thread.sleep( 10 );
         }
-        System.out.println("ok triggerFired");
+        logger.info( "ok triggerFired" );
     }
 
     public void triggerComplete( Trigger trigger, JobExecutionContext context, int triggerInstructionCode )
@@ -95,7 +97,7 @@ public class SchedulerTest
 
     public void triggerFired( Trigger trigger, JobExecutionContext context )
     {
-        System.out.println( "Trigger fired!" );
+        logger.info( "Trigger fired!" );
 
         triggerFired = true;
     }
@@ -114,7 +116,6 @@ public class SchedulerTest
     {
         return "foo";
     }
-
 
 
 }
