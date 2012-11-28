@@ -36,6 +36,10 @@
 
   <url>http://archiva.apache.org/redback/components/${project.artifactId}</url>
 
+  <properties>
+    <modelloVersion>1.6</modelloVersion>
+  </properties>
+
   <distributionManagement>
     <site>
       <id>apache.website</id>
@@ -54,5 +58,27 @@
     <module>modello-plugin-store</module>
     <module>modello-plugin-jpox</module>
   </modules>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.codehaus.modello</groupId>
+        <artifactId>modello-core</artifactId>
+        <version>${modelloVersion}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.modello</groupId>
+        <artifactId>modello-test</artifactId>
+        <version>${modelloVersion}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.modello</groupId>
+        <artifactId>modello-plugin-java</artifactId>
+        <version>${modelloVersion}</version>
+        <scope>test</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
 </project>
