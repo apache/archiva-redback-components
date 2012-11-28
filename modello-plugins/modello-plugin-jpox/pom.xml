@@ -43,18 +43,15 @@
     <dependency>
       <groupId>org.codehaus.modello</groupId>
       <artifactId>modello-core</artifactId>
-      <version>1.6</version>
     </dependency>
     <dependency>
       <groupId>org.codehaus.modello</groupId>
       <artifactId>modello-test</artifactId>
-      <version>1.6</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.codehaus.modello</groupId>
       <artifactId>modello-plugin-java</artifactId>
-      <version>1.6</version>
       <scope>test</scope>
     </dependency>
 
