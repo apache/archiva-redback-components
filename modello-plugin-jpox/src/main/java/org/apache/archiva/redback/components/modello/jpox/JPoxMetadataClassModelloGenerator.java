@@ -1,4 +1,4 @@
-package org.codehaus.modello.plugin.jpox;
+package org.apache.archiva.redback.components.modello.jpox;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -30,9 +30,9 @@ import java.util.Properties;
 
 /**
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
- * @version $Id: JPoxStoreModelloGenerator.java 713 2006-11-25 21:58:06Z jvanzyl $
+ * @version $Id: JPoxStoreModelloGenerator.java 699 2006-11-23 03:37:55Z brett $
  */
-public class JPoxStoreModelloGenerator
+public class JPoxMetadataClassModelloGenerator
     extends AbstractVelocityModelloGenerator
 {
     public void generate( Model model, Properties parameters )
@@ -51,10 +51,8 @@ public class JPoxStoreModelloGenerator
         // Generate a ModelloMetadata class for storing model information in the database
         String packageName = model.getDefaultPackageName( isPackageWithVersion(), getGeneratedVersion() );
 
-        // Generate the JPoxStore
-        String className = model.getName() + "JPoxStore";
-
-        writeClass( "org/codehaus/modello/plugin/jpox/templates/JPoxStore.java.vm", getOutputDirectory(), packageName,
-                    className, context );
+        String className = model.getName() + "ModelloMetadata";
+        writeClass( "org/apache/archiva/redback/components/modello/jpox/templates/ModelloMetadata.java.vm", getOutputDirectory(),
+                    packageName, className, context );
     }
 }

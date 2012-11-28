@@ -1,4 +1,4 @@
-package org.codehaus.modello.plugin.jpox;
+package org.apache.archiva.redback.components.modello.jpox;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -22,13 +22,10 @@ package org.codehaus.modello.plugin.jpox;
 import org.codehaus.modello.model.Model;
 import org.codehaus.modello.model.ModelClass;
 import org.codehaus.modello.model.Version;
-import org.codehaus.plexus.PlexusTestCase;
 import org.codehaus.plexus.component.repository.exception.ComponentLookupException;
 import org.codehaus.plexus.util.ReaderFactory;
 
 import java.util.List;
-
-import junit.framework.Assert;
 
 /**
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
@@ -48,15 +45,15 @@ public class JpoxDeleteModelTest
         throws Throwable
     {
         Model model =
-            modello.loadModel( ReaderFactory.newXmlReader( PlexusTestCase.getTestFile( "src/test/resources/test.mdo" ) ) );
+            modello.loadModel( ReaderFactory.newXmlReader( getTestFile( "src/test/resources/test.mdo" ) ) );
 
         List classesList = model.getClasses( new Version( "1.0.0" ) );
 
-        Assert.assertEquals( 5, classesList.size() );
+        assertEquals( 5, classesList.size() );
 
         ModelClass clazz = (ModelClass) classesList.get( 0 );
 
-        Assert.assertEquals( "JdoRole", clazz.getName() );
+        assertEquals( "JdoRole", clazz.getName() );
 
         verifyModel( model, "org.codehaus.modello.plugin.jpox.JpoxVerifierDeleteModel" );
     }
