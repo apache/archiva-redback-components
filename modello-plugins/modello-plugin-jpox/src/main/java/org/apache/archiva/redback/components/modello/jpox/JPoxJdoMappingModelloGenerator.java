@@ -1,4 +1,4 @@
-package org.codehaus.modello.plugin.jpox;
+package org.apache.archiva.redback.components.modello.jpox;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -28,10 +28,10 @@ import org.codehaus.modello.model.ModelAssociation;
 import org.codehaus.modello.model.ModelClass;
 import org.codehaus.modello.model.ModelField;
 import org.codehaus.modello.plugin.AbstractModelloGenerator;
-import org.codehaus.modello.plugin.jpox.metadata.JPoxAssociationMetadata;
-import org.codehaus.modello.plugin.jpox.metadata.JPoxClassMetadata;
-import org.codehaus.modello.plugin.jpox.metadata.JPoxFieldMetadata;
-import org.codehaus.modello.plugin.jpox.metadata.JPoxModelMetadata;
+import org.apache.archiva.redback.components.modello.jpox.metadata.JPoxAssociationMetadata;
+import org.apache.archiva.redback.components.modello.jpox.metadata.JPoxClassMetadata;
+import org.apache.archiva.redback.components.modello.jpox.metadata.JPoxFieldMetadata;
+import org.apache.archiva.redback.components.modello.jpox.metadata.JPoxModelMetadata;
 import org.codehaus.modello.plugin.store.metadata.StoreAssociationMetadata;
 import org.codehaus.modello.plugin.store.metadata.StoreFieldMetadata;
 import org.codehaus.plexus.util.StringUtils;

@@ -1,4 +1,4 @@
-package org.codehaus.modello.plugin.jpox;
+package org.apache.archiva.redback.components.modello.jpox;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -30,14 +30,14 @@ import java.util.Properties;
 
 /**
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
- * @version $Id: JPoxStoreModelloGeneratorTest.java 699 2006-11-23 03:37:55Z brett $
+ * @version $Id: JPoxStoreModelloGeneratorTest.java 840 2007-07-17 18:50:39Z hboutemy $
  */
-public class JPoxMetadataClassModelloGeneratorTest
+public class JPoxStoreModelloGeneratorTest
     extends AbstractModelloJavaGeneratorTest
 {
-    public JPoxMetadataClassModelloGeneratorTest()
+    public JPoxStoreModelloGeneratorTest()
     {
-        super( "jpox-metadata-class" );
+        super( "jpox-store" );
     }
 
     public void testSimpleInvocation()
@@ -59,12 +59,12 @@ public class JPoxMetadataClassModelloGeneratorTest
 
         parameters.setProperty( ModelloParameterConstants.PACKAGE_WITH_VERSION, Boolean.FALSE.toString() );
 
-        core.generate( model, "jpox-metadata-class", parameters );
+        core.generate( model, "jpox-store", parameters );
 
         // ----------------------------------------------------------------------
         // Assert
         // ----------------------------------------------------------------------
 
-        assertGeneratedFileExists( "org/mergere/tissue/TissueModelloMetadata.java" );
+        assertGeneratedFileExists( "org/mergere/tissue/TissueJPoxStore.java" );
     }
 }

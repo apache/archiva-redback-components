@@ -1,4 +1,4 @@
-package org.codehaus.modello.plugin.jpox.metadata;
+package org.apache.archiva.redback.components.modello.jpox.metadata;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
