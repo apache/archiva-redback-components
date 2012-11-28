@@ -51,6 +51,12 @@
       <version>1.6</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.codehaus.modello</groupId>
+      <artifactId>modello-plugin-java</artifactId>
+      <version>1.6</version>
+      <scope>test</scope>
+    </dependency>
 
     <dependency>
       <groupId>dom4j</groupId>
