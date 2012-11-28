@@ -22,9 +22,9 @@ package org.apache.archiva.redback.components.modello.jpox;
 import org.apache.velocity.context.Context;
 import org.codehaus.modello.ModelloException;
 import org.codehaus.modello.model.Model;
-import org.codehaus.modello.plugin.store.AbstractVelocityModelloGenerator;
-import org.codehaus.modello.plugin.store.metadata.StoreClassMetadata;
-import org.codehaus.modello.plugin.store.metadata.StoreFieldMetadata;
+import org.apache.archiva.redback.components.modello.plugin.store.AbstractVelocityModelloGenerator;
+import org.apache.archiva.redback.components.modello.plugin.store.metadata.StoreClassMetadata;
+import org.apache.archiva.redback.components.modello.plugin.store.metadata.StoreFieldMetadata;
 
 import java.util.Properties;
 

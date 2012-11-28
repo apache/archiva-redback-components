@@ -1,4 +1,4 @@
-package org.codehaus.modello.plugin.store;
+package org.apache.archiva.redback.components.modello.plugin.store;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -24,7 +24,7 @@ import org.apache.velocity.context.Context;
 import org.codehaus.modello.ModelloException;
 import org.codehaus.modello.model.Model;
 import org.codehaus.modello.plugin.AbstractModelloGenerator;
-import org.codehaus.modello.plugin.store.metadata.StoreClassMetadata;
+import org.apache.archiva.redback.components.modello.plugin.store.metadata.StoreClassMetadata;
 import org.codehaus.plexus.util.WriterFactory;
 import org.codehaus.plexus.velocity.VelocityComponent;
 
@@ -82,9 +82,10 @@ public class StoreModelloGenerator
             }
         }
 
-        String interfaceTemplate = "org/codehaus/modello/plugin/store/templates/Store.vm";
+        String interfaceTemplate = "org/apache/archiva/redback/components/modello/plugin/store/templates/Store.vm";
 
-        String exceptionTemplate = "org/codehaus/modello/plugin/store/templates/StoreException.vm";
+        String exceptionTemplate =
+            "org/apache/archiva/redback/components/modello/plugin/store/templates/StoreException.vm";
 
         writeTemplate( interfaceTemplate, interfaceFile, context );
 

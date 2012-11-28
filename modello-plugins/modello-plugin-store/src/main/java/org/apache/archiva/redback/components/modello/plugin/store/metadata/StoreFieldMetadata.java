@@ -1,4 +1,4 @@
-package org.codehaus.modello.plugin.store.metadata;
+package org.apache.archiva.redback.components.modello.plugin.store.metadata;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,18 +19,20 @@ package org.codehaus.modello.plugin.store.metadata;
  * under the License.
  */
 
-import org.codehaus.modello.metadata.ClassMetadata;
+import org.codehaus.modello.metadata.FieldMetadata;
 
 /**
  * @author <a href="mailto:jason@maven.org">Jason van Zyl</a>
- * @version $Id: StoreClassMetadata.java 240 2005-02-24 21:00:54Z trygvis $
+ * @version $Id: StoreFieldMetadata.java 243 2005-02-28 13:51:51Z trygvis $
  */
-public class StoreClassMetadata
-    implements ClassMetadata
+public class StoreFieldMetadata
+    implements FieldMetadata
 {
-    public static final String ID = StoreClassMetadata.class.getName();
+    public static final String ID = StoreFieldMetadata.class.getName();
 
     private boolean storable;
+
+    private int maxSize;
 
     public void setStorable( boolean storable )
     {
@@ -40,5 +42,15 @@ public class StoreClassMetadata
     public boolean isStorable()
     {
         return storable;
+    }
+
+    public int getMaxSize()
+    {
+        return maxSize;
+    }
+
+    public void setMaxSize( int maxSize )
+    {
+        this.maxSize = maxSize;
     }
 }

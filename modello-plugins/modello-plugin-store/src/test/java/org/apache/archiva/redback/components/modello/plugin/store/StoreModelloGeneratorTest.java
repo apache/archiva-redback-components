@@ -1,4 +1,4 @@
-package org.codehaus.modello.plugin.store;
+package org.apache.archiva.redback.components.modello.plugin.store;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one

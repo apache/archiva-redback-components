@@ -1,4 +1,4 @@
-package org.codehaus.modello.plugin.store.metadata;
+package org.apache.archiva.redback.components.modello.plugin.store.metadata;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,20 +19,22 @@ package org.codehaus.modello.plugin.store.metadata;
  * under the License.
  */
 
-import org.codehaus.modello.metadata.FieldMetadata;
+import org.codehaus.modello.metadata.AssociationMetadata;
 
 /**
  * @author <a href="mailto:jason@maven.org">Jason van Zyl</a>
- * @version $Id: StoreFieldMetadata.java 243 2005-02-28 13:51:51Z trygvis $
+ * @version $Id: StoreAssociationMetadata.java 378 2005-06-19 21:04:43Z trygvis $
  */
-public class StoreFieldMetadata
-    implements FieldMetadata
+public class StoreAssociationMetadata
+    implements AssociationMetadata
 {
-    public static final String ID = StoreFieldMetadata.class.getName();
+    public static final String ID = StoreAssociationMetadata.class.getName();
 
     private boolean storable;
 
-    private int maxSize;
+    private Boolean part;
+
+    private String keyType;
 
     public void setStorable( boolean storable )
     {
@@ -44,13 +46,23 @@ public class StoreFieldMetadata
         return storable;
     }
 
-    public int getMaxSize()
+    public Boolean isPart()
     {
-        return maxSize;
+        return part;
     }
 
-    public void setMaxSize( int maxSize )
+    public void setPart( Boolean part )
     {
-        this.maxSize = maxSize;
+        this.part = part;
+    }
+
+    public String getKeyType()
+    {
+        return keyType;
+    }
+
+    public void setKeyType( String keyType )
+    {
+        this.keyType = keyType;
     }
 }

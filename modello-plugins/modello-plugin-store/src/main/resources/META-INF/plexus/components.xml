@@ -23,7 +23,7 @@
     <component>
       <role>org.codehaus.modello.plugin.ModelloGenerator</role>
       <role-hint>store</role-hint>
-      <implementation>org.codehaus.modello.plugin.store.StoreModelloGenerator</implementation>
+      <implementation>org.apache.archiva.redback.components.modello.plugin.store.StoreModelloGenerator</implementation>
       <requirements>
         <requirement>
           <role>org.codehaus.plexus.velocity.VelocityComponent</role>
@@ -34,7 +34,7 @@
     <component>
       <role>org.codehaus.modello.metadata.MetadataPlugin</role>
       <role-hint>store</role-hint>
-      <implementation>org.codehaus.modello.plugin.store.metadata.StoreMetadataPlugin</implementation>
+      <implementation>org.apache.archiva.redback.components.modello.plugin.store.metadata.StoreMetadataPlugin</implementation>
     </component>
 
   </components>

@@ -32,8 +32,8 @@ import org.apache.archiva.redback.components.modello.jpox.metadata.JPoxAssociati
 import org.apache.archiva.redback.components.modello.jpox.metadata.JPoxClassMetadata;
 import org.apache.archiva.redback.components.modello.jpox.metadata.JPoxFieldMetadata;
 import org.apache.archiva.redback.components.modello.jpox.metadata.JPoxModelMetadata;
-import org.codehaus.modello.plugin.store.metadata.StoreAssociationMetadata;
-import org.codehaus.modello.plugin.store.metadata.StoreFieldMetadata;
+import org.apache.archiva.redback.components.modello.plugin.store.metadata.StoreAssociationMetadata;
+import org.apache.archiva.redback.components.modello.plugin.store.metadata.StoreFieldMetadata;
 import org.codehaus.plexus.util.StringUtils;
 import org.codehaus.plexus.util.xml.PrettyPrintXMLWriter;
 import org.codehaus.plexus.util.xml.XMLWriter;
