@@ -21,9 +21,9 @@
   <components>
 
     <component>
-      <role>org.codehaus.modello.db.SQLReservedWords</role>
+      <role>org.apache.archiva.redback.components.modello.db.SQLReservedWords</role>
       <role-hint>default</role-hint>
-      <implementation>org.codehaus.modello.db.SQLReservedWords</implementation>
+      <implementation>org.apache.archiva.redback.components.modello.db.SQLReservedWords</implementation>
     </component>
 
   </components>

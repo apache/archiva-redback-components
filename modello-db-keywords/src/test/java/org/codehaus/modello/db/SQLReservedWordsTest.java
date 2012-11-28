@@ -19,6 +19,7 @@ package org.codehaus.modello.db;
  * under the License.
  */
 
+import org.apache.archiva.redback.components.modello.db.SQLReservedWords;
 import org.codehaus.plexus.PlexusTestCase;
 
 import java.util.List;

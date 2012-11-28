@@ -1,4 +1,4 @@
-package org.codehaus.modello.db;
+package org.apache.archiva.redback.components.modello.db;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -38,20 +38,21 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * SQLReservedWords - utility object to test against SQL Keywords. 
+ * SQLReservedWords - utility object to test against SQL Keywords.
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
- * @version $Id: SQLReservedWords.java 817 2007-03-12 16:53:29Z joakime $
- * 
- * @plexus.component role="org.codehaus.modello.db.SQLReservedWords"
+ *
+ * @plexus.component role="org.apache.archiva.redback.components.modello.db.SQLReservedWords"
  */
-public class SQLReservedWords extends AbstractLogEnabled implements Initializable
+public class SQLReservedWords
+    extends AbstractLogEnabled
+    implements Initializable
 {
     private Map keywords;
 
     /**
      * Tests the provided word to see if it is a keyword.
-     * 
+     *
      * @param word the word to test.
      * @return true if the provided word is a keyword.
      */
@@ -70,10 +71,10 @@ public class SQLReservedWords extends AbstractLogEnabled implements Initializabl
     /**
      * Obtain the list of {@link KeywordSource} objects that the specified (potential) keyword
      * (might) belong to.
-     * 
+     *
      * @param word the word to test.
-     * @return the {@link List} of {@link KeywordSource} objects, or <code>null</code> if specified word is 
-     *      not a reserved word.
+     * @return the {@link List} of {@link KeywordSource} objects, or <code>null</code> if specified word is
+     *         not a reserved word.
      */
     public List /*<KeywordSource>*/getKeywordSourceList( String word )
     {
@@ -90,10 +91,10 @@ public class SQLReservedWords extends AbstractLogEnabled implements Initializabl
     /**
      * Obtain the comma delimited string of keyword sources that the specified (potential) word
      * (might) belong to.
-     * 
+     *
      * @param word the wor to test.
-     * @return the {@link String} of keyword source names seperated by commas, or <code>null</code> if word is 
-     *      not a reserved word.
+     * @return the {@link String} of keyword source names seperated by commas, or <code>null</code> if word is
+     *         not a reserved word.
      */
     public String getKeywordSourceString( String word )
     {
@@ -126,7 +127,8 @@ public class SQLReservedWords extends AbstractLogEnabled implements Initializabl
         return ret.toString();
     }
 
-    public void initialize() throws InitializationException
+    public void initialize()
+        throws InitializationException
     {
         loadKeywords();
     }
@@ -212,7 +214,8 @@ public class SQLReservedWords extends AbstractLogEnabled implements Initializabl
         }
         catch ( IOException e )
         {
-            getLogger().warn( "Unable to load keywords from " + keywordsURL.toExternalForm() + ": " + e.getMessage(), e );
+            getLogger().warn( "Unable to load keywords from " + keywordsURL.toExternalForm() + ": " + e.getMessage(),
+                              e );
         }
         finally
         {

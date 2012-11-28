@@ -21,8 +21,8 @@ package org.codehaus.modello.plugin.jpox;
 
 import org.codehaus.modello.ModelloException;
 import org.codehaus.modello.ModelloParameterConstants;
-import org.codehaus.modello.db.SQLReservedWords;
-import org.codehaus.modello.db.SQLReservedWords.KeywordSource;
+import org.apache.archiva.redback.components.modello.db.SQLReservedWords;
+import org.apache.archiva.redback.components.modello.db.SQLReservedWords.KeywordSource;
 import org.codehaus.modello.model.Model;
 import org.codehaus.modello.model.ModelAssociation;
 import org.codehaus.modello.model.ModelClass;
