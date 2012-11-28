@@ -1,4 +1,4 @@
-package org.codehaus.modello.plugin.store.metadata;
+package org.apache.archiva.redback.components.modello.plugin.store.metadata;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,22 +19,18 @@ package org.codehaus.modello.plugin.store.metadata;
  * under the License.
  */
 
-import org.codehaus.modello.metadata.AssociationMetadata;
+import org.codehaus.modello.metadata.ClassMetadata;
 
 /**
  * @author <a href="mailto:jason@maven.org">Jason van Zyl</a>
- * @version $Id: StoreAssociationMetadata.java 378 2005-06-19 21:04:43Z trygvis $
+ * @version $Id: StoreClassMetadata.java 240 2005-02-24 21:00:54Z trygvis $
  */
-public class StoreAssociationMetadata
-    implements AssociationMetadata
+public class StoreClassMetadata
+    implements ClassMetadata
 {
-    public static final String ID = StoreAssociationMetadata.class.getName();
+    public static final String ID = StoreClassMetadata.class.getName();
 
     private boolean storable;
-
-    private Boolean part;
-
-    private String keyType;
 
     public void setStorable( boolean storable )
     {
@@ -44,25 +40,5 @@ public class StoreAssociationMetadata
     public boolean isStorable()
     {
         return storable;
-    }
-
-    public Boolean isPart()
-    {
-        return part;
-    }
-
-    public void setPart( Boolean part )
-    {
-        this.part = part;
-    }
-
-    public String getKeyType()
-    {
-        return keyType;
-    }
-
-    public void setKeyType( String keyType )
-    {
-        this.keyType = keyType;
     }
 }

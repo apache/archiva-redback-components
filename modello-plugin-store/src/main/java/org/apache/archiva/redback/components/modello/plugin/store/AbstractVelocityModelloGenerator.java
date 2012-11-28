@@ -1,4 +1,4 @@
-package org.codehaus.modello.plugin.store;
+package org.apache.archiva.redback.components.modello.plugin.store;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -29,7 +29,7 @@ import org.codehaus.modello.model.Model;
 import org.codehaus.modello.model.ModelClass;
 import org.codehaus.modello.model.Version;
 import org.codehaus.modello.plugin.AbstractModelloGenerator;
-import org.codehaus.modello.plugin.store.tool.JavaTool;
+import org.apache.archiva.redback.components.modello.plugin.store.tool.JavaTool;
 import org.codehaus.plexus.util.WriterFactory;
 import org.codehaus.plexus.velocity.VelocityComponent;
 
