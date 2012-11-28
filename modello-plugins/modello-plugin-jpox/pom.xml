@@ -39,6 +39,19 @@
       <artifactId>modello-db-keywords</artifactId>
       <version>${project.version}</version>
     </dependency>
+
+    <dependency>
+      <groupId>org.codehaus.modello</groupId>
+      <artifactId>modello-core</artifactId>
+      <version>1.6</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.modello</groupId>
+      <artifactId>modello-test</artifactId>
+      <version>1.6</version>
+      <scope>test</scope>
+    </dependency>
+
     <dependency>
       <groupId>dom4j</groupId>
       <artifactId>dom4j</artifactId>

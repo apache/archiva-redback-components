@@ -20,6 +20,7 @@ package org.codehaus.modello.plugin.jpox;
  */
 
 import org.codehaus.modello.AbstractModelloGeneratorTest;
+import org.codehaus.modello.AbstractModelloJavaGeneratorTest;
 import org.codehaus.modello.ModelloParameterConstants;
 import org.codehaus.modello.core.ModelloCore;
 import org.codehaus.modello.model.Model;
@@ -32,7 +33,7 @@ import java.util.Properties;
  * @version $Id: JPoxStoreModelloGeneratorTest.java 840 2007-07-17 18:50:39Z hboutemy $
  */
 public class JPoxStoreModelloGeneratorTest
-    extends AbstractModelloGeneratorTest
+    extends AbstractModelloJavaGeneratorTest
 {
     public JPoxStoreModelloGeneratorTest()
     {
@@ -52,7 +53,7 @@ public class JPoxStoreModelloGeneratorTest
 
         Properties parameters = new Properties();
 
-        parameters.setProperty( ModelloParameterConstants.OUTPUT_DIRECTORY, getGeneratedSources().getAbsolutePath() );
+        parameters.setProperty( ModelloParameterConstants.OUTPUT_DIRECTORY, getOutputDirectory().getAbsolutePath() );
 
         parameters.setProperty( ModelloParameterConstants.VERSION, "1.0.0" );
 

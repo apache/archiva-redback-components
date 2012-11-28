@@ -24,11 +24,13 @@ import org.codehaus.modello.metadata.AbstractMetadataPlugin;
 import org.codehaus.modello.metadata.AssociationMetadata;
 import org.codehaus.modello.metadata.ClassMetadata;
 import org.codehaus.modello.metadata.FieldMetadata;
+import org.codehaus.modello.metadata.InterfaceMetadata;
 import org.codehaus.modello.metadata.ModelMetadata;
 import org.codehaus.modello.model.Model;
 import org.codehaus.modello.model.ModelAssociation;
 import org.codehaus.modello.model.ModelClass;
 import org.codehaus.modello.model.ModelField;
+import org.codehaus.modello.model.ModelInterface;
 import org.codehaus.plexus.util.StringUtils;
 
 import java.util.Arrays;
@@ -145,6 +147,13 @@ public class JPoxMetadataPlugin extends AbstractMetadataPlugin
         }
 
         return metadata;
+    }
+
+    public InterfaceMetadata getInterfaceMetadata( ModelInterface modelInterface, Map<String, String> stringStringMap )
+        throws ModelloException
+    {
+        // TODO to implemens ?
+        return null;
     }
 
     public ClassMetadata getClassMetadata( ModelClass clazz, Map data ) throws ModelloException
