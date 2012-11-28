@@ -34,18 +34,21 @@ import java.util.Properties;
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
  * @version $Id: JPoxJdoMappingModelloGeneratorTest.java 840 2007-07-17 18:50:39Z hboutemy $
  */
-public class JPoxJdoMappingModelloGeneratorTest extends AbstractJpoxGeneratorTestCase
+public class JPoxJdoMappingModelloGeneratorTest
+    extends AbstractJpoxGeneratorTestCase
 {
     public JPoxJdoMappingModelloGeneratorTest()
     {
         super( "jpox-jdo-mapping" );
     }
 
-    public void testSimpleInvocation() throws Exception
+    public void testSimpleInvocation()
+        throws Exception
     {
         ModelloCore core = (ModelloCore) lookup( ModelloCore.ROLE );
 
-        Model model = core.loadModel( ReaderFactory.newXmlReader( getTestFile( "src/test/resources/mergere-tissue.mdo" ) ) );
+        Model model =
+            core.loadModel( ReaderFactory.newXmlReader( getTestFile( "src/test/resources/mergere-tissue.mdo" ) ) );
 
         // ----------------------------------------------------------------------
         // Generate the code
@@ -53,7 +56,7 @@ public class JPoxJdoMappingModelloGeneratorTest extends AbstractJpoxGeneratorTes
 
         Properties parameters = new Properties();
 
-        parameters.setProperty( ModelloParameterConstants.OUTPUT_DIRECTORY, getGeneratedSources().getAbsolutePath() );
+        parameters.setProperty( ModelloParameterConstants.OUTPUT_DIRECTORY, getOutputDirectory().getAbsolutePath() );
 
         parameters.setProperty( ModelloParameterConstants.VERSION, "1.0.0" );
 
@@ -65,7 +68,9 @@ public class JPoxJdoMappingModelloGeneratorTest extends AbstractJpoxGeneratorTes
         // Assert
         // ----------------------------------------------------------------------
 
-        assertGeneratedFileExists( "package.jdo" );
+        assertTrue( new File( getOutputDirectory(), "package.jdo" ).exists() );
+
+        //assertGeneratedFileExists( "package.jdo" );
 
         SAXReader reader = new SAXReader();
         reader.setEntityResolver( new JdoEntityResolver() );
@@ -76,8 +81,7 @@ public class JPoxJdoMappingModelloGeneratorTest extends AbstractJpoxGeneratorTes
         // Tree should consist of only elements with attributes. NO TEXT.
         assertNoTextNodes( jdoDocument, "//jdo", true );
 
-        assertAttributeEquals( jdoDocument,
-                               "//class[@name='TissueModelloMetadata']/field[@name='modelVersion']/column",
+        assertAttributeEquals( jdoDocument, "//class[@name='TissueModelloMetadata']/field[@name='modelVersion']/column",
                                "default-value", "1.0.0" );
 
         assertAttributeEquals( jdoDocument, "//class[@name='Issue']/field[@name='summary']", "persistence-modifier",
@@ -124,7 +128,8 @@ public class JPoxJdoMappingModelloGeneratorTest extends AbstractJpoxGeneratorTes
         assertAttributeEquals( jdoDocument, "//class[@name='Issue']/field[@name='accountId']", "primary-key", "true" );
         assertAttributeEquals( jdoDocument, "//class[@name='Issue']/field[@name='summary']", "primary-key", "false" );
 
-        assertAttributeEquals( jdoDocument, "//class[@name='ComplexIdentity']/field[@name='id']", "primary-key", "true" );
+        assertAttributeEquals( jdoDocument, "//class[@name='ComplexIdentity']/field[@name='id']", "primary-key",
+                               "true" );
         assertAttributeEquals( jdoDocument, "//class[@name='ComplexIdentity']/field[@name='username']", "primary-key",
                                "false" );
         assertAttributeEquals( jdoDocument, "//class[@name='ComplexIdentity']/field[@name='fullName']", "primary-key",
