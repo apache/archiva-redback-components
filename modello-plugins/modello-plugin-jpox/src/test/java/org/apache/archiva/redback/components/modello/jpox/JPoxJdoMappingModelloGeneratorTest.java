@@ -74,7 +74,7 @@ public class JPoxJdoMappingModelloGeneratorTest
 
         SAXReader reader = new SAXReader();
         reader.setEntityResolver( new JdoEntityResolver() );
-        Document jdoDocument = reader.read( new File( "target/" + getName() + "/package.jdo" ) );
+        Document jdoDocument = reader.read( new File( getOutputDirectory() + "/package.jdo" ) );
 
         assertNotNull( jdoDocument );
 
