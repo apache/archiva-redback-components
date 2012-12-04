@@ -38,7 +38,7 @@ import java.util.List;
 /**
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
  */
-public class PlexusJdoUtils
+public class RedbackJdoUtils
 {
     /**
      * This operation as opposed to
@@ -352,7 +352,7 @@ public class PlexusJdoUtils
         }
         catch ( JDOException e )
         {
-            LoggerFactory.getLogger( PlexusJdoUtils.class ).error( e.getMessage(), e );
+            LoggerFactory.getLogger( RedbackJdoUtils.class ).error( e.getMessage(), e );
             throw new PlexusStoreException( "Error handling JDO", e );
         }
         finally

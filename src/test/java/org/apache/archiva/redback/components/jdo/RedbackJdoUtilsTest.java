@@ -37,14 +37,14 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * Tests for PlexusJdoUtilsTest 
+ * Tests for RedbackJdoUtilsTest
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
  *
  */
 @RunWith( SpringJUnit4ClassRunner.class )
 @ContextConfiguration( locations = { "classpath*:/META-INF/spring-context.xml", "classpath*:/spring-context.xml" } )
-public class PlexusJdoUtilsTest
+public class RedbackJdoUtilsTest
     extends TestCase
 {
     private PersistenceManagerFactory pmf;
@@ -110,24 +110,24 @@ public class PlexusJdoUtilsTest
         basic.setName( "Fry" );
         basic.setDescription( "Addicted to Slurm" );
 
-        Basic added = (Basic) PlexusJdoUtils.addObject( getPersistenceManager(), basic );
+        Basic added = (Basic) RedbackJdoUtils.addObject( getPersistenceManager(), basic );
 
         // Ensure that only 1 entry exists.
-        assertEquals( 1, PlexusJdoUtils.getAllObjectsDetached( getPersistenceManager(), Basic.class ).size() );
+        assertEquals( 1, RedbackJdoUtils.getAllObjectsDetached( getPersistenceManager(), Basic.class ).size() );
 
-        Basic fetched = (Basic) PlexusJdoUtils.getObjectById( getPersistenceManager(), Basic.class, added.getId() );
+        Basic fetched = (Basic) RedbackJdoUtils.getObjectById( getPersistenceManager(), Basic.class, added.getId() );
 
         long id = fetched.getId();
         String BRAINSLUG = "Starved a Brain Slug";
 
         fetched.setDescription( BRAINSLUG );
 
-        PlexusJdoUtils.updateObject( getPersistenceManager(), fetched );
+        RedbackJdoUtils.updateObject( getPersistenceManager(), fetched );
 
         // Ensure that only 1 still entry exists.
-        assertEquals( 1, PlexusJdoUtils.getAllObjectsDetached( getPersistenceManager(), Basic.class ).size() );
+        assertEquals( 1, RedbackJdoUtils.getAllObjectsDetached( getPersistenceManager(), Basic.class ).size() );
 
-        Basic actual = (Basic) PlexusJdoUtils.getObjectById( getPersistenceManager(), Basic.class, id );
+        Basic actual = (Basic) RedbackJdoUtils.getObjectById( getPersistenceManager(), Basic.class, id );
         assertEquals( BRAINSLUG, actual.getDescription() );
     }
 
@@ -146,12 +146,12 @@ public class PlexusJdoUtilsTest
         
         parent.addChildren( cubert );
 
-        Parent added = (Parent) PlexusJdoUtils.addObject( getPersistenceManager(), parent );
+        Parent added = (Parent) RedbackJdoUtils.addObject( getPersistenceManager(), parent );
 
         // Ensure that only 1 entry exists.
-        assertEquals( 1, PlexusJdoUtils.getAllObjectsDetached( getPersistenceManager(), Parent.class ).size() );
+        assertEquals( 1, RedbackJdoUtils.getAllObjectsDetached( getPersistenceManager(), Parent.class ).size() );
 
-        Parent fetched = (Parent) PlexusJdoUtils.getObjectById( getPersistenceManager(), Parent.class, added.getId() );
+        Parent fetched = (Parent) RedbackJdoUtils.getObjectById( getPersistenceManager(), Parent.class, added.getId() );
         assertNotNull( fetched );
         assertNotNull( fetched.getChildren() );
         assertEquals( 1, fetched.getChildren().size() );
@@ -161,12 +161,12 @@ public class PlexusJdoUtilsTest
 
         fetched.setDescription( PLANETEXPRESS );
 
-        PlexusJdoUtils.updateObject( getPersistenceManager(), fetched );
+        RedbackJdoUtils.updateObject( getPersistenceManager(), fetched );
 
         // Ensure that only 1 still entry exists.
-        assertEquals( 1, PlexusJdoUtils.getAllObjectsDetached( getPersistenceManager(), Parent.class ).size() );
+        assertEquals( 1, RedbackJdoUtils.getAllObjectsDetached( getPersistenceManager(), Parent.class ).size() );
 
-        Parent actual = (Parent) PlexusJdoUtils.getObjectById( getPersistenceManager(), Parent.class, id );
+        Parent actual = (Parent) RedbackJdoUtils.getObjectById( getPersistenceManager(), Parent.class, id );
         assertEquals( PLANETEXPRESS, actual.getDescription() );
     }
     
