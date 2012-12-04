@@ -52,11 +52,11 @@ public class RedbackJdoUtils
      * @param object
      * @param fetchGroups
      * @return
-     * @throws PlexusStoreException
+     * @throws RedbackStoreException
      * @see {@link #updateObject(PersistenceManager, Object)} for old technique.
      */
     public static Object saveObject( PersistenceManager pm, Object object, String fetchGroups[] )
-        throws PlexusStoreException
+        throws RedbackStoreException
     {
         Transaction tx = pm.currentTransaction();
 
@@ -66,7 +66,7 @@ public class RedbackJdoUtils
 
             if ( ( JDOHelper.getObjectId( object ) != null ) && !JDOHelper.isDetached( object ) )
             {
-                throw new PlexusStoreException( "Existing object is not detached: " + object );
+                throw new RedbackStoreException( "Existing object is not detached: " + object );
             }
 
             if ( fetchGroups != null )
@@ -155,11 +155,11 @@ public class RedbackJdoUtils
      * @param pm
      * @param object
      * @return
-     * @throws PlexusStoreException
+     * @throws RedbackStoreException
      * @see {@link #saveObject(PersistenceManager, Object, String[])}
      */
     public static Object updateObject( PersistenceManager pm, Object object )
-        throws PlexusStoreException
+        throws RedbackStoreException
     {
         Object ret = object;
         Transaction tx = pm.currentTransaction();
@@ -170,7 +170,7 @@ public class RedbackJdoUtils
 
             if ( !JDOHelper.isDetached( object ) )
             {
-                throw new PlexusStoreException( "Not detached: " + object );
+                throw new RedbackStoreException( "Not detached: " + object );
             }
 
             try
@@ -182,7 +182,7 @@ public class RedbackJdoUtils
                 // Do not hide useful error messages.
                 // This exception can occur if you have an object with a List
                 // that isn't initialized yet.
-                throw new PlexusStoreException( "Unable to update object due to unexpected null value.", npe );
+                throw new RedbackStoreException( "Unable to update object due to unexpected null value.", npe );
             }
             catch ( Exception e )
             {
@@ -218,17 +218,17 @@ public class RedbackJdoUtils
     }
 
     public static Object getObjectById( PersistenceManager pm, Class clazz, String id )
-        throws PlexusObjectNotFoundException, PlexusStoreException
+        throws RedbackObjectNotFoundException, RedbackStoreException
     {
         return getObjectById( pm, clazz, id, null );
     }
 
     public static Object getObjectById( PersistenceManager pm, Class clazz, String id, String fetchGroup )
-        throws PlexusStoreException, PlexusObjectNotFoundException
+        throws RedbackStoreException, RedbackObjectNotFoundException
     {
         if ( StringUtils.isBlank( id ) )
         {
-            throw new PlexusStoreException( "Unable to get object '" + clazz.getName() + "' from jdo using null id." );
+            throw new RedbackStoreException( "Unable to get object '" + clazz.getName() + "' from jdo using null id." );
         }
 
         Transaction tx = pm.currentTransaction();
@@ -254,11 +254,11 @@ public class RedbackJdoUtils
         }
         catch ( JDOObjectNotFoundException e )
         {
-            throw new PlexusObjectNotFoundException( clazz.getName(), id );
+            throw new RedbackObjectNotFoundException( clazz.getName(), id );
         }
         catch ( JDOException e )
         {
-            throw new PlexusStoreException( "Error handling JDO", e );
+            throw new RedbackStoreException( "Error handling JDO", e );
         }
         finally
         {
@@ -271,7 +271,7 @@ public class RedbackJdoUtils
      *             instead
      */
     public static Object getObjectById( PersistenceManager pm, Class clazz, int id )
-        throws PlexusStoreException, PlexusObjectNotFoundException
+        throws RedbackStoreException, RedbackObjectNotFoundException
     {
         return getObjectById( pm, clazz, (long) id );
     }
@@ -285,13 +285,13 @@ public class RedbackJdoUtils
      *              returned.
      * @param id    Object identifier to match in the database.
      * @return Object instance that matches the passed in identifier.
-     * @throws PlexusStoreException          if there was an error querying the database
+     * @throws RedbackStoreException          if there was an error querying the database
      *                                       for the object.
-     * @throws PlexusObjectNotFoundException if a matching object could not be
+     * @throws RedbackObjectNotFoundException if a matching object could not be
      *                                       found.
      */
     public static Object getObjectById( PersistenceManager pm, Class clazz, long id )
-        throws PlexusStoreException, PlexusObjectNotFoundException
+        throws RedbackStoreException, RedbackObjectNotFoundException
     {
         return getObjectById( pm, clazz, id, null );
     }
@@ -302,7 +302,7 @@ public class RedbackJdoUtils
      *             instead
      */
     public static Object getObjectById( PersistenceManager pm, Class clazz, int id, String fetchGroup )
-        throws PlexusStoreException, PlexusObjectNotFoundException
+        throws RedbackStoreException, RedbackObjectNotFoundException
     {
         return getObjectById( pm, clazz, (long) id, fetchGroup );
     }
@@ -317,13 +317,13 @@ public class RedbackJdoUtils
      * @param id         Object identifier to match in the database.
      * @param fetchGroup TODO: Document!
      * @return Object instance that matches the passed in identifier.
-     * @throws PlexusStoreException          if there was an error querying the database
+     * @throws RedbackStoreException          if there was an error querying the database
      *                                       for the object.
-     * @throws PlexusObjectNotFoundException if a matching object could not be
+     * @throws RedbackObjectNotFoundException if a matching object could not be
      *                                       found.
      */
     public static Object getObjectById( PersistenceManager pm, Class clazz, long id, String fetchGroup )
-        throws PlexusStoreException, PlexusObjectNotFoundException
+        throws RedbackStoreException, RedbackObjectNotFoundException
     {
         Transaction tx = pm.currentTransaction();
 
@@ -348,12 +348,12 @@ public class RedbackJdoUtils
         }
         catch ( JDOObjectNotFoundException e )
         {
-            throw new PlexusObjectNotFoundException( clazz.getName(), Long.toString( id ) );
+            throw new RedbackObjectNotFoundException( clazz.getName(), Long.toString( id ) );
         }
         catch ( JDOException e )
         {
             LoggerFactory.getLogger( RedbackJdoUtils.class ).error( e.getMessage(), e );
-            throw new PlexusStoreException( "Error handling JDO", e );
+            throw new RedbackStoreException( "Error handling JDO", e );
         }
         finally
         {
@@ -363,7 +363,7 @@ public class RedbackJdoUtils
 
     public static Object getObjectFromQuery( PersistenceManager pm, Class clazz, String idField, String id,
                                              String fetchGroup )
-        throws PlexusStoreException, PlexusObjectNotFoundException
+        throws RedbackStoreException, RedbackObjectNotFoundException
     {
         Transaction tx = pm.currentTransaction();
 
@@ -385,12 +385,12 @@ public class RedbackJdoUtils
 
             if ( result.size() == 0 )
             {
-                throw new PlexusObjectNotFoundException( clazz.getName(), id );
+                throw new RedbackObjectNotFoundException( clazz.getName(), id );
             }
 
             if ( result.size() > 1 )
             {
-                throw new PlexusStoreException(
+                throw new RedbackStoreException(
                     "A query for object of " + "type " + clazz.getName() + " on the " + "field '" + idField
                         + "' returned more than one object." );
             }
