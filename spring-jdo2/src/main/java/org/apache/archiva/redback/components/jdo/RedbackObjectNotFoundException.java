@@ -23,10 +23,10 @@ package org.apache.archiva.redback.components.jdo;
  * @author <a href="mailto:evenisse@codehaus.org">Emmanuel Venisse</a>
  *
  */
-public class PlexusObjectNotFoundException
-    extends PlexusStoreException
+public class RedbackObjectNotFoundException
+    extends RedbackStoreException
 {
-    public PlexusObjectNotFoundException( String type, String id )
+    public RedbackObjectNotFoundException( String type, String id )
     {
         super( "Could not find object. Type '" + type + "'. Id: '" + id + "'." );
     }

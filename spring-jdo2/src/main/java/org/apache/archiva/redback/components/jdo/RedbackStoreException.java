@@ -23,15 +23,15 @@ package org.apache.archiva.redback.components.jdo;
  * @author <a href="mailto:evenisse@codehaus.org">Emmanuel Venisse</a>
  *
  */
-public class PlexusStoreException
+public class RedbackStoreException
     extends Exception
 {
-    public PlexusStoreException( String msg )
+    public RedbackStoreException( String msg )
     {
         super( msg );
     }
 
-    public PlexusStoreException( String msg, Exception ex )
+    public RedbackStoreException( String msg, Exception ex )
     {
         super( msg, ex );
     }
