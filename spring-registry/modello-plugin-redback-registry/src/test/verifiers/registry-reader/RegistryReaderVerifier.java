@@ -29,6 +29,8 @@ import org.apache.archiva.redback.components.registry.Registry;
 import junit.framework.Assert;
 
 import java.io.File;
+import java.lang.AssertionError;
+import java.lang.System;
 import java.util.*;
 
 
@@ -87,5 +89,9 @@ public class RegistryReaderVerifier
         Assert.assertEquals( "def", model.getDefString() );
         Assert.assertEquals( 8080, model.getDefNumeric() );
         Assert.assertEquals( true, model.isDefBoolean() );
+
+        System.out.println("baseDn:" + model.getBaseDn());
+
+        Assert.assertEquals( "ou=People,dc=archiva,dc=apache,dc=org", model.getBaseDn() );
     }
 }

@@ -50,6 +50,7 @@ public abstract class AbstractRegistryGenerator
 
         Context context = makeStubVelocityContext( model, getGeneratedVersion(), packageName );
 
+
         // Generate the reader
         String className = model.getName() + outputType;
 

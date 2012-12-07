@@ -128,6 +128,12 @@
             <multiplicity>*</multiplicity>
           </association>
         </field>
+        <field>
+          <name>baseDn</name>
+          <description>The LDAP base dn.</description>
+          <version>1.0.0+</version>
+          <type>String</type>
+        </field>
       </fields>
     </class>
     <class>

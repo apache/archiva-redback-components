@@ -43,13 +43,30 @@ import ${class.packageName}.${class.name};
 #elseif ( $type == "float" )
     $javaTool.fail( "Type not yet handled: $type" )
 #elseif ( $type == "int" )
-        $type $localVar = ${registryVar}.getInt( prefix + "${name}", $getter );
+    $type $localVar = ${registryVar}.getInt( prefix + "${name}", $getter );
 #elseif ( $type == "long" )
     $javaTool.fail( "Type not yet handled: $type" )
 #elseif ( $type == "short" )
     $javaTool.fail( "Type not yet handled: $type" )
 #elseif ( $type == "String" )
-        $type $localVar = ${registryVar}.getString( prefix + "${name}", $getter );
+    //$type $localVar = ${registryVar}.getString( prefix + "${name}", $getter );
+
+    List<String> ${localVar}List = registry.getList( prefix + "${name}" );
+    String ${name} = $getter;
+    if (${localVar}List != null && !${localVar}List.isEmpty() )
+    {
+        StringBuilder sb = new StringBuilder(  );
+        for (int i = 0,size = ${localVar}List.size();i<size;i++)
+        {
+            sb.append( ${localVar}List.get( i ) );
+            if (i<size - 1)
+            {
+                sb.append( ',' );
+            }
+        }
+        ${name} = sb.toString();
+    }
+
 #elseif ( $type == "Boolean" )
     $javaTool.fail( "Type not yet handled: $type" )
 #elseif ( $type == "Date" )
@@ -77,7 +94,7 @@ import ${class.packageName}.${class.name};
 #end
 
 /**
- * Generate Plexus Registry input mechanism for model '${model.name}'.
+ * Generate Redback Registry input mechanism for model '${model.name}'.
  */
 public class ${model.name}RegistryReader
 {
