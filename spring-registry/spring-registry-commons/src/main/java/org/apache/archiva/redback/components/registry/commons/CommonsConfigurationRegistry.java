@@ -83,7 +83,8 @@ public class CommonsConfigurationRegistry
 
     public CommonsConfigurationRegistry()
     {
-        // default constructor for plexus
+        // default constructor
+        logger.debug( "empty constructor" );
     }
 
     public CommonsConfigurationRegistry( Configuration configuration )
