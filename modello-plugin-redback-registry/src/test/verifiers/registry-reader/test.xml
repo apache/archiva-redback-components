@@ -44,4 +44,8 @@
       <else>value3</else>
     </something>
   </properties>
+  <baseDn>ou=People</baseDn>
+  <baseDn>dc=archiva</baseDn>
+  <baseDn>dc=apache</baseDn>
+  <baseDn>dc=org</baseDn>
 </configuration>
