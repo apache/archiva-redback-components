@@ -121,7 +121,7 @@ public abstract class AbstractRegistryGeneratorTestCase
         }
 
         String[] sourceDirectories =
-            new String[]{getTestPath( "src/test/verifiers/" + getName() ), generatedSources.getAbsolutePath()};
+            new String[]{ getTestPath( "src/test/verifiers/" + getName() ), generatedSources.getAbsolutePath() };
 
         org.codehaus.plexus.compiler.Compiler compiler = new JavacCompiler();
 
@@ -133,16 +133,20 @@ public abstract class AbstractRegistryGeneratorTestCase
         configuration.setSourceVersion( "1.5" );
         configuration.setTargetVersion( "1.5" );
 
-        List messages = compiler.compile( configuration );
+        List<CompilerMessage> messages = compiler.performCompile( configuration ).getCompilerMessages();
 
-        for ( Iterator it = messages.iterator(); it.hasNext(); )
+        int error = 0;
+
+        for ( CompilerMessage message : messages )
         {
-            CompilerError message = (CompilerError) it.next();
-
             System.out.println( message.getFile() + "[" + message.getStartLine() + "," + message.getStartColumn() +
                                     "]: " + message.getMessage() );
+            if ( message.getKind() == CompilerMessage.Kind.ERROR )
+            {
+                error++;
+            }
         }
 
-        assertEquals( "There was compilation errors.", 0, messages.size() );
+        assertEquals( "There was compilation errors.", 0, error );
     }
 }
