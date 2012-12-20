@@ -29,7 +29,6 @@ import org.apache.archiva.redback.components.cache.Cache;
  * Nothing is stored, nothing is tracked, no statistics even.
  *
  * @author Olivier Lamy
- *
  * @since 5 February, 2007
  */
 public class NoCacheCache
@@ -103,6 +102,16 @@ public class NoCacheCache
     }
 
     public Object remove( Object key )
+    {
+        return null;
+    }
+
+    public <T> T get( Object key, Class<T> clazz )
+    {
+        return null;
+    }
+
+    public <T> T put( Object key, Object value, Class<T> clazz )
     {
         return null;
     }
