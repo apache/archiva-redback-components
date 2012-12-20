@@ -245,6 +245,16 @@ public class EhcacheCache
         return elem.getObjectValue();
     }
 
+    public <T> T get( Object key, Class<T> clazz )
+    {
+        return (T) get( key );
+    }
+
+    public <T> T put( Object key, Object value, Class<T> clazz )
+    {
+        return (T) put( key, value );
+    }
+
     public long getDiskExpiryThreadIntervalSeconds()
     {
         return diskExpiryThreadIntervalSeconds;

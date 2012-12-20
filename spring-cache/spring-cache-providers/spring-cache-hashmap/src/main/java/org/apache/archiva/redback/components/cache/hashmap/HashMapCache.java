@@ -55,7 +55,7 @@ import java.util.Map;
  * @author Edwin Punzalan
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
  */
-@Service ( "cache#hashmap" )
+@Service("cache#hashmap")
 public class HashMapCache
     implements Cache
 {
@@ -158,6 +158,16 @@ public class HashMapCache
         }
 
         return retValue == null ? null : retValue.getValue();
+    }
+
+    public <T> T get( Object key, Class<T> clazz )
+    {
+        return (T) get( key );
+    }
+
+    public <T> T put( Object key, Object value, Class<T> clazz )
+    {
+        return (T) put( key, value );
     }
 
     protected boolean needRefresh( CacheableWrapper cacheableWrapper )
@@ -326,9 +336,7 @@ public class HashMapCache
         }
     }
 
-    /**
-     * @see org.apache.archiva.redback.components.cache.Cache#getRefreshTime()
-     */
+
     public int getRefreshTime()
     {
         return refreshTime;

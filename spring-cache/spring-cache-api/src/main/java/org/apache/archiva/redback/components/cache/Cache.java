@@ -23,7 +23,6 @@ package org.apache.archiva.redback.components.cache;
  * Cache interface.
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
- *
  */
 public interface Cache
 {
@@ -49,6 +48,16 @@ public interface Cache
     Object get( Object key );
 
     /**
+     * Get the value of the specified key, if it exists in the cache.
+     *
+     * @param key   the key to fetch the contents of.
+     * @param clazz class of object type to retrieve
+     * @since 2.1
+     * @return the value of the key, or null if not found.
+     */
+    <T> T get( Object key, Class<T> clazz );
+
+    /**
      * Put the specified value into the cache under the provided key.
      *
      * @param key   the key to put the value into
@@ -56,6 +65,16 @@ public interface Cache
      * @return the previous value for the key, or null if the key contained no value.
      */
     Object put( Object key, Object value );
+
+    /**
+     * Put the specified value into the cache under the provided key.
+     *
+     * @param key   the key to put the value into
+     * @param value the object to place into the cache.
+     * @param clazz class of object type to retrieve
+     * @return the previous value for the key, or null if the key contained no value.
+     */
+    <T> T put( Object key, Object value, Class<T> clazz );
 
     /**
      * Register the specified value into the cache under the provided key.

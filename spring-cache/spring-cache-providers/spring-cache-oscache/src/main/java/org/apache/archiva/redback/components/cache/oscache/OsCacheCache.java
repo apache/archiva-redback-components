@@ -33,10 +33,8 @@ import java.util.Properties;
 
 /**
  * For configuration see documentation : http://opensymphony.com/oscache/wiki/Configuration.html
- * 
  *
  * @author @author Olivier Lamy
- * 
  */
 public class OsCacheCache
     implements Cache
@@ -49,15 +47,14 @@ public class OsCacheCache
     //---------------------------------------------
     // Configuration attributes
     //--------------------------------------------- 
+
     /**
      * use memory cache
-     * 
      */
     private boolean cacheMemory = true;
 
     /**
      * maximum item numbers default value -1 means unlimited
-     * 
      */
     private int capacity = -1;
 
@@ -93,7 +90,6 @@ public class OsCacheCache
 
     /**
      * A default one will be added to provided CacheStatistics
-     *
      */
     private List cacheEventListeners;
 
@@ -134,18 +130,18 @@ public class OsCacheCache
         }
         cacheProperties.put( GeneralCacheAdministrator.CACHE_BLOCKING_KEY, Boolean.toString( this.isBlockingCache() ) );
         cacheProperties.put( GeneralCacheAdministrator.CACHE_CAPACITY_KEY, Integer.toString( this.getCapacity() ) );
-        cacheProperties.put( GeneralCacheAdministrator.CACHE_DISK_UNLIMITED_KEY, Boolean.toString( this
-            .isCacheUnlimitedDisk() ) );
+        cacheProperties.put( GeneralCacheAdministrator.CACHE_DISK_UNLIMITED_KEY,
+                             Boolean.toString( this.isCacheUnlimitedDisk() ) );
 
         String cacheEventListenersAsString = this.getCacheEventListenersAsString();
         if ( cacheEventListenersAsString != null )
         {
-            cacheProperties
-                .put( GeneralCacheAdministrator.CACHE_ENTRY_EVENT_LISTENERS_KEY, cacheEventListenersAsString );
+            cacheProperties.put( GeneralCacheAdministrator.CACHE_ENTRY_EVENT_LISTENERS_KEY,
+                                 cacheEventListenersAsString );
         }
         cacheProperties.put( GeneralCacheAdministrator.CACHE_MEMORY_KEY, Boolean.toString( this.isCacheMemory() ) );
-        cacheProperties.put( GeneralCacheAdministrator.CACHE_PERSISTENCE_OVERFLOW_KEY, Boolean.toString( this
-            .isCachePersistenceOverflowOnly() ) );
+        cacheProperties.put( GeneralCacheAdministrator.CACHE_PERSISTENCE_OVERFLOW_KEY,
+                             Boolean.toString( this.isCachePersistenceOverflowOnly() ) );
 
         if ( this.getCachePersistenceClass() != null )
         {
@@ -204,6 +200,16 @@ public class OsCacheCache
             this.osCacheStatistics.miss();
             return null;
         }
+    }
+
+    public <T> T get( Object key, Class<T> clazz )
+    {
+        return (T) get( key );
+    }
+
+    public <T> T put( Object key, Object value, Class<T> clazz )
+    {
+        return (T) put( key, value );
     }
 
     public CacheStatistics getStatistics()
@@ -295,7 +301,7 @@ public class OsCacheCache
     }
 
     /**
-     * @return list values in a String separated with comma 
+     * @return list values in a String separated with comma
      */
     private String getCacheEventListenersAsString()
     {
