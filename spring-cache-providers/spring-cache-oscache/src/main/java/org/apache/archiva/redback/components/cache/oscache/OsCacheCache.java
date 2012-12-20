@@ -22,6 +22,7 @@ package org.apache.archiva.redback.components.cache.oscache;
 import com.opensymphony.oscache.base.CacheEntry;
 import com.opensymphony.oscache.base.NeedsRefreshException;
 import com.opensymphony.oscache.general.GeneralCacheAdministrator;
+import org.apache.archiva.redback.components.cache.AbstractCache;
 import org.apache.archiva.redback.components.cache.Cache;
 import org.apache.archiva.redback.components.cache.CacheStatistics;
 
@@ -37,6 +38,7 @@ import java.util.Properties;
  * @author @author Olivier Lamy
  */
 public class OsCacheCache
+    extends AbstractCache
     implements Cache
 {
 

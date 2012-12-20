@@ -107,4 +107,12 @@ public interface Cache
      */
     CacheStatistics getStatistics();
 
+    void setTimeToIdleSeconds( int timeToIdleSeconds );
+
+    void setTimeToLiveSeconds( int timeToLiveSeconds );
+
+    int getTimeToIdleSeconds();
+
+    int getTimeToLiveSeconds();
+
 }
