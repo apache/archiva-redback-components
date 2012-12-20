@@ -19,6 +19,7 @@ package org.apache.archiva.redback.components.cache.hashmap;
  * under the License.
  */
 
+import org.apache.archiva.redback.components.cache.AbstractCache;
 import org.apache.archiva.redback.components.cache.AbstractCacheStatistics;
 import org.apache.archiva.redback.components.cache.Cache;
 import org.apache.archiva.redback.components.cache.CacheStatistics;
@@ -57,6 +58,7 @@ import java.util.Map;
  */
 @Service("cache#hashmap")
 public class HashMapCache
+    extends AbstractCache
     implements Cache
 {
 

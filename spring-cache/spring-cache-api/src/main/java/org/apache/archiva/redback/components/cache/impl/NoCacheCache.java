@@ -19,6 +19,7 @@ package org.apache.archiva.redback.components.cache.impl;
  * under the License.
  */
 
+import org.apache.archiva.redback.components.cache.AbstractCache;
 import org.apache.archiva.redback.components.cache.CacheStatistics;
 import org.apache.archiva.redback.components.cache.Cache;
 
@@ -32,6 +33,7 @@ import org.apache.archiva.redback.components.cache.Cache;
  * @since 5 February, 2007
  */
 public class NoCacheCache
+    extends AbstractCache
     implements Cache
 {
     class NoStats

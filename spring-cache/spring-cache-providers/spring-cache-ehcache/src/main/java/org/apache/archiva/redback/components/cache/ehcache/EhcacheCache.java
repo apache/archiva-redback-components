@@ -237,6 +237,7 @@ public class EhcacheCache
         {
             return null;
         }
+
         Element elem = ehcache.get( key );
         if ( elem == null )
         {
@@ -396,11 +397,19 @@ public class EhcacheCache
 
     public void setTimeToIdleSeconds( int timeToIdleSeconds )
     {
+        if ( this.ehcache != null )
+        {
+            this.ehcache.getCacheConfiguration().setTimeToIdleSeconds( timeToIdleSeconds );
+        }
         this.timeToIdleSeconds = timeToIdleSeconds;
     }
 
     public void setTimeToLiveSeconds( int timeToLiveSeconds )
     {
+        if ( this.ehcache != null )
+        {
+            this.ehcache.getCacheConfiguration().setTimeToLiveSeconds( timeToIdleSeconds );
+        }
         this.timeToLiveSeconds = timeToLiveSeconds;
     }
 
@@ -453,4 +462,6 @@ public class EhcacheCache
     {
         this.maxBytesLocalOffHeap = maxBytesLocalOffHeap;
     }
+
+
 }
