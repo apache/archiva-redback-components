@@ -30,6 +30,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 /**
  * EhcacheCache
@@ -214,6 +215,7 @@ public class EhcacheCache
         }
     }
 
+    @PreDestroy
     public void dispose()
     {
         if ( cacheManager.getStatus().equals( Status.STATUS_ALIVE ) )
