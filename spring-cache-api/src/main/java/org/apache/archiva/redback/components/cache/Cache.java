@@ -52,8 +52,8 @@ public interface Cache
      *
      * @param key   the key to fetch the contents of.
      * @param clazz class of object type to retrieve
-     * @since 2.1
      * @return the value of the key, or null if not found.
+     * @since 2.1
      */
     <T> T get( Object key, Class<T> clazz );
 
@@ -114,5 +114,13 @@ public interface Cache
     int getTimeToIdleSeconds();
 
     int getTimeToLiveSeconds();
+
+    int getMaxElementsInMemory();
+
+    void setMaxElementsInMemory( int maxElementsInMemory );
+
+    int getMaxElementsOnDisk();
+
+    void setMaxElementsOnDisk( int maxElementsOnDisk );
 
 }
