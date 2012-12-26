@@ -29,6 +29,10 @@ public abstract class AbstractCache
 
     private int timeToLiveSeconds = 0;
 
+    private int maxElementsInMemory = 0;
+
+    private int maxElementsOnDisk = 0;
+
     public int getTimeToIdleSeconds()
     {
         return timeToIdleSeconds;
@@ -47,5 +51,25 @@ public abstract class AbstractCache
     public void setTimeToLiveSeconds( int timeToLiveSeconds )
     {
         this.timeToLiveSeconds = timeToLiveSeconds;
+    }
+
+    public int getMaxElementsInMemory()
+    {
+        return maxElementsInMemory;
+    }
+
+    public void setMaxElementsInMemory( int maxElementsInMemory )
+    {
+        this.maxElementsInMemory = maxElementsInMemory;
+    }
+
+    public int getMaxElementsOnDisk()
+    {
+        return maxElementsOnDisk;
+    }
+
+    public void setMaxElementsOnDisk( int maxElementsOnDisk )
+    {
+        this.maxElementsOnDisk = maxElementsOnDisk;
     }
 }

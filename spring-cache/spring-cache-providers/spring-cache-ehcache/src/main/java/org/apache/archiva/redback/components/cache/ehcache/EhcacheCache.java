@@ -156,6 +156,11 @@ public class EhcacheCache
      */
     private boolean failOnDuplicateCache = false;
 
+    /**
+     * @since 2.1
+     */
+    private int maxElementsOnDisk;
+
     private boolean statisticsEnabled = true;
 
     private CacheManager cacheManager = CacheManager.getInstance();
@@ -197,7 +202,8 @@ public class EhcacheCache
                 isOverflowToDisk() ).diskStorePath( getDiskStorePath() ).eternal( isEternal() ).timeToLiveSeconds(
                 getTimeToLiveSeconds() ).timeToIdleSeconds( getTimeToIdleSeconds() ).diskPersistent(
                 isDiskPersistent() ).diskExpiryThreadIntervalSeconds(
-                getDiskExpiryThreadIntervalSeconds() ).overflowToOffHeap( isOverflowToOffHeap() );
+                getDiskExpiryThreadIntervalSeconds() ).overflowToOffHeap( isOverflowToOffHeap() ).maxEntriesLocalDisk(
+                maxElementsOnDisk );
 
             if ( getMaxBytesLocalHeap() > 0 )
             {
@@ -377,6 +383,8 @@ public class EhcacheCache
         this.eternal = eternal;
     }
 
+
+
     public void setMaxElementsInMemory( int maxElementsInMemory )
     {
         this.maxElementsInMemory = maxElementsInMemory;
@@ -471,5 +479,18 @@ public class EhcacheCache
         this.maxBytesLocalOffHeap = maxBytesLocalOffHeap;
     }
 
+    public int getMaxElementsOnDisk()
+    {
+        return maxElementsOnDisk;
+    }
 
+    public void setMaxElementsOnDisk( int maxElementsOnDisk )
+    {
+        this.maxElementsOnDisk = maxElementsOnDisk;
+        if ( this.ehcache != null )
+        {
+            this.ehcache.getCacheConfiguration().setMaxElementsOnDisk( this.maxElementsOnDisk );
+            this.ehcache.getCacheConfiguration().maxEntriesLocalDisk( this.maxElementsOnDisk );
+        }
+    }
 }
