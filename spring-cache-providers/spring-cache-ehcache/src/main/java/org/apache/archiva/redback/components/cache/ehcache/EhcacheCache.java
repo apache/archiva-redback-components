@@ -380,6 +380,12 @@ public class EhcacheCache
     public void setMaxElementsInMemory( int maxElementsInMemory )
     {
         this.maxElementsInMemory = maxElementsInMemory;
+        if ( this.ehcache != null )
+        {
+            this.ehcache.getCacheConfiguration().setMaxElementsInMemory( this.maxElementsInMemory );
+            this.ehcache.getCacheConfiguration().setMaxEntriesLocalHeap( this.maxElementsInMemory );
+
+        }
     }
 
     public void setMemoryEvictionPolicy( String memoryEvictionPolicy )
