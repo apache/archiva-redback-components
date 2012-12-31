@@ -36,7 +36,7 @@ public class NoCacheCache
     extends AbstractCache
     implements Cache
 {
-    class NoStats
+    static final class NoStats
         implements CacheStatistics
     {
 

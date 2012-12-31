@@ -103,7 +103,7 @@ public class EnglishNumberFormat
         return txt.toString();
     }
 
-    class NumberText
+    static final class NumberText
     {
         private StringBuilder txt;
 
@@ -143,7 +143,7 @@ public class EnglishNumberFormat
         }
     }
 
-    class Digits
+    static final class Digits
     {
         private String digits;
 
