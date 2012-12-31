@@ -192,15 +192,15 @@ public final class CronExpressionValidator
             return true;
         }
 
-        if ( dayOfWeekField.indexOf( "L" ) >= 0 )
+        if ( dayOfWeekField.indexOf( 'L' ) >= 0 )
         {
             return checkFieldWithLetter( dayOfWeekField, "L", 1, 7, -1, -1 );
         }
-        else if ( dayOfWeekField.indexOf( "C" ) >= 0 )
+        else if ( dayOfWeekField.indexOf( 'C' ) >= 0 )
         {
             return checkFieldWithLetter( dayOfWeekField, "C", 1, 7, -1, -1 );
         }
-        else if ( dayOfWeekField.indexOf( "#" ) >= 0 )
+        else if ( dayOfWeekField.indexOf( '#' ) >= 0 )
         {
             return checkFieldWithLetter( dayOfWeekField, "#", 1, 7, 1, 5 );
         }
@@ -217,7 +217,7 @@ public final class CronExpressionValidator
 
     private boolean checkField( String secondsField, int minimal, int maximal )
     {
-        if ( secondsField.indexOf( "-" ) > -1 )
+        if ( secondsField.indexOf( '-' ) > -1 )
         {
             String startValue = secondsField.substring( 0, secondsField.indexOf( "-" ) );
             String endValue = secondsField.substring( secondsField.indexOf( "-" ) + 1 );
@@ -239,15 +239,15 @@ public final class CronExpressionValidator
                 return false;
             }
         }
-        else if ( secondsField.indexOf( "," ) > -1 )
+        else if ( secondsField.indexOf( ',' ) > -1 )
         {
             return checkListField( secondsField, minimal, maximal );
         }
-        else if ( secondsField.indexOf( "/" ) > -1 )
+        else if ( secondsField.indexOf( '/' ) > -1 )
         {
             return checkIncrementField( secondsField, minimal, maximal );
         }
-        else if ( secondsField.indexOf( "*" ) != -1 )
+        else if ( secondsField.indexOf( '*' ) != -1 )
         {
             return true;
         }
@@ -357,9 +357,9 @@ public final class CronExpressionValidator
 
     private boolean checkIncrementField( String value, int minimal, int maximal )
     {
-        String start = value.substring( 0, value.indexOf( "/" ) );
+        String start = value.substring( 0, value.indexOf( '/' ) );
 
-        String increment = value.substring( value.indexOf( "/" ) + 1 );
+        String increment = value.substring( value.indexOf( '/' ) + 1 );
 
         if ( !"*".equals( start ) )
         {
