@@ -60,26 +60,4 @@
     </dependency>
   </dependencies>
 
-
-  <reporting>
-    <plugins>
-      <plugin>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <configuration>
-          <aggregate>true</aggregate>
-          <!--
-          for doclava with javadoc SNAPSHOT version 2.8.1
-          <additionnalDependencies>
-            <additionnalDependency>
-              <groupId>geronimo-spec</groupId>
-              <artifactId>geronimo-spec-jta</artifactId>
-              <version>1.0.1B-rc4</version>
-            </additionnalDependency>
-          </additionnalDependencies>
-          -->
-        </configuration>
-      </plugin>
-    </plugins>
-  </reporting>
-
 </project>
