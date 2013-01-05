@@ -23,24 +23,24 @@ import org.apache.archiva.redback.components.cache.Cache;
 
 
 /**
- * CacheBuilder Interface, for obtaining caches from plexus using hints or clazz names.
+ * CacheBuilder Interface, for obtaining caches from spring using beans names or clazz names.
  *
  * @author Olivier Lamy
  *
  * @since 3 February, 2007
  */
-public interface CacheBuilder
+public interface CacheBuilder<V,T>
 {
     /**
      * @param roleHint
      * @return
      */
-    Cache getCache( String roleHint );
+    Cache<V,T> getCache( String roleHint );
 
     /**
      * @param clazz
      * @return
      */
-    Cache getCache( Class clazz );
+    Cache<V,T> getCache( Class clazz );
 
 }
