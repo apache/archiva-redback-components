@@ -32,9 +32,9 @@ import org.apache.archiva.redback.components.cache.Cache;
  * @author Olivier Lamy
  * @since 5 February, 2007
  */
-public class NoCacheCache
-    extends AbstractCache
-    implements Cache
+public class NoCacheCache<V, T>
+    extends AbstractCache<V, T>
+    implements Cache<V, T>
 {
     static final class NoStats
         implements CacheStatistics
@@ -78,7 +78,7 @@ public class NoCacheCache
         /* do nothing */
     }
 
-    public Object get( Object key )
+    public T get( V key )
     {
         return null;
     }
@@ -88,32 +88,22 @@ public class NoCacheCache
         return stats;
     }
 
-    public boolean hasKey( Object key )
+    public boolean hasKey( V key )
     {
         return false;
     }
 
-    public Object put( Object key, Object value )
+    public T put( V key, T value )
     {
         return null;
     }
 
-    public void register( Object key, Object value )
+    public void register( V key, T value )
     {
         /* do nothing */
     }
 
-    public Object remove( Object key )
-    {
-        return null;
-    }
-
-    public <T> T get( Object key, Class<T> clazz )
-    {
-        return null;
-    }
-
-    public <T> T put( Object key, Object value, Class<T> clazz )
+    public T remove( V key )
     {
         return null;
     }

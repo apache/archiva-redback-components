@@ -37,9 +37,9 @@ import java.util.Properties;
  *
  * @author @author Olivier Lamy
  */
-public class OsCacheCache
-    extends AbstractCache
-    implements Cache
+public class OsCacheCache<V, T>
+    extends AbstractCache<V, T>
+    implements Cache<V, T>
 {
 
     private GeneralCacheAdministrator generalCacheAdministrator;
@@ -173,18 +173,18 @@ public class OsCacheCache
         this.generalCacheAdministrator.flushAll();
     }
 
-    public Object get( Object key )
+    public T get( V key )
     {
         try
         {
-            Object object = null;
+            T object = null;
             if ( this.getRefreshPeriod() >= 0 )
             {
-                object = this.generalCacheAdministrator.getFromCache( key.toString(), this.getRefreshPeriod() );
+                object = (T) this.generalCacheAdministrator.getFromCache( key.toString(), this.getRefreshPeriod() );
             }
             else
             {
-                object = this.generalCacheAdministrator.getFromCache( key.toString() );
+                object = (T) this.generalCacheAdministrator.getFromCache( key.toString() );
             }
             if ( object != null )
             {
@@ -204,15 +204,6 @@ public class OsCacheCache
         }
     }
 
-    public <T> T get( Object key, Class<T> clazz )
-    {
-        return (T) get( key );
-    }
-
-    public <T> T put( Object key, Object value, Class<T> clazz )
-    {
-        return (T) put( key, value );
-    }
 
     public CacheStatistics getStatistics()
     {
@@ -220,18 +211,18 @@ public class OsCacheCache
         return this.osCacheStatistics;
     }
 
-    public boolean hasKey( Object key )
+    public boolean hasKey( V key )
     {
         // TODO if null increase/decrease statistics ?
         return this.get( key ) == null;
     }
 
-    public void register( Object key, Object value )
+    public void register( V key, T value )
     {
         this.generalCacheAdministrator.putInCache( key.toString(), value );
     }
 
-    public Object put( Object key, Object value )
+    public T put( V key, T value )
     {
         Object previous = null;
         try
@@ -243,10 +234,10 @@ public class OsCacheCache
             // ignore this because the content will be updated
         }
         this.generalCacheAdministrator.putInCache( key.toString(), value );
-        return previous;
+        return (T) previous;
     }
 
-    public Object remove( Object key )
+    public T remove( V key )
     {
         Object previous = null;
         try
@@ -260,7 +251,7 @@ public class OsCacheCache
         }
         this.generalCacheAdministrator.cancelUpdate( key.toString() );
         this.generalCacheAdministrator.flushEntry( key.toString() );
-        return previous;
+        return (T) previous;
     }
 
     //---------------------------------------------
