@@ -23,7 +23,7 @@
   <artifactId>redback-components-aggregator</artifactId>
   <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>Apache Archiva Redback Components</name>
+  <name>Apache Archiva Redback Components Aggregator</name>
 
   <parent>
     <groupId>org.apache.archiva</groupId>
