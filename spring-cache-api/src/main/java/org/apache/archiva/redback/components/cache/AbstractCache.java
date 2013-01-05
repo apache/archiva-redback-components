@@ -22,8 +22,8 @@ package org.apache.archiva.redback.components.cache;
  * @author Olivier Lamy
  * @since 2.1
  */
-public abstract class AbstractCache
-    implements Cache
+public abstract class AbstractCache<V,T>
+    implements Cache<V,T>
 {
     private int timeToIdleSeconds = 0;
 

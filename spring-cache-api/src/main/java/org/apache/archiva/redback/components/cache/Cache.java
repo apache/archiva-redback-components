@@ -24,7 +24,7 @@ package org.apache.archiva.redback.components.cache;
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
  */
-public interface Cache
+public interface Cache<V,T>
 {
     /**
      * Tests to see if the provided key exists within the cache.
@@ -37,7 +37,7 @@ public interface Cache
      * @param key the key to test.
      * @return true if the key exists.
      */
-    boolean hasKey( Object key );
+    boolean hasKey( V key );
 
     /**
      * Get the value of the specified key, if it exists in the cache.
@@ -45,17 +45,9 @@ public interface Cache
      * @param key the key to fetch the contents of.
      * @return the value of the key, or null if not found.
      */
-    Object get( Object key );
+    T get( V key );
 
-    /**
-     * Get the value of the specified key, if it exists in the cache.
-     *
-     * @param key   the key to fetch the contents of.
-     * @param clazz class of object type to retrieve
-     * @return the value of the key, or null if not found.
-     * @since 2.1
-     */
-    <T> T get( Object key, Class<T> clazz );
+
 
     /**
      * Put the specified value into the cache under the provided key.
@@ -64,17 +56,9 @@ public interface Cache
      * @param value the object to place into the cache.
      * @return the previous value for the key, or null if the key contained no value.
      */
-    Object put( Object key, Object value );
+    T put( V key, T value );
 
-    /**
-     * Put the specified value into the cache under the provided key.
-     *
-     * @param key   the key to put the value into
-     * @param value the object to place into the cache.
-     * @param clazz class of object type to retrieve
-     * @return the previous value for the key, or null if the key contained no value.
-     */
-    <T> T put( Object key, Object value, Class<T> clazz );
+
 
     /**
      * Register the specified value into the cache under the provided key.
@@ -85,7 +69,7 @@ public interface Cache
      * @param key   the key to put the value into
      * @param value the object to place into the cache.
      */
-    void register( Object key, Object value );
+    void register( V key, T value );
 
     /**
      * Remove the specified key and value from the cache.
@@ -93,7 +77,7 @@ public interface Cache
      * @param key the key to the value to remove.
      * @return the value of the key that was removed.
      */
-    Object remove( Object key );
+    T remove( V key );
 
     /**
      * Clear the cache of all entries.

@@ -57,9 +57,9 @@ import java.util.Map;
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
  */
 @Service("cache#hashmap")
-public class HashMapCache
-    extends AbstractCache
-    implements Cache
+public class HashMapCache<V,T>
+    extends AbstractCache<V,T>
+    implements Cache<V,T>
 {
 
     private Logger log = LoggerFactory.getLogger( getClass() );
@@ -84,7 +84,7 @@ public class HashMapCache
 
     }
 
-    private Map cache;
+    private Map<V,CacheableWrapper<T>> cache;
 
     /**
      *
@@ -127,9 +127,9 @@ public class HashMapCache
      * @param key the key used to map the cached object
      * @return the object mapped to the given key, or null if no cache object is mapped to the given key
      */
-    public Object get( Object key )
+    public T get( V key )
     {
-        CacheableWrapper retValue = null;
+        CacheableWrapper<T> retValue = null;
         // prevent search
         if ( !this.isCacheAvailable() )
         {
@@ -140,7 +140,7 @@ public class HashMapCache
             if ( cache.containsKey( key ) )
             {
                 // remove and put: this promotes it to the top since we use a linked hash map
-                retValue = (CacheableWrapper) cache.remove( key );
+                retValue = cache.remove( key );
 
                 if ( needRefresh( retValue ) )
                 {
@@ -162,15 +162,7 @@ public class HashMapCache
         return retValue == null ? null : retValue.getValue();
     }
 
-    public <T> T get( Object key, Class<T> clazz )
-    {
-        return (T) get( key );
-    }
 
-    public <T> T put( Object key, Object value, Class<T> clazz )
-    {
-        return (T) put( key, value );
-    }
 
     protected boolean needRefresh( CacheableWrapper cacheableWrapper )
     {
@@ -201,7 +193,7 @@ public class HashMapCache
      * @param key the key used to map the cached object
      * @return true if the cache contains an object associated with the given key
      */
-    public boolean hasKey( Object key )
+    public boolean hasKey( V key )
     {
         // prevent search
         if ( !this.isCacheAvailable() )
@@ -233,11 +225,11 @@ public class HashMapCache
 
         if ( cacheMaxSize > 0 )
         {
-            cache = new LinkedHashMap( cacheMaxSize );
+            cache = new LinkedHashMap<V,CacheableWrapper<T>>( cacheMaxSize );
         }
         else
         {
-            cache = new LinkedHashMap();
+            cache = new LinkedHashMap<V,CacheableWrapper<T>>();
         }
     }
 
@@ -247,9 +239,9 @@ public class HashMapCache
      * @param key   the object to map the valued object
      * @param value the object to cache
      */
-    public Object put( Object key, Object value )
+    public T put( V key, T value )
     {
-        CacheableWrapper ret = null;
+        CacheableWrapper<T> ret = null;
 
         // remove and put: this promotes it to the top since we use a linked hash map
         synchronized ( cache )
@@ -259,7 +251,7 @@ public class HashMapCache
                 cache.remove( key );
             }
 
-            ret = (CacheableWrapper) cache.put( key, new CacheableWrapper( value, System.currentTimeMillis() ) );
+            ret = cache.put( key, new CacheableWrapper<T>( value, System.currentTimeMillis() ) );
         }
 
         manageCache();
@@ -273,7 +265,7 @@ public class HashMapCache
      * @param key   the object to map the valued object
      * @param value the object to cache
      */
-    public void register( Object key, Object value )
+    public void register( V key, T value )
     {
         // remove and put: this promotes it to the top since we use a linked hash map
         synchronized ( cache )
@@ -283,19 +275,19 @@ public class HashMapCache
                 cache.remove( key );
             }
 
-            cache.put( key, new CacheableWrapper( value, System.currentTimeMillis() ) );
+            cache.put( key, new CacheableWrapper<T>( value, System.currentTimeMillis() ) );
         }
 
         manageCache();
     }
 
-    public Object remove( Object key )
+    public T remove( V key )
     {
         synchronized ( cache )
         {
             if ( cache.containsKey( key ) )
             {
-                return cache.remove( key );
+                return cache.remove( key ).getValue();
             }
         }
 

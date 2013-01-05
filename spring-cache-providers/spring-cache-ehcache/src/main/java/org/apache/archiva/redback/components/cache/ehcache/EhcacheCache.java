@@ -38,8 +38,8 @@ import javax.annotation.PreDestroy;
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
  */
-public class EhcacheCache
-    implements org.apache.archiva.redback.components.cache.Cache
+public class EhcacheCache<V,T>
+    implements org.apache.archiva.redback.components.cache.Cache<V,T>
 {
 
     private Logger log = LoggerFactory.getLogger( getClass() );
@@ -239,7 +239,7 @@ public class EhcacheCache
         }
     }
 
-    public Object get( Object key )
+    public T get( V key )
     {
         if ( key == null )
         {
@@ -251,17 +251,7 @@ public class EhcacheCache
         {
             return null;
         }
-        return elem.getObjectValue();
-    }
-
-    public <T> T get( Object key, Class<T> clazz )
-    {
-        return (T) get( key );
-    }
-
-    public <T> T put( Object key, Object value, Class<T> clazz )
-    {
-        return (T) put( key, value );
+        return (T) elem.getObjectValue();
     }
 
     public long getDiskExpiryThreadIntervalSeconds()
@@ -309,7 +299,7 @@ public class EhcacheCache
         return timeToLiveSeconds;
     }
 
-    public boolean hasKey( Object key )
+    public boolean hasKey( V key )
     {
         return ehcache.isKeyInCache( key );
     }
@@ -329,12 +319,12 @@ public class EhcacheCache
         return overflowToDisk;
     }
 
-    public void register( Object key, Object value )
+    public void register( V key, T value )
     {
         ehcache.put( new Element( key, value ) );
     }
 
-    public Object put( Object key, Object value )
+    public T put( V key, T value )
     {
         // Multiple steps done to satisfy Cache API requirement for Previous object return.
         Element elem = null;
@@ -346,10 +336,10 @@ public class EhcacheCache
         }
         elem = new Element( key, value );
         ehcache.put( elem );
-        return previous;
+        return (T) previous;
     }
 
-    public Object remove( Object key )
+    public T remove( V key )
     {
         Element elem = null;
         Object previous = null;
@@ -360,7 +350,7 @@ public class EhcacheCache
             ehcache.remove( key );
         }
 
-        return previous;
+        return (T) previous;
     }
 
     public void setDiskExpiryThreadIntervalSeconds( long diskExpiryThreadIntervalSeconds )
