@@ -37,15 +37,15 @@ import javax.inject.Inject;
  *
  */
 @Service
-public class DefaultCacheBuilder
-    implements CacheBuilder
+public class DefaultCacheBuilder<V,T>
+    implements CacheBuilder<V,T>
 {
 
     private Logger log = LoggerFactory.getLogger( getClass() );
 
-    private Cache defaultCache;
+    private Cache<V,T> defaultCache;
 
-    private Cache noCache = new NoCacheCache();
+    private Cache<V,T> noCache = new NoCacheCache<V,T>();
 
     @Inject
     private ApplicationContext applicationContext;
@@ -65,7 +65,7 @@ public class DefaultCacheBuilder
         }
     }
 
-    public Cache getCache( String roleHint )
+    public Cache<V,T> getCache( String roleHint )
     {
         if ( this.applicationContext.containsBean( "cache#" + roleHint ) )
         {
@@ -75,7 +75,7 @@ public class DefaultCacheBuilder
         return this.getDefaultCache();
     }
 
-    public Cache getCache( Class clazz )
+    public Cache<V,T> getCache( Class clazz )
     {
         return this.getCache( clazz.getName() );
     }
@@ -86,7 +86,7 @@ public class DefaultCacheBuilder
         // TODO dispose default ?
     }
 
-    public Cache getDefaultCache()
+    public Cache<V,T> getDefaultCache()
     {
         return defaultCache == null ? this.noCache : this.defaultCache;
     }

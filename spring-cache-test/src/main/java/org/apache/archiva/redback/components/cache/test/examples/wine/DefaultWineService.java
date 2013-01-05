@@ -25,23 +25,22 @@ import org.springframework.stereotype.Service;
 import javax.inject.Inject;
 
 /**
- * @since 5 February, 2007
- *
  * @author Olivier Lamy
+ * @since 5 February, 2007
  */
 @Service
 public class DefaultWineService
     implements WineService
 {
     @Inject
-    private CacheBuilder cacheBuilder;
+    private CacheBuilder<String, Wine> cacheBuilder;
 
     @Inject
     private WineDao wineDao;
 
     public Wine getWine( String name )
     {
-        Wine wine = (Wine) cacheBuilder.getCache( Wine.class ).get( name );
+        Wine wine = cacheBuilder.getCache( Wine.class ).get( name );
         if ( wine == null )
         {
             wine = wineDao.getWine( name );
