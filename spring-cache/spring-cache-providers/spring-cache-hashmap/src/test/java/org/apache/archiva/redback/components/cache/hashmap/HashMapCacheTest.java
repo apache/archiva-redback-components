@@ -19,56 +19,64 @@ package org.apache.archiva.redback.components.cache.hashmap;
 import org.apache.archiva.redback.components.cache.Cache;
 import org.apache.archiva.redback.components.cache.hashmap.HashMapCache;
 import org.apache.archiva.redback.components.cache.test.AbstractCacheTestCase;
+import org.apache.archiva.redback.components.cache.test.examples.wine.Wine;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
- * HashMapCacheTest 
+ * HashMapCacheTest
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
- *
  */
 public class HashMapCacheTest
     extends AbstractCacheTestCase
 {
-    @Inject @Named(value = "cache#hashmap")
-    Cache cache;
+    @Inject
+    @Named(value = "cache#hashmap")
+    Cache<String, Integer> cache;
 
-    @Inject @Named(value = "cache#alwaysrefresh")
-    Cache cachealwaysrefresh;
+    @Inject
+    @Named(value = "cache#alwaysrefresh")
+    Cache<String, Wine> cachealwaysrefresh;
 
-    @Inject @Named(value = "cache#onesecondrefresh")
-    Cache cacheonesecondrefresh;
+    @Inject
+    @Named( value = "cache#never" )
+    Cache<String, Wine> cachenever;
 
-    @Inject @Named(value = "cache#twosecondrefresh")
-    Cache cachetwosecondrefresh;
+    @Inject
+    @Named(value = "cache#onesecondrefresh")
+    Cache<String, Wine> cacheonesecondrefresh;
+
+    @Inject
+    @Named(value = "cache#twosecondrefresh")
+    Cache<String, Wine> cachetwosecondrefresh;
 
     @Override
-    public Cache getCache()
+    public Cache<String, Integer> getCache()
     {
         return cache;
     }
 
-    public Cache getAlwaysRefresCache()
+    public Cache<String, Wine> getAlwaysRefresCache()
         throws Exception
     {
         return cachealwaysrefresh;
     }
 
-    public Cache getNeverRefresCache()
+    public Cache<String, Wine> getNeverRefresCache()
         throws Exception
     {
-        return cache;
+        return cachenever;
     }
 
-    public Cache getOneSecondRefresCache()
+    public Cache<String, Wine> getOneSecondRefresCache()
         throws Exception
     {
         return cacheonesecondrefresh;
     }
 
-    public Cache getTwoSecondRefresCache()
+    public Cache<String, Wine> getTwoSecondRefresCache()
         throws Exception
     {
         return cachetwosecondrefresh;
