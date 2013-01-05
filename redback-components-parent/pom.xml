@@ -244,58 +244,8 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>${javadocPluginVersion}</version>
-        <configuration>
-          <docletArtifact>
-            <groupId>com.google.doclava</groupId>
-            <artifactId>doclava</artifactId>
-            <version>1.0.5</version>
-          </docletArtifact>
-          <doclet>com.google.doclava.Doclava</doclet>
-          <!--
-            | bootclasspath required by Sun's JVM
-          -->
-          <bootclasspath>${sun.boot.class.path}</bootclasspath>
-          <additionalparam>
-            <!-- comment as produce an NPE
-             -federate JDK http://download.oracle.com/javase/6/docs/api/index.html?
-              -federationxml JDK http://doclava.googlecode.com/svn/static/api/openjdk-6.xml -->
-             -hdf project.name "${project.name}"
-             -d ${project.build.directory}/site/apidocs
-           </additionalparam>
-          <useStandardDocletOptions>false</useStandardDocletOptions>
-          <!--
-            | Apple's JVM sometimes requires more memory
-          -->
-          <additionalJOption>-J-Xmx1024m</additionalJOption>
-        </configuration>
-        <reportSets>
-          <reportSet>
-            <reports>
-              <report>javadoc</report>
-            </reports>
-          </reportSet>
-        </reportSets>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-project-info-reports-plugin</artifactId>
         <version>${maven-project-info-reports-plugin.version}</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-report-plugin</artifactId>
-        <version>${surefireVersion}</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>${checkstyleVersion}</version>
-        <configuration>
-          <configLocation>config/maven_checks.xml</configLocation>
-          <headerLocation>config/maven-header.txt</headerLocation>
-        </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
