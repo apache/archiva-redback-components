@@ -30,6 +30,12 @@
     <property name="refreshTime" value="0"/>
   </bean>
 
+  <bean name="cache#never" class="org.apache.archiva.redback.components.cache.hashmap.HashMapCache">
+    <property name="cacheHitRatio" value="1.0"/>
+    <property name="cacheMaxSize" value="0"/>
+    <property name="refreshTime" value="0"/>
+  </bean>
+
   <bean name="cache#alwaysrefresh" class="org.apache.archiva.redback.components.cache.hashmap.HashMapCache">
     <property name="cacheHitRatio" value="1.0"/>
     <property name="cacheMaxSize" value="0"/>
