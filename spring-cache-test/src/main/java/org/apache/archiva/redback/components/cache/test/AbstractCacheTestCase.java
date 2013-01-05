@@ -58,7 +58,7 @@ public abstract class AbstractCacheTestCase
         logger.addHandler( handler );
     }
     
-    protected Cache cache;
+    protected Cache<String,Integer> cache;
 
     @Before
     public void setUp()
@@ -69,7 +69,7 @@ public abstract class AbstractCacheTestCase
     }
 
 
-    public abstract Cache getCache();
+    public abstract Cache<String,Integer> getCache();
 
     @Test
     public void testSimplePutGet()
@@ -77,7 +77,7 @@ public abstract class AbstractCacheTestCase
         Integer fooInt = Integer.valueOf( 42 );
         cache.put( "foo", fooInt );
 
-        Integer val = (Integer) cache.get( "foo" );
+        Integer val = cache.get( "foo" );
         assertEquals( 42, val.intValue() );
 
         assertNull( cache.get( "bar" ) );
@@ -95,12 +95,12 @@ public abstract class AbstractCacheTestCase
         }
 
         // Put some holes into the list.
-        List removedKeys = new ArrayList();
+        List<String> removedKeys = new ArrayList<String>();
         removedKeys.add( fmt.toText( 4600 ) );
         removedKeys.add( fmt.toText( 4700 ) );
         removedKeys.add( fmt.toText( 4800 ) );
 
-        Iterator it = removedKeys.iterator();
+        Iterator<String> it = removedKeys.iterator();
         while ( it.hasNext() )
         {
             cache.remove( it.next() );
@@ -121,7 +121,7 @@ public abstract class AbstractCacheTestCase
             {
                 String key = fmt.toText( num );
                 Integer expected = Integer.valueOf( num );
-                Integer val = (Integer) cache.get( key );
+                Integer val = cache.get( key );
 
                 // Intentionally removed entries?
                 if ( removedKeys.contains( key ) )
@@ -161,7 +161,7 @@ public abstract class AbstractCacheTestCase
          */
     }
 
-    public abstract Cache getAlwaysRefresCache()
+    public abstract Cache<String,Wine> getAlwaysRefresCache()
         throws Exception;
 
     @Test
@@ -170,36 +170,36 @@ public abstract class AbstractCacheTestCase
     {
         Wine wine = new Wine( "bordeaux", "west/south of France" );
         String key = wine.getName();
-        Cache cache = this.getAlwaysRefresCache();
+        Cache<String,Wine> cache = this.getAlwaysRefresCache();
         cache.put( key, wine );
         assertNull( cache.get( key ) );
     }
 
-    public abstract Cache getNeverRefresCache()
+    public abstract Cache<String,Wine> getNeverRefresCache()
         throws Exception;
 
     @Test
     public void testNeverRefresh()
         throws Exception
     {
-        Cache cache = this.getNeverRefresCache();
+        Cache<String,Wine> cache = this.getNeverRefresCache();
         Wine wine = new Wine( "bordeaux", "west/south of France" );
         String key = wine.getName();
         cache.put( key, wine );
         //Thread.sleep( 1200 );
-        Object o = cache.get( key );
+        Wine o = cache.get( key );
         assertNotNull( o );
         assertEquals( wine.hashCode(), o.hashCode() );
     }
 
-    public abstract Cache getOneSecondRefresCache()
+    public abstract Cache<String,Wine> getOneSecondRefresCache()
         throws Exception;
 
     @Test
     public void testOneSecondRefresh()
         throws Exception
     {
-        Cache cache = this.getOneSecondRefresCache();
+        Cache<String,Wine> cache = this.getOneSecondRefresCache();
         Wine wine = new Wine( "bordeaux", "west/south of France" );
         String key = wine.getName();
         cache.put( key, wine );
@@ -207,19 +207,19 @@ public abstract class AbstractCacheTestCase
         assertNull( cache.get( key ) );
     }
 
-    public abstract Cache getTwoSecondRefresCache()
+    public abstract Cache<String,Wine> getTwoSecondRefresCache()
         throws Exception;
 
     @Test
     public void testTwoSecondRefresh()
         throws Exception
     {
-        Cache cache = this.getTwoSecondRefresCache();
+        Cache<String,Wine> cache = this.getTwoSecondRefresCache();
         Wine wine = new Wine( "bordeaux", "west/south of France" );
         String key = wine.getName();
         cache.put( key, wine );
         Thread.sleep( 500 );
-        Object o = cache.get( key );
+        Wine o = cache.get( key );
         assertNotNull( o );
         assertEquals( wine.hashCode(), o.hashCode() );
     }
@@ -229,7 +229,7 @@ public abstract class AbstractCacheTestCase
     @Test
     public void testCacheFactory() throws CacheException
     {
-        Cache cache = CacheFactory.getInstance().getCache( "foo-factory-test", null );
+        Cache<String,Integer> cache = CacheFactory.getInstance().getCache( "foo-factory-test", null );
 
         // This test is only here to ensure that the provider implements a Creator class.
         assertNotNull( "Cache should not be null", cache );
@@ -242,7 +242,7 @@ public abstract class AbstractCacheTestCase
         Integer fooInt = Integer.valueOf( 42 );
         cache.put( "foo", fooInt );
 
-        Integer val = (Integer) cache.get( "foo" );
+        Integer val = cache.get( "foo" );
         assertEquals( 42, val.intValue() );
 
         assertNull( cache.get( "bar" ) );
