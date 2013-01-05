@@ -143,23 +143,4 @@
       </plugin>
     </plugins>
   </build>
-
-  <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <configuration combine.self="append">
-          <additionnalDependencies>
-            <additionnalDependency>
-              <groupId>javax.servlet</groupId>
-              <artifactId>servlet-api</artifactId>
-              <version>2.5</version>
-            </additionnalDependency>
-          </additionnalDependencies>
-        </configuration>
-      </plugin>
-    </plugins>
-  </reporting>
- 
 </project>
