@@ -73,6 +73,8 @@ public class CommonsConfigurationRegistry
 
     private Logger logger = LoggerFactory.getLogger( getClass() );
 
+    private String propertyDelimiter = "@@";
+
     /**
      * The configuration properties for the registry. This should take the format of an input to the Commons
      * Configuration
@@ -375,7 +377,7 @@ public class CommonsConfigurationRegistry
                 {
                     DefaultConfigurationBuilder builder = new DefaultConfigurationBuilder();
                     DefaultExpressionEngine expressionEngine = new DefaultExpressionEngine();
-                    expressionEngine.setPropertyDelimiter( "@@" );
+                    expressionEngine.setPropertyDelimiter( propertyDelimiter );
                     builder.setExpressionEngine( expressionEngine );
 
                     StringSearchInterpolator interpolator = new StringSearchInterpolator( "${", "}" );
@@ -419,5 +421,15 @@ public class CommonsConfigurationRegistry
         CombinedConfiguration combinedConfiguration = (CombinedConfiguration) configuration;
         Configuration configuration = combinedConfiguration.getConfiguration( name );
         return configuration == null ? null : new CommonsConfigurationRegistry( configuration );
+    }
+
+    public String getPropertyDelimiter()
+    {
+        return propertyDelimiter;
+    }
+
+    public void setPropertyDelimiter( String propertyDelimiter )
+    {
+        this.propertyDelimiter = propertyDelimiter;
     }
 }
