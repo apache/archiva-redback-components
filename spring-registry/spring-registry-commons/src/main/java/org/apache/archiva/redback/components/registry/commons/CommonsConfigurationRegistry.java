@@ -60,9 +60,8 @@ import java.util.Set;
  * the format of an input to the Commons Configuration
  * <a href="http://jakarta.apache.org/commons/configuration/howto_configurationbuilder.html">configuration
  * builder</a>.
- *
  */
-@Service("commons-configuration")
+@Service( "commons-configuration" )
 public class CommonsConfigurationRegistry
     implements Registry
 {
@@ -73,7 +72,7 @@ public class CommonsConfigurationRegistry
 
     private Logger logger = LoggerFactory.getLogger( getClass() );
 
-    private String propertyDelimiter = "@@";
+    private String propertyDelimiter = ".";
 
     /**
      * The configuration properties for the registry. This should take the format of an input to the Commons
@@ -191,13 +190,13 @@ public class CommonsConfigurationRegistry
         configuration.addConfigurationListener( new ConfigurationListenerDelegate( listener, this ) );
     }
 
-    public Collection getKeys()
+    public Collection<String> getKeys()
     {
-        Set keys = new HashSet();
+        Set<String> keys = new HashSet<String>();
 
-        for ( Iterator i = configuration.getKeys(); i.hasNext(); )
+        for ( Iterator<String> i = configuration.getKeys(); i.hasNext(); )
         {
-            String key = (String) i.next();
+            String key = i.next();
 
             int index = key.indexOf( '.' );
             if ( index < 0 )
@@ -208,6 +207,18 @@ public class CommonsConfigurationRegistry
             {
                 keys.add( key.substring( 0, index ) );
             }
+        }
+
+        return keys;
+    }
+
+    public Collection getFullKeys()
+    {
+        Set<String> keys = new HashSet<String>();
+
+        for ( Iterator<String> i = configuration.getKeys(); i.hasNext(); )
+        {
+            keys.add( i.next() );
         }
 
         return keys;
@@ -371,7 +382,7 @@ public class CommonsConfigurationRegistry
         try
         {
             CombinedConfiguration configuration;
-            if ( StringUtils.isNotBlank( properties) )
+            if ( StringUtils.isNotBlank( properties ) )
             {
                 try
                 {
@@ -386,9 +397,11 @@ public class CommonsConfigurationRegistry
 
                     String interpolatedProps = interpolator.interpolate( properties );
 
-                    logger.debug( "Loading configuration into commons-configuration, xml {}",interpolatedProps );
+                    logger.debug( "Loading configuration into commons-configuration, xml {}", interpolatedProps );
                     builder.load( new StringReader( interpolatedProps ) );
                     configuration = builder.getConfiguration( false );
+                    configuration.setExpressionEngine( expressionEngine );
+                    //configuration.set
                 }
                 catch ( InterpolationException e )
                 {
