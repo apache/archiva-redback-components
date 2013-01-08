@@ -31,6 +31,7 @@ import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.commons.configuration.SystemConfiguration;
 import org.apache.commons.configuration.XMLConfiguration;
 import org.apache.commons.configuration.event.EventSource;
+import org.apache.commons.configuration.tree.DefaultExpressionEngine;
 import org.apache.commons.lang.StringUtils;
 import org.codehaus.plexus.interpolation.InterpolationException;
 import org.codehaus.plexus.interpolation.PropertiesBasedValueSource;
@@ -373,6 +374,9 @@ public class CommonsConfigurationRegistry
                 try
                 {
                     DefaultConfigurationBuilder builder = new DefaultConfigurationBuilder();
+                    DefaultExpressionEngine expressionEngine = new DefaultExpressionEngine();
+                    expressionEngine.setPropertyDelimiter( "@@" );
+                    builder.setExpressionEngine( expressionEngine );
 
                     StringSearchInterpolator interpolator = new StringSearchInterpolator( "${", "}" );
                     // interpolation as plexus did it before
