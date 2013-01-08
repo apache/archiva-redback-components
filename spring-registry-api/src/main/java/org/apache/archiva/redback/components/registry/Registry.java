@@ -228,7 +228,14 @@ public interface Registry
      *
      * @return the set of keys
      */
-    Collection getKeys();
+    Collection<String> getKeys();
+
+    /**
+     * Get all the keys in this registry.
+     *
+     * @return the set of keys
+     */
+    Collection<String> getFullKeys();
 
     /**
      * Remove a keyed element from the registry.
