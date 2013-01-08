@@ -232,7 +232,7 @@ public interface Registry
 
     /**
      * Get all the keys in this registry.
-     *
+     * @since 2.1
      * @return the set of keys
      */
     Collection<String> getFullKeys();
