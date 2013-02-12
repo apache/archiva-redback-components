@@ -101,6 +101,11 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-simple</artifactId>
       <version>${slf4jVersion}</version>
@@ -139,6 +144,7 @@
           <systemPropertyVariables>
             <registryVersion>${project.version}</registryVersion>
             <slf4jVersion>${slf4jVersion}</slf4jVersion>
+            <springVersion>${springVersion}</springVersion>
           </systemPropertyVariables>
         </configuration>
       </plugin>

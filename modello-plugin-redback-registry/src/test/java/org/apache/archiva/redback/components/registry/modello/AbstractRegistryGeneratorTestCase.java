@@ -87,6 +87,7 @@ public abstract class AbstractRegistryGeneratorTestCase
         addDependency( "commons-configuration", "commons-configuration", "1.8" );
         addDependency( "commons-lang", "commons-lang", "2.6" );
         addDependency( "commons-logging", "commons-logging-api", "1.0.4" );
+        addDependency( "org.springframework","spring-context", System.getProperty( "springVersion" ) );
         addDependency( "org.codehaus.plexus", "plexus-interpolation", "1.14" );
         addDependency( "org.slf4j", "slf4j-api", System.getProperty( "slf4jVersion" ) );
         addDependency( "org.slf4j", "slf4j-simple", System.getProperty( "slf4jVersion" ) );
@@ -147,6 +148,6 @@ public abstract class AbstractRegistryGeneratorTestCase
             }
         }
 
-        assertEquals( "There was compilation errors.", 0, error );
+        assertEquals( "There was compilation errors.:" + messages, 0, error );
     }
 }
