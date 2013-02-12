@@ -62,8 +62,10 @@ import ${class.packageName}.${class.name};
 #end
 
 #macro ( writeValueChecker $type $value $field )
-#if ( $type == "boolean" || $type == "double" || $type == "float" || $type == "int" || $type == "long" || $type == "short" )
+#if ( $type == "double" || $type == "float" || $type == "int" || $type == "long" || $type == "short" )
 $value != $field.defaultValue
+#elseif ( $type == "boolean" )
+
 #elseif ( $type == "char" )
 $value != '$field.defaultValue'
 #elseif ( $type == "java.util.List" || $type == "java.util.Set" || $type == "java.util.Map" || $type == "java.util.Properties" )
@@ -97,11 +99,15 @@ public class ${model.name}RegistryWriter
 #set ( $uncapFieldName = $javaTool.uncapitalise($field.name) )
 #set ( $value = "value.${javaTool.makeGetter( $field )}()" )
 #if ( $field.primitive )
+      #if ($field.type != "boolean")
             if ( #writeValueChecker( $field.type $value $field ) )
             {
-                String name = "$uncapFieldName";
-#writePrimitive( $field.type $value "name" )
+      #end
+                String $uncapFieldName = "$uncapFieldName";
+#writePrimitive( $field.type $value $uncapFieldName )
+      #if ($field.type != "boolean")
             }
+      #end
 #else
 #set ( $assoc = $field )
 #if ( $assoc.multiplicity == "1" )

@@ -29,6 +29,7 @@ import org.apache.archiva.redback.components.registry.Registry;
 
 import junit.framework.Assert;
 
+import java.lang.AssertionError;
 import java.util.*;
 
 /**
@@ -126,15 +127,9 @@ public class RegistryWriterVerifier
             // expected
         }
 
-        try
-        {
-            registry.getBoolean( "defBoolean" );
-            Assert.fail();
-        }
-        catch ( NoSuchElementException e )
-        {
-            // expected
-        }
+
+        Assert.assertTrue( registry.getBoolean( "defBoolean" ) );
+
 
         // test removing an element from a list [MODELLO-84]
         model.getListReferences().remove( 0 );
