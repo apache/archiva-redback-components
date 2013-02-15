@@ -58,6 +58,7 @@
     <module>modello-plugin-store</module>
     <module>modello-plugin-jpox</module>
     <module>modello-plugin-redback-registry</module>
+    <module>jpox-modello-maven-plugin</module>
   </modules>
 
   <dependencyManagement>
@@ -91,5 +92,18 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+
+  <repositories>
+    <repository>
+      <id>modello.snapshots</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
 
 </project>
