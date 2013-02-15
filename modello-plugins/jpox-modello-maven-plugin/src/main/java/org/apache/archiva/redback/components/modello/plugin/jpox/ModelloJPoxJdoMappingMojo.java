@@ -30,7 +30,7 @@ import java.util.Properties;
 /**
  * Creates a JDO mapping from the Modello model.
  *
- * @author Olivier Lamy
+ * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
  */
 @Mojo( name = "jpox-jdo-mapping", defaultPhase = LifecyclePhase.GENERATE_RESOURCES )
 public class ModelloJPoxJdoMappingMojo
