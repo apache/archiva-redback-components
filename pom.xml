@@ -56,7 +56,7 @@
     <module>spring-apacheds</module>
     <module>spring-utils</module>
     <module>redback-features</module>
-    <!--module>modello-plugins</module-->
+    <module>modello-plugins</module>
   </modules>
   <build>
     <plugins>
