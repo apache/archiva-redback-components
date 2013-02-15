@@ -46,7 +46,6 @@
   <modules>
     <module>spring-registry-api</module>
     <module>spring-registry-commons</module>
-    <module>modello-plugin-redback-registry</module>
   </modules>
   <dependencyManagement>
     <dependencies>
