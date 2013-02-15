@@ -48,6 +48,11 @@
       <artifactId>modello-maven-plugin</artifactId>
       <version>${modelloVersion}</version>
     </dependency>
+    <dependency>
+      <groupId>org.apache.archiva.redback.components.modello</groupId>
+      <artifactId>modello-plugin-jpox</artifactId>
+      <scope>runtime</scope>
+    </dependency>
   </dependencies>
 
   <build>
