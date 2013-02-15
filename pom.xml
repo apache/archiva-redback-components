@@ -57,6 +57,7 @@
     <module>modello-db-keywords</module>
     <module>modello-plugin-store</module>
     <module>modello-plugin-jpox</module>
+    <module>modello-plugin-redback-registry</module>
   </modules>
 
   <dependencyManagement>
