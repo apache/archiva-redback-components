@@ -24,6 +24,9 @@ import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Element;
 import net.sf.ehcache.Status;
 import net.sf.ehcache.config.CacheConfiguration;
+import net.sf.ehcache.config.Configuration;
+import net.sf.ehcache.config.DiskStoreConfiguration;
+import net.sf.ehcache.config.PersistenceConfiguration;
 import net.sf.ehcache.store.MemoryStoreEvictionPolicy;
 import org.apache.archiva.redback.components.cache.CacheStatistics;
 import org.slf4j.Logger;
@@ -38,8 +41,8 @@ import javax.annotation.PreDestroy;
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
  */
-public class EhcacheCache<V,T>
-    implements org.apache.archiva.redback.components.cache.Cache<V,T>
+public class EhcacheCache<V, T>
+    implements org.apache.archiva.redback.components.cache.Cache<V, T>
 {
 
     private Logger log = LoggerFactory.getLogger( getClass() );
@@ -161,9 +164,14 @@ public class EhcacheCache<V,T>
      */
     private int maxElementsOnDisk;
 
+    /**
+     * @since 2.1
+     */
+    private boolean synchronousWrites = false;
+
     private boolean statisticsEnabled = true;
 
-    private CacheManager cacheManager = CacheManager.getInstance();
+    private CacheManager cacheManager = null;//CacheManager.getInstance();
 
     private net.sf.ehcache.Cache ehcache;
 
@@ -179,6 +187,25 @@ public class EhcacheCache<V,T>
     public void initialize()
     {
         stats = new Stats();
+
+        boolean cacheManagerExists = CacheManager.getCacheManager( getName() ) != null;
+
+        if ( cacheManagerExists )
+        {
+            if ( failOnDuplicateCache )
+            {
+                throw new RuntimeException( "A previous cacheManager with name [" + getName() + "] exists." );
+            }
+            else
+            {
+                log.warn( "skip duplicate cache " + getName() );
+                cacheManager = CacheManager.getCacheManager( getName() );
+            }
+        }
+        else
+        {
+            this.cacheManager = new CacheManager( new Configuration().name( getName() ) );
+        }
 
         boolean cacheExists = cacheManager.cacheExists( getName() );
 
@@ -198,12 +225,11 @@ public class EhcacheCache<V,T>
         if ( !cacheExists )
         {
             CacheConfiguration cacheConfiguration = new CacheConfiguration().name( getName() ).maxEntriesLocalHeap(
-                getMaxElementsInMemory() ).memoryStoreEvictionPolicy( getMemoryStoreEvictionPolicy() ).overflowToDisk(
-                isOverflowToDisk() ).diskStorePath( getDiskStorePath() ).eternal( isEternal() ).timeToLiveSeconds(
-                getTimeToLiveSeconds() ).timeToIdleSeconds( getTimeToIdleSeconds() ).diskPersistent(
-                isDiskPersistent() ).diskExpiryThreadIntervalSeconds(
+                getMaxElementsInMemory() ).memoryStoreEvictionPolicy( getMemoryStoreEvictionPolicy() ).eternal(
+                isEternal() ).timeToLiveSeconds( getTimeToLiveSeconds() ).timeToIdleSeconds(
+                getTimeToIdleSeconds() ).diskExpiryThreadIntervalSeconds(
                 getDiskExpiryThreadIntervalSeconds() ).overflowToOffHeap( isOverflowToOffHeap() ).maxEntriesLocalDisk(
-                maxElementsOnDisk );
+                getMaxElementsOnDisk() ).overflowToDisk( isOverflowToDisk() ).diskPersistent( diskPersistent );
 
             if ( getMaxBytesLocalHeap() > 0 )
             {
@@ -374,7 +400,6 @@ public class EhcacheCache<V,T>
     }
 
 
-
     public void setMaxElementsInMemory( int maxElementsInMemory )
     {
         this.maxElementsInMemory = maxElementsInMemory;
@@ -482,5 +507,15 @@ public class EhcacheCache<V,T>
             this.ehcache.getCacheConfiguration().setMaxElementsOnDisk( this.maxElementsOnDisk );
             this.ehcache.getCacheConfiguration().maxEntriesLocalDisk( this.maxElementsOnDisk );
         }
+    }
+
+    public boolean isSynchronousWrites()
+    {
+        return synchronousWrites;
+    }
+
+    public void setSynchronousWrites( boolean synchronousWrites )
+    {
+        this.synchronousWrites = synchronousWrites;
     }
 }
