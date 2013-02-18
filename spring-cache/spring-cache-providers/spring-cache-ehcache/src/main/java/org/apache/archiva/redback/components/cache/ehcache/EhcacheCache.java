@@ -164,11 +164,6 @@ public class EhcacheCache<V, T>
      */
     private int maxElementsOnDisk;
 
-    /**
-     * @since 2.1
-     */
-    private boolean synchronousWrites = false;
-
     private boolean statisticsEnabled = true;
 
     private CacheManager cacheManager = null;//CacheManager.getInstance();
@@ -507,15 +502,5 @@ public class EhcacheCache<V, T>
             this.ehcache.getCacheConfiguration().setMaxElementsOnDisk( this.maxElementsOnDisk );
             this.ehcache.getCacheConfiguration().maxEntriesLocalDisk( this.maxElementsOnDisk );
         }
-    }
-
-    public boolean isSynchronousWrites()
-    {
-        return synchronousWrites;
-    }
-
-    public void setSynchronousWrites( boolean synchronousWrites )
-    {
-        this.synchronousWrites = synchronousWrites;
     }
 }
