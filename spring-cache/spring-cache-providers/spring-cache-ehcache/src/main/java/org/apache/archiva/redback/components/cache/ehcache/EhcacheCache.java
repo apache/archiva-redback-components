@@ -26,7 +26,7 @@ import net.sf.ehcache.Status;
 import net.sf.ehcache.config.CacheConfiguration;
 import net.sf.ehcache.config.Configuration;
 import net.sf.ehcache.config.DiskStoreConfiguration;
-import net.sf.ehcache.config.PersistenceConfiguration;
+import net.sf.ehcache.config.MemoryUnit;
 import net.sf.ehcache.store.MemoryStoreEvictionPolicy;
 import org.apache.archiva.redback.components.cache.CacheStatistics;
 import org.slf4j.Logger;
@@ -65,7 +65,7 @@ public class EhcacheCache<V, T>
                 return 0.0;
             }
 
-            return (double) hits / (double) ( hits + miss );
+            return hits / ( hits + miss );
         }
 
         public long getCacheHits()
@@ -112,7 +112,7 @@ public class EhcacheCache<V, T>
     /**
      *
      */
-    private int maxElementsInMemory = 1000;
+    private int maxElementsInMemory = 0;
 
     /**
      *
@@ -164,6 +164,16 @@ public class EhcacheCache<V, T>
      */
     private int maxElementsOnDisk;
 
+    /**
+     * @since 2.1
+     */
+    //private String persistenceStrategy = PersistenceConfiguration.Strategy.LOCALTEMPSWAP.name();
+
+    /**
+     * @since 2.1
+     */
+    //private boolean synchronousWrites = false;
+
     private boolean statisticsEnabled = true;
 
     private CacheManager cacheManager = null;//CacheManager.getInstance();
@@ -199,7 +209,8 @@ public class EhcacheCache<V, T>
         }
         else
         {
-            this.cacheManager = new CacheManager( new Configuration().name( getName() ) );
+            this.cacheManager = new CacheManager( new Configuration().name( getName() ).diskStore(
+                new DiskStoreConfiguration().path( getDiskStorePath() ) ) );
         }
 
         boolean cacheExists = cacheManager.cacheExists( getName() );
@@ -219,20 +230,28 @@ public class EhcacheCache<V, T>
 
         if ( !cacheExists )
         {
-            CacheConfiguration cacheConfiguration = new CacheConfiguration().name( getName() ).maxEntriesLocalHeap(
-                getMaxElementsInMemory() ).memoryStoreEvictionPolicy( getMemoryStoreEvictionPolicy() ).eternal(
-                isEternal() ).timeToLiveSeconds( getTimeToLiveSeconds() ).timeToIdleSeconds(
-                getTimeToIdleSeconds() ).diskExpiryThreadIntervalSeconds(
-                getDiskExpiryThreadIntervalSeconds() ).overflowToOffHeap( isOverflowToOffHeap() ).maxEntriesLocalDisk(
-                getMaxElementsOnDisk() ).overflowToDisk( isOverflowToDisk() ).diskPersistent( diskPersistent );
+            CacheConfiguration cacheConfiguration =
+                new CacheConfiguration().name( getName() ).memoryStoreEvictionPolicy(
+                    getMemoryStoreEvictionPolicy() ).eternal( isEternal() ).timeToLiveSeconds(
+                    getTimeToLiveSeconds() ).timeToIdleSeconds(
+                    getTimeToIdleSeconds() ).diskExpiryThreadIntervalSeconds(
+                    getDiskExpiryThreadIntervalSeconds() ).overflowToOffHeap(
+                    isOverflowToOffHeap() ).maxEntriesLocalDisk( getMaxElementsOnDisk() ).diskPersistent(
+                    isDiskPersistent() ).overflowToDisk( overflowToDisk );
+
+            if ( getMaxElementsInMemory() > 0 )
+            {
+                cacheConfiguration = cacheConfiguration.maxEntriesLocalHeap( getMaxElementsInMemory() );
+            }
 
             if ( getMaxBytesLocalHeap() > 0 )
             {
-                cacheConfiguration.setMaxBytesLocalHeap( getMaxBytesLocalHeap() );
+                cacheConfiguration = cacheConfiguration.maxBytesLocalHeap( getMaxBytesLocalHeap(), MemoryUnit.BYTES );
             }
             if ( getMaxBytesLocalOffHeap() > 0 )
             {
-                cacheConfiguration.setMaxBytesLocalOffHeap( getMaxBytesLocalOffHeap() );
+                cacheConfiguration =
+                    cacheConfiguration.maxBytesLocalOffHeap( getMaxBytesLocalOffHeap(), MemoryUnit.BYTES );
             }
 
             ehcache = new Cache( cacheConfiguration );
@@ -503,4 +522,24 @@ public class EhcacheCache<V, T>
             this.ehcache.getCacheConfiguration().maxEntriesLocalDisk( this.maxElementsOnDisk );
         }
     }
+
+    /*public String getPersistenceStrategy()
+    {
+        return persistenceStrategy;
+    }
+
+    public void setPersistenceStrategy( String persistenceStrategy )
+    {
+        this.persistenceStrategy = persistenceStrategy;
+    }
+
+    public boolean isSynchronousWrites()
+    {
+        return synchronousWrites;
+    }
+
+    public void setSynchronousWrites( boolean synchronousWrites )
+    {
+        this.synchronousWrites = synchronousWrites;
+    }*/
 }
