@@ -29,12 +29,12 @@
   <artifactId>modello-plugin-redback-registry</artifactId>
   <name>Redback Registry Reader/Writer</name>
 
-  <url>http://archiva.apache.org/redback/components/spring-registry/${project.artifactId}</url>
+  <url>http://archiva.apache.org/redback/components/modello-plugins/${project.artifactId}</url>
 
   <distributionManagement>
     <site>
       <id>apache.website</id>
-      <url>file://${user.home}/redback-components-site-deploy/spring-registry/${project.artifactId}</url>
+      <url>file://${user.home}/redback-components-site-deploy/modello-plugins/${project.artifactId}</url>
     </site>
   </distributionManagement>
 

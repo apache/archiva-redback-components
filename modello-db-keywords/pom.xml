@@ -27,6 +27,16 @@
   <artifactId>modello-db-keywords</artifactId>
   <name>Modello Database Keywords Library</name>
   <packaging>jar</packaging>
+
+  <url>http://archiva.apache.org/redback/components/modello-plugins/${project.artifactId}</url>
+
+  <distributionManagement>
+    <site>
+      <id>apache.website</id>
+      <url>file://${user.home}/redback-components-site-deploy/modello-plugins/${project.artifactId}</url>
+    </site>
+  </distributionManagement>
+
   <dependencies>
     <dependency>
       <groupId>org.codehaus.modello</groupId>
