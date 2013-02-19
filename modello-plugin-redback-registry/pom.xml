@@ -52,18 +52,15 @@
     <dependency>
       <groupId>org.codehaus.modello</groupId>
       <artifactId>modello-test</artifactId>
-      <version>${modelloVersion}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.codehaus.modello</groupId>
       <artifactId>modello-core</artifactId>
-      <version>${modelloVersion}</version>
     </dependency>
     <dependency>
       <groupId>org.codehaus.modello</groupId>
       <artifactId>modello-plugin-java</artifactId>
-      <version>${modelloVersion}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
