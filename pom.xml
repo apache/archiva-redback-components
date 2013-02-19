@@ -32,6 +32,8 @@
     <relativePath>../../parent/pom.xml</relativePath>
   </parent>
 
+  <description>Utilities component used by Archiva and Continuum.</description>
+
   <properties>
     <scmPubCheckoutDirectory>${user.home}/redback-components-site-content</scmPubCheckoutDirectory>
     <siteDeployPath>${user.home}/redback-components-site-deploy</siteDeployPath>
