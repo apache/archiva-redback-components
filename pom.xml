@@ -25,13 +25,6 @@
   <version>1.0-SNAPSHOT</version>
   <name>Apache Archiva Redback Components Aggregator</name>
 
-  <parent>
-    <groupId>org.apache.archiva</groupId>
-    <artifactId>archiva-parent</artifactId>
-    <version>10-SNAPSHOT</version>
-    <relativePath>../parent/pom.xml</relativePath>
-  </parent>
-
   <properties>
     <scmPubCheckoutDirectory>${user.home}/redback-components-site-content</scmPubCheckoutDirectory>
     <siteDeployPath>${user.home}/redback-components-site-deploy</siteDeployPath>
