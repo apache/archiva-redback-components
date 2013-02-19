@@ -36,6 +36,8 @@
 
   <url>http://archiva.apache.org/redback/components/${project.artifactId}</url>
 
+  <description>Modello extensions used by Archiva and Continuum.</description>
+
   <properties>
     <modelloVersion>1.7</modelloVersion>
   </properties>
