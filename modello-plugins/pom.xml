@@ -37,7 +37,7 @@
   <url>http://archiva.apache.org/redback/components/${project.artifactId}</url>
 
   <properties>
-    <modelloVersion>1.7-SNAPSHOT</modelloVersion>
+    <modelloVersion>1.7</modelloVersion>
   </properties>
 
   <distributionManagement>
