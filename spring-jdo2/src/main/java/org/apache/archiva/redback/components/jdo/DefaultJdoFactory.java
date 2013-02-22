@@ -77,7 +77,7 @@ public class DefaultJdoFactory
             }
 
             //TODO: Class.forName is evil
-            Class.forName( driverClass );
+            Thread.currentThread().getContextClassLoader().loadClass( driverClass );
         }
         catch ( ClassNotFoundException e )
         {
