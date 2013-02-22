@@ -76,7 +76,6 @@ public class DefaultJdoFactory
                 throw new RuntimeException( "Property " + CONNECTION_DRIVER_NAME + " was not set in JDO Factory." );
             }
 
-            //TODO: Class.forName is evil
             Thread.currentThread().getContextClassLoader().loadClass( driverClass );
         }
         catch ( ClassNotFoundException e )
