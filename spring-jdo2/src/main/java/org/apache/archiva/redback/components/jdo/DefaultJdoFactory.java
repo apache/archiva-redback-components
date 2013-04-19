@@ -26,6 +26,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManagerFactory;
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
@@ -33,7 +34,6 @@ import java.util.Properties;
 /**
  * @author David Wynter
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
- *
  */
 public class DefaultJdoFactory
     implements JdoFactory
@@ -70,7 +70,7 @@ public class DefaultJdoFactory
         try
         {
             driverClass = (String) properties.get( CONNECTION_DRIVER_NAME );
-            
+
             if ( driverClass == null )
             {
                 throw new RuntimeException( "Property " + CONNECTION_DRIVER_NAME + " was not set in JDO Factory." );
@@ -109,6 +109,8 @@ public class DefaultJdoFactory
                         databasePath = databasePath.substring( 0, databasePath.indexOf( ';' ) );
                     }
 
+                    Connection connection = null;
+
                     try
                     {
                         /* shutdown the database */
@@ -120,6 +122,20 @@ public class DefaultJdoFactory
                          * In Derby, any request to the DriverManager with a shutdown=true attribute raises an exception.
                          * http://db.apache.org/derby/manuals/reference/sqlj251.html
                          */
+                    }
+                    finally
+                    {
+                        if ( connection != null )
+                        {
+                            try
+                            {
+                                connection.close();
+                            }
+                            catch ( SQLException e )
+                            {
+                                // ignore
+                            }
+                        }
                     }
 
                     System.gc();

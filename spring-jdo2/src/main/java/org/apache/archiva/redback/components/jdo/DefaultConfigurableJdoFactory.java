@@ -19,6 +19,7 @@ package org.apache.archiva.redback.components.jdo;
  * under the License.
  */
 
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Iterator;
@@ -27,7 +28,6 @@ import java.util.Properties;
 
 /**
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
- *
  */
 public class DefaultConfigurableJdoFactory
     extends AbstractConfigurableJdoFactory
@@ -80,6 +80,8 @@ public class DefaultConfigurableJdoFactory
                     databasePath = databasePath.substring( 0, databasePath.indexOf( ';' ) );
                 }
 
+                Connection connection = null;
+
                 try
                 {
                     /* shutdown the database */
@@ -92,6 +94,20 @@ public class DefaultConfigurableJdoFactory
                      * http://db.apache.org/derby/manuals/reference/sqlj251.html
                      */
                 }
+                finally
+                {
+                    if ( connection != null )
+                    {
+                        try
+                        {
+                            connection.close();
+                        }
+                        catch ( SQLException e )
+                        {
+                            // ignore
+                        }
+                    }
+                }
 
                 System.gc();
             }
@@ -101,7 +117,7 @@ public class DefaultConfigurableJdoFactory
 
     public Properties getProperties()
     {
-        synchronized( configured )
+        synchronized ( configured )
         {
             if ( configured == Boolean.TRUE )
             {
@@ -118,7 +134,8 @@ public class DefaultConfigurableJdoFactory
                     properties.setProperty( (String) entry.getKey(), (String) entry.getValue() );
                 }
 
-                setPropertyInner( properties, "javax.jdo.PersistenceManagerFactoryClass", persistenceManagerFactoryClass );
+                setPropertyInner( properties, "javax.jdo.PersistenceManagerFactoryClass",
+                                  persistenceManagerFactoryClass );
                 setPropertyInner( properties, "javax.jdo.option.ConnectionDriverName", driverName );
                 setPropertyInner( properties, "javax.jdo.option.ConnectionURL", url );
                 setPropertyInner( properties, "javax.jdo.option.ConnectionUserName", userName );
