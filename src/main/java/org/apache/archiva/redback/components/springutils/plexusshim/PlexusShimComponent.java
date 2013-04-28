@@ -26,7 +26,9 @@ import org.codehaus.plexus.PlexusContainerException;
 import org.codehaus.plexus.classworlds.ClassWorld;
 import org.codehaus.plexus.classworlds.realm.ClassRealm;
 import org.codehaus.plexus.component.repository.exception.ComponentLookupException;
+import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.net.URL;
 import java.util.List;
 
@@ -37,6 +39,7 @@ import java.util.List;
  *
  * @author Olivier Lamy
  */
+@Service
 public class PlexusShimComponent
 {
 
@@ -50,7 +53,7 @@ public class PlexusShimComponent
 
     private DefaultPlexusContainer plexusContainer;
 
-
+    @PostConstruct
     public void initialize()
         throws PlexusContainerException
     {
