@@ -35,7 +35,7 @@
   <description>Utilities component used by Archiva and Continuum.</description>
 
   <properties>
-    <scmPubCheckoutDirectory>${user.home}/redback-components-site-content</scmPubCheckoutDirectory>
+    <scmPubCheckoutDirectory>.site-content</scmPubCheckoutDirectory>
     <siteDeployPath>${user.home}/redback-components-site-deploy</siteDeployPath>
     <scmTryUpdate>true</scmTryUpdate>
   </properties>
@@ -43,7 +43,7 @@
   <distributionManagement>
     <site>
       <id>apache.website</id>
-      <url>file://${user.home}/redback-components-site-deploy</url>
+      <url>scm:svn:https://svn.apache.org/repos/asf/archiva/site-content/redback/components</url>
     </site>
   </distributionManagement>
 
@@ -76,7 +76,7 @@
         <configuration>
           <checkinComment>Apache Redback Components site deployment</checkinComment>
           <tryUpdate>${scmTryUpdate}</tryUpdate>
-          <content>${user.home}/redback-components-site-deploy</content>
+          <content>${project.build.directory}/staging</content>
           <pubScmUrl>scm:svn:https://svn.apache.org/repos/asf/archiva/site-content/redback/components</pubScmUrl>
         </configuration>
       </plugin>
