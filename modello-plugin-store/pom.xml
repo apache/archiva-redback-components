@@ -28,6 +28,14 @@
   <name>Modello Store Plugin</name>
   <packaging>jar</packaging>
 
+  <distributionManagement>
+    <site>
+      <id>apache.website</id>
+      <url>scm:svn:https://svn.apache.org/repos/asf/archiva/site-content/redback/components/modello-plugins/${project.artifactId}</url>
+    </site>
+  </distributionManagement>
+
+
   <dependencies>
     <dependency>
       <groupId>org.codehaus.modello</groupId>
