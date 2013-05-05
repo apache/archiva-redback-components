@@ -42,11 +42,10 @@
     <modelloVersion>1.7</modelloVersion>
   </properties>
 
-
   <distributionManagement>
     <site>
       <id>apache.website</id>
-      <url>file://${user.home}/redback-components-site-deploy/${project.artifactId}</url>
+      <url>scm:svn:https://svn.apache.org/repos/asf/archiva/site-content/redback/components/${project.artifactId}</url>
     </site>
   </distributionManagement>
 

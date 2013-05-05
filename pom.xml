@@ -36,7 +36,6 @@
 
   <properties>
     <scmPubCheckoutDirectory>.site-content</scmPubCheckoutDirectory>
-    <siteDeployPath>${user.home}/redback-components-site-deploy</siteDeployPath>
     <scmTryUpdate>true</scmTryUpdate>
   </properties>
 
