@@ -33,7 +33,7 @@
   <version>2.2-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Apache Archiva Redback Components</name>
-  <url>http://archiva.apache.org/redback/components</url>
+  <url>http://archiva.apache.org/redback/components/${project.artifactId}</url>
 
   <properties>
     <commons-configuration.version>1.9</commons-configuration.version>
