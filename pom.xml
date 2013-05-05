@@ -77,6 +77,19 @@
           <tryUpdate>${scmTryUpdate}</tryUpdate>
           <content>${project.build.directory}/staging</content>
           <pubScmUrl>scm:svn:https://svn.apache.org/repos/asf/archiva/site-content/redback/components</pubScmUrl>
+          <ignorePathsToDelete>
+            <ignorePathToDelete>expression-evaluator**</ignorePathToDelete>
+            <ignorePathToDelete>modello-plugins**</ignorePathToDelete>
+            <ignorePathToDelete>redback-components**</ignorePathToDelete>
+            <ignorePathToDelete>redback-features**</ignorePathToDelete>
+            <ignorePathToDelete>spring-apacheds**</ignorePathToDelete>
+            <ignorePathToDelete>spring-cache**</ignorePathToDelete>
+            <ignorePathToDelete>spring-jdo2**</ignorePathToDelete>
+            <ignorePathToDelete>spring-quartz**</ignorePathToDelete>
+            <ignorePathToDelete>spring-registry**</ignorePathToDelete>
+            <ignorePathToDelete>spring-taskqueue**</ignorePathToDelete>
+            <ignorePathToDelete>spring-utils**</ignorePathToDelete>
+          </ignorePathsToDelete>
         </configuration>
       </plugin>
     </plugins>
