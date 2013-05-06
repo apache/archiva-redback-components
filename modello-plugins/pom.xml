@@ -30,7 +30,7 @@
 
   <groupId>org.apache.archiva.redback.components.modello</groupId>
   <artifactId>modello-plugins</artifactId>
-  <version>1.0</version>
+  <version>1.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Modello Plugins</name>
 
@@ -50,9 +50,9 @@
   </distributionManagement>
 
   <scm>
-    <connection>scm:svn:http://svn.apache.org/repos/asf/archiva/redback/redback-components/tags/modello-plugins-1.0</connection>
-    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/archiva/redback/redback-components/tags/modello-plugins-1.0</developerConnection>
-    <url>http://svn.apache.org/viewvc/archiva/redback/redback-components/tags/modello-plugins-1.0</url>
+    <connection>scm:svn:http://svn.apache.org/repos/asf/archiva/redback/redback-components/trunk/modello-plugins</connection>
+    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/archiva/redback/redback-components/trunk/modello-plugins</developerConnection>
+    <url>http://svn.apache.org/viewvc/archiva/redback/redback-components/trunk/modello-plugins</url>
   </scm>
 
   <modules>
