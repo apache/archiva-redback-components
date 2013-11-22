@@ -83,11 +83,6 @@
         <scope>test</scope>
       </dependency>
       <dependency>
-        <groupId>org.codehaus.plexus</groupId>
-        <artifactId>plexus-utils</artifactId>
-        <version>3.0.8</version>
-      </dependency>
-      <dependency>
         <groupId>org.apache.archiva.redback.components.modello</groupId>
         <artifactId>modello-plugin-store</artifactId>
         <version>${project.version}</version>
