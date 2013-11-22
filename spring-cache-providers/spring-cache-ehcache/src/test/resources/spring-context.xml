@@ -46,8 +46,8 @@
     <property name="memoryEvictionPolicy" value="LRU"/>
     <property name="name" value="alwaysrefresh"/>
     <property name="overflowToDisk" value="false"/>
-    <property name="timeToIdleSeconds" value="-1"/>
-    <property name="timeToLiveSeconds" value="-1"/>
+    <property name="timeToIdleSeconds" value="0"/>
+    <property name="timeToLiveSeconds" value="1"/>
   </bean>
 
   <bean name="cache#neverrefresh" class="org.apache.archiva.redback.components.cache.ehcache.EhcacheCache">
@@ -59,8 +59,8 @@
     <property name="memoryEvictionPolicy" value="LRU"/>
     <property name="name" value="neverrefresh"/>
     <property name="overflowToDisk" value="false"/>
-    <property name="timeToIdleSeconds" value="-1"/>
-    <property name="timeToLiveSeconds" value="-1"/>
+    <property name="timeToIdleSeconds" value="0"/>
+    <property name="timeToLiveSeconds" value="0"/>
   </bean>
 
   <bean name="cache#onesecondrefresh" class="org.apache.archiva.redback.components.cache.ehcache.EhcacheCache">
