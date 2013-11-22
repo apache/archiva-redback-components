@@ -87,7 +87,7 @@ public class EhcacheCache<V, T>
 
         public long getInMemorySize()
         {
-            return ehcache.getStatistics().getLocalHeapSize();
+            return ehcache.getStatistics().getLocalHeapSizeInBytes();
             //return ehcache.calculateInMemorySize();
         }
     }
