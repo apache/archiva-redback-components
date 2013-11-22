@@ -172,6 +172,7 @@ public abstract class AbstractCacheTestCase
         String key = wine.getName();
         Cache<String,Wine> cache = this.getAlwaysRefresCache();
         cache.put( key, wine );
+        Thread.sleep( 1001 );
         assertNull( cache.get( key ) );
     }
 

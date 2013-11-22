@@ -59,4 +59,13 @@ public class Wine
         this.name = name;
     }
 
+    @Override
+    public String toString()
+    {
+        final StringBuilder sb = new StringBuilder( "Wine{" );
+        sb.append( "name='" ).append( name ).append( '\'' );
+        sb.append( ", localisation='" ).append( localisation ).append( '\'' );
+        sb.append( '}' );
+        return sb.toString();
+    }
 }

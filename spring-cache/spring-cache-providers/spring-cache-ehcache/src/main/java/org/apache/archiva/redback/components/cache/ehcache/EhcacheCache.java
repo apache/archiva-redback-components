@@ -52,7 +52,8 @@ public class EhcacheCache<V, T>
     {
         public void clear()
         {
-            ehcache.clearStatistics();
+            // TODO not supported anymore
+            //ehcache.getStatistics().clearStatistics();
         }
 
         public double getCacheHitRate()
@@ -70,22 +71,24 @@ public class EhcacheCache<V, T>
 
         public long getCacheHits()
         {
-            return ehcache.getStatistics().getCacheHits();
+            return ehcache.getStatistics().cacheHitCount();//.getCacheHits();
         }
 
         public long getCacheMiss()
         {
-            return ehcache.getStatistics().getCacheMisses();
+            return ehcache.getStatistics().cacheMissCount();// .getCacheMisses();
         }
 
         public long getSize()
         {
-            return ehcache.getMemoryStoreSize() + ehcache.getDiskStoreSize();
+            //
+            return ehcache.getStatistics().getSize();
         }
 
         public long getInMemorySize()
         {
-            return ehcache.calculateInMemorySize();
+            return ehcache.getStatistics().getLocalHeapSize();
+            //return ehcache.calculateInMemorySize();
         }
     }
 
@@ -203,7 +206,7 @@ public class EhcacheCache<V, T>
             }
             else
             {
-                log.warn( "skip duplicate cache " + getName() );
+                log.warn( "skip duplicate cache {}", getName() );
                 cacheManager = CacheManager.getCacheManager( getName() );
             }
         }
@@ -257,7 +260,8 @@ public class EhcacheCache<V, T>
             ehcache = new Cache( cacheConfiguration );
 
             cacheManager.addCache( ehcache );
-            ehcache.setStatisticsEnabled( statisticsEnabled );
+            // TODO not supported anymore?
+            //ehcache.setStatisticsEnabled( statisticsEnabled );
         }
     }
 
