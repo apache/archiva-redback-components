@@ -18,7 +18,7 @@
   <parent>
     <groupId>org.apache.archiva.redback.components</groupId>
     <artifactId>redback-components</artifactId>
-    <version>2.1</version>
+    <version>2.2-SNAPSHOT</version>
     <relativePath>../redback-components-parent/pom.xml</relativePath>
   </parent>  
   <modelVersion>4.0.0</modelVersion>
