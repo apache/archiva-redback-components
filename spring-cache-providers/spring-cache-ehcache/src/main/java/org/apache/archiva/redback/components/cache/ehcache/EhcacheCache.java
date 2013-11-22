@@ -107,24 +107,12 @@ public class EhcacheCache<V, T>
      */
     private String diskStorePath = System.getProperty( "java.io.tmpdir" ) + "/ehcache";
 
-    /**
-     *
-     */
     private boolean eternal = false;
 
-    /**
-     *
-     */
     private int maxElementsInMemory = 0;
 
-    /**
-     *
-     */
     private String memoryEvictionPolicy = "LRU";
 
-    /**
-     *
-     */
     private String name = "cache";
 
     /**
@@ -132,14 +120,8 @@ public class EhcacheCache<V, T>
      */
     private boolean overflowToDisk = false;
 
-    /**
-     *
-     */
     private int timeToIdleSeconds = 600;
 
-    /**
-     *
-     */
     private int timeToLiveSeconds = 300;
 
     /**
@@ -157,9 +139,6 @@ public class EhcacheCache<V, T>
      */
     private long maxBytesLocalOffHeap;
 
-    /**
-     *
-     */
     private boolean failOnDuplicateCache = false;
 
     /**
