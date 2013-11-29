@@ -23,12 +23,13 @@ import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.quartz.JobBuilder;
 import org.quartz.JobDataMap;
+import org.quartz.JobDetail;
 import org.quartz.JobExecutionContext;
 import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
 import org.quartz.TriggerListener;
-import org.quartz.impl.JobDetailImpl;
 import org.quartz.impl.triggers.SimpleTriggerImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -67,9 +68,10 @@ public class SchedulerTest
 
         dataMap.put( "project", "continuum" );
 
-        JobDetailImpl jobDetail = new JobDetailImpl( "job", "group", JobOne.class );
-
-        jobDetail.setJobDataMap( dataMap );
+        JobDetail jobDetail = JobBuilder.newJob( JobOne.class )
+            .withIdentity( "job", "group" )
+            .setJobData( dataMap )
+            .build();
 
         TriggerBuilder.newTrigger();
 
