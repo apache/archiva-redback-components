@@ -29,14 +29,10 @@ import javax.inject.Inject;
  * Class to represent the configuration file for the proxy
  *
  * @author John Tolentino
- * plexus.component role="org.codehaus.plexus.scheduler.configuration.SchedulerConfiguration"
  */
 @Service
 public class SchedulerConfiguration
 {
-    /*
-     * plexus.required
-     */
     @Inject
     private Scheduler plexusScheduler;
 
