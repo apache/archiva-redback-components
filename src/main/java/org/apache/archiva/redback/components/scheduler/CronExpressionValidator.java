@@ -20,8 +20,9 @@ package org.apache.archiva.redback.components.scheduler;
  */
 
 import org.apache.commons.lang.StringUtils;
+import org.quartz.CronScheduleBuilder;
 import org.quartz.CronTrigger;
-import org.quartz.impl.triggers.CronTriggerImpl;
+import org.quartz.TriggerBuilder;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
@@ -55,9 +56,11 @@ public final class CronExpressionValidator
                 return false;
             }
 
-            CronTriggerImpl cronTrigger = new CronTriggerImpl();
+            CronTrigger cronTrigger = TriggerBuilder.newTrigger()
+                .withSchedule( CronScheduleBuilder.cronSchedule( cronExpression ) )
+                .build();
 
-            cronTrigger.setCronExpression( cronExpression );
+
 
             if ( cronParams[3].equals( "?" ) || cronParams[5].equals( "?" ) )
             {
@@ -113,7 +116,7 @@ public final class CronExpressionValidator
                 return false;
             }
         }
-        catch ( ParseException e )
+        catch ( RuntimeException e )
         {
             return false;
         }
