@@ -24,7 +24,6 @@ import org.quartz.JobListener;
 import org.quartz.SchedulerException;
 import org.quartz.Trigger;
 import org.quartz.TriggerListener;
-import org.quartz.impl.JobDetailImpl;
 
 import java.util.Properties;
 
