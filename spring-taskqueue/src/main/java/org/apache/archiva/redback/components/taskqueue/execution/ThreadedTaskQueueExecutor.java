@@ -218,8 +218,7 @@ public class ThreadedTaskQueueExecutor
                 else
                 {
                     logger.warn(
-                        "Task not cancelled (Flags: done: " + future.isDone() + " cancelled: " + future.isCancelled()
-                            + ")" );
+                        "Task not cancelled (Flags: done: {} cancelled: {})", future.isDone(), future.isCancelled() );
                 }
             }
             else

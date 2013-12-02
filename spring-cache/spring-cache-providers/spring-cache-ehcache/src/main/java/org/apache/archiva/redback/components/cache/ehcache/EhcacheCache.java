@@ -205,7 +205,7 @@ public class EhcacheCache<V, T>
             }
             else
             {
-                log.warn( "skip duplicate cache " + getName() );
+                log.warn( "skip duplicate cache {}", getName() );
                 ehcache = cacheManager.getCache( getName() );
             }
         }
