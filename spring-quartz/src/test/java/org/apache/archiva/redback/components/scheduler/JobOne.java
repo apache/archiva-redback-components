@@ -41,8 +41,7 @@ public class JobOne
         throws JobExecutionException
     {
         logger.info(
-            "    --- Testing Scheduler Component\n    --- " + context.getJobDetail().getDescription() + " executed.["
-                + new Date() + "]" );
+            "    --- Testing Scheduler Component  --- {} executed.[{}]", context.getJobDetail().getDescription(), new Date() );
 
     }
 
