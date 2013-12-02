@@ -58,8 +58,8 @@ public class DefaultScheduler
 
         if ( jobExists( jobDetail.getKey() ) )
         {
-            log.warn( "Will not schedule this job as a job {" + jobDetail.getKey().getName() + ":"
-                          + jobDetail.getKey().getGroup() + "} already exists." );
+            log.warn( "Will not schedule this job as a job ({}:{}) already exists.",
+                      jobDetail.getKey().getName(), jobDetail.getKey().getGroup() );
 
             return;
         }
