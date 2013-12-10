@@ -95,9 +95,9 @@ public class DefaultTaskQueue
             Collection<Task> toBeRemoved =
                 taskViabilityEvaluator.evaluate( Collections.unmodifiableCollection( queue ) );
 
-            for ( Iterator<Task> it2 = toBeRemoved.iterator(); it2.hasNext(); )
+            for ( Iterator<Task> it = toBeRemoved.iterator(); it.hasNext(); )
             {
-                Task t = it2.next();
+                Task t = it.next();
 
                 queue.remove( t );
             }
@@ -152,7 +152,7 @@ public class DefaultTaskQueue
         return queue.remove( task );
     }
 
-    public boolean removeAll( List tasks )
+    public boolean removeAll( List<Task> tasks )
         throws ClassCastException, NullPointerException
     {
         return queue.removeAll( tasks );
