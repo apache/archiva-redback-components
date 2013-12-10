@@ -49,14 +49,14 @@ public interface TaskQueue
     boolean remove( Task task )
         throws ClassCastException, NullPointerException;
 
-    boolean removeAll( List tasks )
+    boolean removeAll( List<Task> tasks )
         throws ClassCastException, NullPointerException;
 
     // ----------------------------------------------------------------------
     // Queue Inspection
     // ----------------------------------------------------------------------
 
-    List getQueueSnapshot()
+    List<Task> getQueueSnapshot()
         throws TaskQueueException;
 
     /**
