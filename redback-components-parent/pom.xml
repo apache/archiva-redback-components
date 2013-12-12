@@ -40,7 +40,7 @@
     <commons-lang.version>2.6</commons-lang.version>
     <slf4jVersion>1.7.5</slf4jVersion>
     <log4jVersion>2.0-beta9</log4jVersion>
-    <springVersion>3.2.5.RELEASE</springVersion>
+    <springVersion>3.2.6.RELEASE</springVersion>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
   </properties>
