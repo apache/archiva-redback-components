@@ -34,53 +34,69 @@ import org.slf4j.LoggerFactory;
  * ServiceBroker.
  *
  * @author <a href="mailto:jason@zenplex.com">Jason van Zyl</a>
- *
  */
 public abstract class AbstractJob
     implements InterruptableJob
 {
 
-    private  Logger log = LoggerFactory.getLogger( getClass() );
+    private Logger log = LoggerFactory.getLogger( getClass() );
 
-    /** JobDataMap tag for the job's logger. */
+    /**
+     * JobDataMap tag for the job's logger.
+     */
     public static final String LOGGER = "JOB_LOGGER";
-    
-    /** JobDataMap tag for the job's context. */
+
+    /**
+     * JobDataMap tag for the job's context.
+     */
     public static final String CONTEXT = "JOB_CONTEXT";
 
-    /** JobDataMap tag for the job's service broker. */
+    /**
+     * JobDataMap tag for the job's service broker.
+     */
     public static final String SERVICE_MANAGER = "JOB_SERVICE_MANAGER";
-    
-    /** JobDataMap tag for the job's configuration. */
+
+    /**
+     * JobDataMap tag for the job's configuration.
+     */
     public static final String EXECUTION_CONFIGURATION = "JOB_EXECUTION_CONFIGURATION";
 
-    /** Job Data Map */
+    /**
+     * Job Data Map
+     */
     private JobDataMap jobDataMap;
 
     private boolean interrupted;
 
-    /** Set Job Data Map */
-    public void setJobDataMap(JobDataMap jobDataMap)
+    /**
+     * Set Job Data Map
+     */
+    public void setJobDataMap( JobDataMap jobDataMap )
     {
         this.jobDataMap = jobDataMap;
     }
-    
-    /** Get Job Data Map */
+
+    /**
+     * Get Job Data Map
+     */
     public JobDataMap getJobDataMap()
     {
         return jobDataMap;
-    }        
-    
-    /** Get the Logger. */
+    }
+
+    /**
+     * Get the Logger.
+     */
     public Logger getLogger()
     {
-        return (Logger) getJobDataMap().get(LOGGER);
-    }        
+        return (Logger) getJobDataMap().get( LOGGER );
+    }
 
 
-
-    /** Execute the Job. */
-    public abstract void execute(JobExecutionContext context)
+    /**
+     * Execute the Job.
+     */
+    public abstract void execute( JobExecutionContext context )
         throws JobExecutionException;
 
     public boolean isInterrupted()
