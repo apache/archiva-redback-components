@@ -24,8 +24,8 @@ package org.apache.archiva.redback.components.taskqueue;
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
  *
  */
-public interface TaskExitEvaluator
+public interface TaskExitEvaluator<T extends Task>
 {
-    boolean evaluate( Task task )
+    boolean evaluate( T task )
         throws TaskQueueException;
 }

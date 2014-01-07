@@ -26,7 +26,7 @@ import org.apache.archiva.redback.components.taskqueue.Task;
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
  *
  */
-public interface TaskQueueExecutor
+public interface TaskQueueExecutor<T extends Task>
 {
 
     /**
@@ -34,7 +34,7 @@ public interface TaskQueueExecutor
      *
      * @return the currently executing task.
      */
-    Task getCurrentTask();
+    T getCurrentTask();
 
     /**
      * Cancels execution of this task, if it's currently running.
@@ -43,5 +43,5 @@ public interface TaskQueueExecutor
      * @param task The task to cancel
      * @return true if the task was cancelled, false if the task was not executing.
      */
-    boolean cancelTask( Task task );
+    boolean cancelTask( T task );
 }

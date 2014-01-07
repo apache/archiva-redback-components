@@ -25,8 +25,8 @@ import org.apache.archiva.redback.components.taskqueue.Task;
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
  *
  */
-public interface TaskExecutor
+public interface TaskExecutor<T extends Task>
 {
-    void executeTask( Task task )
+    void executeTask( T task )
         throws TaskExecutionException;
 }
