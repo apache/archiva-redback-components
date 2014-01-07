@@ -29,7 +29,7 @@ import java.util.concurrent.TimeUnit;
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
  *
  */
-public interface TaskQueue
+public interface TaskQueue<T extends Task>
 {
 
     // ----------------------------------------------------------------------
@@ -40,23 +40,23 @@ public interface TaskQueue
      * @param task The task to add to the queue.
      * @return Returns true if the task was accepted into the queue.
      */
-    boolean put( Task task )
+    boolean put( T task )
         throws TaskQueueException;
 
-    Task take()
+    T take()
         throws TaskQueueException;
 
-    boolean remove( Task task )
+    boolean remove( T task )
         throws ClassCastException, NullPointerException;
 
-    boolean removeAll( List<Task> tasks )
+    boolean removeAll( List<T> tasks )
         throws ClassCastException, NullPointerException;
 
     // ----------------------------------------------------------------------
     // Queue Inspection
     // ----------------------------------------------------------------------
 
-    List<Task> getQueueSnapshot()
+    List<T> getQueueSnapshot()
         throws TaskQueueException;
 
     /**
@@ -67,6 +67,6 @@ public interface TaskQueue
      * @return the head of the queue, or null if the timeout elapsed
      * @throws InterruptedException when this thread is interrupted while waiting
      */
-    Task poll( int timeout, TimeUnit timeUnit )
+    T poll( int timeout, TimeUnit timeUnit )
         throws InterruptedException;
 }

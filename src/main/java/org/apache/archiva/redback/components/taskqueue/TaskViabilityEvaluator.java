@@ -26,7 +26,7 @@ import java.util.Collection;
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
  *
  */
-public interface TaskViabilityEvaluator
+public interface TaskViabilityEvaluator<T extends Task>
 {
 
     /**
@@ -34,6 +34,6 @@ public interface TaskViabilityEvaluator
      * @return Returns a list of tasks to remove from the queue.
      * @throws TaskQueueException
      */
-    Collection<Task> evaluate( Collection<Task> tasks )
+    Collection<Task> evaluate( Collection<T> tasks )
         throws TaskQueueException;
 }

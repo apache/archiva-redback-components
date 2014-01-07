@@ -152,11 +152,12 @@ public class DefaultTaskQueue
         return queue.remove( task );
     }
 
-    public boolean removeAll( List<Task> tasks )
+    public boolean removeAll( List tasks )
         throws ClassCastException, NullPointerException
     {
         return queue.removeAll( tasks );
     }
+
 
     // ----------------------------------------------------------------------
     // Queue Inspection
