@@ -28,7 +28,7 @@
     <relativePath>../redback-components-parent/pom.xml</relativePath>
   </parent>
 
-  <version>2.1</version>
+  <version>2.2-SNAPSHOT</version>
   <artifactId>spring-utils</artifactId>
   <packaging>bundle</packaging>
   <name>Spring Utils Goodies</name>
@@ -44,9 +44,9 @@
   </distributionManagement>
 
   <scm>
-    <connection>scm:svn:http://svn.apache.org/repos/asf/archiva/redback/redback-components/tags/spring-utils-2.1</connection>
-    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/archiva/redback/redback-components/tags/spring-utils-2.1</developerConnection>
-    <url>http://svn.apache.org/viewvc/archiva/redback/redback-components/tags/spring-utils-2.1</url>
+    <connection>scm:svn:http://svn.apache.org/repos/asf/archiva/redback/redback-components/trunk/spring-utils/</connection>
+    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/archiva/redback/redback-components/trunk/spring-utils/</developerConnection>
+    <url>http://svn.apache.org/viewvc/archiva/redback/redback-components/trunk/spring-utils/</url>
   </scm>
 
   <dependencies>
