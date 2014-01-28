@@ -52,7 +52,8 @@ public class EhCacheDiskPathTest
         }
         File cacheDiskFile = new File( System.getProperty( "basedir" ), "target/ehcache-test-store-disk-int" );
         assertTrue( cacheDiskFile.exists() );
-
-        assertTrue( cacheDiskFile.length() > 0 );
+        assertTrue( cacheDiskFile.isDirectory());       
+        // length on folder return 0 on windows
+        assertTrue( cacheDiskFile.listFiles().length > 0 );
     }
 }
