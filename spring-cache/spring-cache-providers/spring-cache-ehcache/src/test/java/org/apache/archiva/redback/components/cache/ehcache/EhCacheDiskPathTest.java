@@ -19,7 +19,6 @@ package org.apache.archiva.redback.components.cache.ehcache;
  */
 
 import junit.framework.TestCase;
-import net.sf.ehcache.CacheManager;
 import org.apache.archiva.redback.components.cache.Cache;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -48,11 +47,11 @@ public class EhCacheDiskPathTest
     {
         for ( int i = 0; i < 1000; i++ )
         {
-            cache.put( Integer.toString( i ), Integer.valueOf( i ) );
+            cache.put( Integer.toString( i ), i );
         }
         File cacheDiskFile = new File( System.getProperty( "basedir" ), "target/ehcache-test-store-disk-int" );
         assertTrue( cacheDiskFile.exists() );
-        assertTrue( cacheDiskFile.isDirectory());       
+        assertTrue( cacheDiskFile.isDirectory() );       
         // length on folder return 0 on windows
         assertTrue( cacheDiskFile.listFiles().length > 0 );
     }
