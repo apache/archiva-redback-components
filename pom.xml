@@ -39,8 +39,8 @@
     <commons-configuration.version>1.9</commons-configuration.version>
     <commons-lang.version>2.6</commons-lang.version>
     <slf4jVersion>1.7.5</slf4jVersion>
-    <log4jVersion>2.0-beta9</log4jVersion>
-    <springVersion>4.0.0.RELEASE</springVersion>
+    <log4jVersion>2.0-rc1</log4jVersion>
+    <springVersion>4.0.1.RELEASE</springVersion>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
   </properties>
