@@ -32,18 +32,18 @@ import java.util.List;
  */
 @Service( "taskViabilityEvaluator#build-project" )
 public class BuildProjectTaskViabilityEvaluator
-    implements TaskViabilityEvaluator
+    implements TaskViabilityEvaluator<BuildProjectTask>
 {
-    public Collection evaluate( Collection tasks )
+    public Collection<Task> evaluate( Collection<BuildProjectTask> tasks )
         throws TaskQueueException
     {
         BuildProjectTask okTask = null;
 
-        List toBeRemoved = new ArrayList( tasks.size() );
+        List<Task> toBeRemoved = new ArrayList<>( tasks.size() );
 
-        for ( Iterator it = tasks.iterator(); it.hasNext(); )
+        for ( Iterator<BuildProjectTask> it = tasks.iterator(); it.hasNext(); )
         {
-            BuildProjectTask buildProjectTask = (BuildProjectTask) it.next();
+            BuildProjectTask buildProjectTask = it.next();
 
             if ( okTask == null )
             {

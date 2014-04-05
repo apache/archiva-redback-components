@@ -19,21 +19,21 @@ package org.apache.archiva.redback.components.modello.jpox;
  * under the License.
  */
 
-import org.codehaus.modello.ModelloException;
-import org.codehaus.modello.ModelloParameterConstants;
 import org.apache.archiva.redback.components.modello.db.SQLReservedWords;
 import org.apache.archiva.redback.components.modello.db.SQLReservedWords.KeywordSource;
-import org.codehaus.modello.model.Model;
-import org.codehaus.modello.model.ModelAssociation;
-import org.codehaus.modello.model.ModelClass;
-import org.codehaus.modello.model.ModelField;
-import org.codehaus.modello.plugin.AbstractModelloGenerator;
 import org.apache.archiva.redback.components.modello.jpox.metadata.JPoxAssociationMetadata;
 import org.apache.archiva.redback.components.modello.jpox.metadata.JPoxClassMetadata;
 import org.apache.archiva.redback.components.modello.jpox.metadata.JPoxFieldMetadata;
 import org.apache.archiva.redback.components.modello.jpox.metadata.JPoxModelMetadata;
 import org.apache.archiva.redback.components.modello.plugin.store.metadata.StoreAssociationMetadata;
 import org.apache.archiva.redback.components.modello.plugin.store.metadata.StoreFieldMetadata;
+import org.codehaus.modello.ModelloException;
+import org.codehaus.modello.ModelloParameterConstants;
+import org.codehaus.modello.model.Model;
+import org.codehaus.modello.model.ModelAssociation;
+import org.codehaus.modello.model.ModelClass;
+import org.codehaus.modello.model.ModelField;
+import org.codehaus.modello.plugin.AbstractModelloGenerator;
 import org.codehaus.plexus.util.StringUtils;
 import org.codehaus.plexus.util.xml.PrettyPrintXMLWriter;
 import org.codehaus.plexus.util.xml.XMLWriter;
@@ -56,19 +56,20 @@ import java.util.Properties;
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
  * @version $Id: JPoxJdoMappingModelloGenerator.java 829 2007-03-22 14:32:42Z joakime $
  * @plexus.component role="org.codehaus.modello.plugin.ModelloGenerator"
- *              role-hint="jpox-jdo-mapping"
+ * role-hint="jpox-jdo-mapping"
  */
-public class JPoxJdoMappingModelloGenerator extends AbstractModelloGenerator
+public class JPoxJdoMappingModelloGenerator
+    extends AbstractModelloGenerator
 {
     private static final char EOL = '\n';
 
     private static final String ERROR_LINE = "----------------------------------------------------------------";
 
-    private final static Map PRIMITIVE_IDENTITY_MAP;
+    private final static Map<String, String> PRIMITIVE_IDENTITY_MAP;
 
-    private final static List IDENTITY_TYPES;
+    private final static List<String> IDENTITY_TYPES;
 
-    private final static List VALUE_STRATEGY_LIST;
+    private final static List<String> VALUE_STRATEGY_LIST;
 
     /**
      * @plexus.requirement
@@ -81,7 +82,7 @@ public class JPoxJdoMappingModelloGenerator extends AbstractModelloGenerator
 
     static
     {
-        PRIMITIVE_IDENTITY_MAP = new HashMap();
+        PRIMITIVE_IDENTITY_MAP = new HashMap<>();
 
         // TODO: These should be the fully qualified class names
         PRIMITIVE_IDENTITY_MAP.put( "short", "javax.jdo.identity.ShortIdentity" );
@@ -96,12 +97,12 @@ public class JPoxJdoMappingModelloGenerator extends AbstractModelloGenerator
         PRIMITIVE_IDENTITY_MAP.put( "byte", "javax.jdo.identity.ByteIdentity" );
         PRIMITIVE_IDENTITY_MAP.put( "Byte", "javax.jdo.identity.ByteIdentity" );
 
-        IDENTITY_TYPES = new ArrayList();
+        IDENTITY_TYPES = new ArrayList<>();
         IDENTITY_TYPES.add( "application" );
         IDENTITY_TYPES.add( "datastore" );
         IDENTITY_TYPES.add( "nondurable" );
 
-        VALUE_STRATEGY_LIST = new ArrayList();
+        VALUE_STRATEGY_LIST = new ArrayList<>();
         //VALUE_STRATEGY_LIST.add( "off" ); -- this isn't really valid. It turns it on. We use it internally to set an explicit null
         VALUE_STRATEGY_LIST.add( "native" );
         VALUE_STRATEGY_LIST.add( "sequence" );
@@ -114,7 +115,8 @@ public class JPoxJdoMappingModelloGenerator extends AbstractModelloGenerator
         VALUE_STRATEGY_LIST.add( "auid" );
     }
 
-    protected void initialize( Model model, Properties parameters ) throws ModelloException
+    protected void initialize( Model model, Properties parameters )
+        throws ModelloException
     {
         super.initialize( model, parameters );
 
@@ -122,7 +124,8 @@ public class JPoxJdoMappingModelloGenerator extends AbstractModelloGenerator
         objectIdClassOverride = parameters.getProperty( "JPOX.override.objectid-class" );
     }
 
-    public void generate( Model model, Properties properties ) throws ModelloException
+    public void generate( Model model, Properties properties )
+        throws ModelloException
     {
         initialize( model, properties );
 
@@ -158,8 +161,9 @@ public class JPoxJdoMappingModelloGenerator extends AbstractModelloGenerator
             {
                 if ( !parent.mkdirs() )
                 {
-                    throw new ModelloException( "Error while creating parent directories for the file " + "'"
-                                    + packageJdo.getAbsolutePath() + "'." );
+                    throw new ModelloException(
+                        "Error while creating parent directories for the file " + "'" + packageJdo.getAbsolutePath()
+                            + "'." );
                 }
             }
 
@@ -175,7 +179,8 @@ public class JPoxJdoMappingModelloGenerator extends AbstractModelloGenerator
     //
     // ----------------------------------------------------------------------
 
-    private void generatePackageJdo( File file, Model model ) throws IOException, ModelloException
+    private void generatePackageJdo( File file, Model model )
+        throws IOException, ModelloException
     {
         OutputStreamWriter fileWriter = new OutputStreamWriter( new FileOutputStream( file ), "UTF-8" );
 
@@ -183,13 +188,14 @@ public class JPoxJdoMappingModelloGenerator extends AbstractModelloGenerator
 
         XMLWriter writer = new PrettyPrintXMLWriter( printWriter );
 
-        Map classes = new HashMap();
+        Map<String, List<ModelClass>> classes = new HashMap<>();
 
-        for ( Iterator it = model.getClasses( getGeneratedVersion() ).iterator(); it.hasNext(); )
+        for ( Iterator<ModelClass> it = model.getClasses( getGeneratedVersion() ).iterator(); it.hasNext(); )
         {
-            ModelClass modelClass = (ModelClass) it.next();
+            ModelClass modelClass = it.next();
 
-            JPoxClassMetadata jpoxMetadata = (JPoxClassMetadata) modelClass.getMetadata( JPoxClassMetadata.ID );
+            JPoxClassMetadata jpoxMetadata =
+                JPoxClassMetadata.class.cast( modelClass.getMetadata( JPoxClassMetadata.ID ) );
 
             if ( !jpoxMetadata.isEnabled() )
             {
@@ -199,11 +205,11 @@ public class JPoxJdoMappingModelloGenerator extends AbstractModelloGenerator
 
             String packageName = modelClass.getPackageName( isPackageWithVersion(), getGeneratedVersion() );
 
-            List list = (List) classes.get( packageName );
+            List<ModelClass> list = classes.get( packageName );
 
             if ( list == null )
             {
-                list = new ArrayList();
+                list = new ArrayList<>();
             }
 
             list.add( modelClass );
@@ -220,27 +226,24 @@ public class JPoxJdoMappingModelloGenerator extends AbstractModelloGenerator
 
         writer.startElement( "jdo" );
 
-        for ( Iterator it = classes.entrySet().iterator(); it.hasNext(); )
+        for ( Map.Entry<String, List<ModelClass>> entry : classes.entrySet() )
         {
-            Map.Entry entry = (Map.Entry) it.next();
 
-            List list = (List) entry.getValue();
+            List<ModelClass> list = entry.getValue();
 
             if ( list.size() == 0 )
             {
                 continue;
             }
 
-            String packageName = (String) entry.getKey();
+            String packageName = entry.getKey();
 
             writer.startElement( "package" );
 
             writer.addAttribute( "name", packageName );
 
-            for ( Iterator it2 = list.iterator(); it2.hasNext(); )
+            for ( ModelClass modelClass : list )
             {
-                ModelClass modelClass = (ModelClass) it2.next();
-
                 writeClass( writer, modelClass );
             }
 
@@ -259,7 +262,8 @@ public class JPoxJdoMappingModelloGenerator extends AbstractModelloGenerator
         printWriter.close();
     }
 
-    private void writeClass( XMLWriter writer, ModelClass modelClass ) throws ModelloException
+    private void writeClass( XMLWriter writer, ModelClass modelClass )
+        throws ModelloException
     {
         JPoxClassMetadata jpoxMetadata = (JPoxClassMetadata) modelClass.getMetadata( JPoxClassMetadata.ID );
 
@@ -285,8 +289,8 @@ public class JPoxJdoMappingModelloGenerator extends AbstractModelloGenerator
             String superPackageName =
                 persistenceCapableSuperclass.getPackageName( isPackageWithVersion(), getGeneratedVersion() );
 
-            writer.addAttribute( "persistence-capable-superclass", superPackageName + "."
-                            + persistenceCapableSuperclass.getName() );
+            writer.addAttribute( "persistence-capable-superclass",
+                                 superPackageName + "." + persistenceCapableSuperclass.getName() );
         }
 
         writer.addAttribute( "detachable", String.valueOf( jpoxMetadata.isDetachable() ) );
@@ -313,9 +317,9 @@ public class JPoxJdoMappingModelloGenerator extends AbstractModelloGenerator
                 String identityType = jpoxMetadata.getIdentityType();
                 if ( !IDENTITY_TYPES.contains( identityType ) )
                 {
-                    throw new ModelloException( "The JDO mapping generator does not support the specified "
-                                    + "class identity type '" + identityType + "'. " + "Supported types: "
-                                    + IDENTITY_TYPES );
+                    throw new ModelloException(
+                        "The JDO mapping generator does not support the specified " + "class identity type '"
+                            + identityType + "'. " + "Supported types: " + IDENTITY_TYPES );
                 }
                 writer.addAttribute( "identity-type", identityType );
             }
@@ -353,10 +357,10 @@ public class JPoxJdoMappingModelloGenerator extends AbstractModelloGenerator
             if ( primaryKeys.size() > 1 )
             {
                 throw new ModelloException(
-                                            "The JDO mapping generator does not yet support Object Identifier generation "
-                                                            + "for the " + primaryKeys.size()
-                                                            + " fields specified as <identifier> or "
-                                                            + "with jpox.primary-key=\"true\"" );
+                    "The JDO mapping generator does not yet support Object Identifier generation " + "for the "
+                        + primaryKeys.size() + " fields specified as <identifier> or "
+                        + "with jpox.primary-key=\"true\""
+                );
             }
 
             if ( primaryKeys.size() == 1 )
@@ -495,13 +499,14 @@ public class JPoxJdoMappingModelloGenerator extends AbstractModelloGenerator
     /**
      * Utility method to obtain the table name from the {@link ModelClass} or {@link JPoxClassMetadata} taking into
      * account the possibility of prefixes in use at the {@link JPoxModelMetadata} level.
-     * 
-     * @param modelClass the model class to get the class.name from.
+     *
+     * @param modelClass    the model class to get the class.name from.
      * @param classMetadata the class metadata to get the class-metadata.table name from.
-     * @return the table name (with possible prefix applied) 
+     * @return the table name (with possible prefix applied)
      * @throws ModelloException if there was a problem with the table name violating a sql reserved word.
      */
-    private String getTableName( ModelClass modelClass, JPoxClassMetadata classMetadata ) throws ModelloException
+    private String getTableName( ModelClass modelClass, JPoxClassMetadata classMetadata )
+        throws ModelloException
     {
         JPoxModelMetadata modelMetadata = (JPoxModelMetadata) modelClass.getModel().getMetadata( JPoxModelMetadata.ID );
 
@@ -610,10 +615,10 @@ public class JPoxJdoMappingModelloGenerator extends AbstractModelloGenerator
     }
 
     /**
-     * Support method for the {@link #getTableName(ModelClass, JPoxClassMetadata)}, 
-     * {@link #getColumnName(ModelField, JPoxFieldMetadata)}, and 
+     * Support method for the {@link #getTableName(ModelClass, JPoxClassMetadata)},
+     * {@link #getColumnName(ModelField, JPoxFieldMetadata)}, and
      * {@link #getJoinTableName(ModelField, JPoxFieldMetadata)} reserved word tests.
-     * 
+     *
      * @param word the word in violation.
      * @param emsg the string buffer to append to.
      * @return if this word has any ERROR severity level violations.
@@ -657,7 +662,8 @@ public class JPoxJdoMappingModelloGenerator extends AbstractModelloGenerator
         return hasError;
     }
 
-    private void writeModelloMetadataClass( XMLWriter writer ) throws ModelloException
+    private void writeModelloMetadataClass( XMLWriter writer )
+        throws ModelloException
     {
         writer.startElement( "class" );
 
@@ -714,7 +720,8 @@ public class JPoxJdoMappingModelloGenerator extends AbstractModelloGenerator
         }
     }
 
-    private void writeModelField( XMLWriter writer, ModelField modelField ) throws ModelloException
+    private void writeModelField( XMLWriter writer, ModelField modelField )
+        throws ModelloException
     {
         writer.startElement( "field" );
 
@@ -787,7 +794,7 @@ public class JPoxJdoMappingModelloGenerator extends AbstractModelloGenerator
             }
 
             // Work out potential <column> subelement
-            
+
             // Store potential column properties.
             Properties columnProps = new Properties();
 
@@ -828,18 +835,18 @@ public class JPoxJdoMappingModelloGenerator extends AbstractModelloGenerator
                 writer.addAttribute( "name", columnName.toUpperCase() + "_UNIQUE_CONSTRAINT" );
                 writer.endElement();
             }
-            
+
             // Work out potential <foreign-key> subelement
             if ( jpoxMetadata.isForeignKey() )
             {
                 writer.startElement( "foreign-key" );
                 writer.addAttribute( "name", columnName.toUpperCase() + "_FK" );
-                
+
                 if ( StringUtils.isNotEmpty( jpoxMetadata.getForeignKeyDeferred() ) )
                 {
                     writer.addAttribute( "deferred", jpoxMetadata.getForeignKeyDeferred() );
                 }
-                
+
                 if ( StringUtils.isNotEmpty( jpoxMetadata.getForeignKeyDeleteAction() ) )
                 {
                     writer.addAttribute( "delete-action", jpoxMetadata.getForeignKeyDeleteAction() );
@@ -859,13 +866,14 @@ public class JPoxJdoMappingModelloGenerator extends AbstractModelloGenerator
     /**
      * Utility method to obtain the join table name from the {@link JPoxFieldMetadata} taking into
      * account the possibility of prefixes in use at the {@link JPoxModelMetadata} level.
-     * 
-     * @param modelField the model field to get the field.name from.
+     *
+     * @param modelField    the model field to get the field.name from.
      * @param fieldMetadata the field metadata to get the field-metadata.join-table name from.
-     * @return the join table name (with possible prefix applied) 
+     * @return the join table name (with possible prefix applied)
      * @throws ModelloException if there was a problem with the table name violating a sql reserved word.
      */
-    private String getJoinTableName( ModelField modelField, JPoxFieldMetadata fieldMetadata ) throws ModelloException
+    private String getJoinTableName( ModelField modelField, JPoxFieldMetadata fieldMetadata )
+        throws ModelloException
     {
         ModelClass modelClass = modelField.getModelClass();
         JPoxModelMetadata modelMetadata = (JPoxModelMetadata) modelClass.getModel().getMetadata( JPoxModelMetadata.ID );
@@ -966,13 +974,14 @@ public class JPoxJdoMappingModelloGenerator extends AbstractModelloGenerator
     /**
      * Utility method to obtain the column name from the {@link ModelField} or {@link JPoxFieldMetadata} taking into
      * account the possibility of prefixes in use at the {@link JPoxModelMetadata} or {@link JPoxClassMetadata} level.
-     * 
-     * @param modelField the model field to get the field.name from.
+     *
+     * @param modelField    the model field to get the field.name from.
      * @param fieldMetadata the field metadata to get the field-metadata.column name from.
-     * @return the column name (with possible prefix applied) 
+     * @return the column name (with possible prefix applied)
      * @throws ModelloException if there was a problem with the column name violating a sql reserved word.
      */
-    private String getColumnName( ModelField modelField, JPoxFieldMetadata fieldMetadata ) throws ModelloException
+    private String getColumnName( ModelField modelField, JPoxFieldMetadata fieldMetadata )
+        throws ModelloException
     {
         boolean hasClassPrefix = false;
         boolean hasModelPrefix = false;
@@ -1097,7 +1106,8 @@ public class JPoxJdoMappingModelloGenerator extends AbstractModelloGenerator
             emsg.append( "                  <field jpox.column=\"DIFFERENT\">" ).append( EOL );
             emsg.append( "               4) Use a different field name in" ).append( EOL );
             emsg.append( "                  <class>" ).append( EOL );
-            emsg.append( "                    <name>" ).append( modelClass.getName() ).append( "</name>" ).append( EOL );
+            emsg.append( "                    <name>" ).append( modelClass.getName() ).append( "</name>" ).append(
+                EOL );
             emsg.append( "                    <fields>" ).append( EOL );
             emsg.append( "                      <field>" ).append( EOL );
             emsg.append( "                        <name>DIFFERENT</name>" ).append( EOL );
@@ -1120,15 +1130,16 @@ public class JPoxJdoMappingModelloGenerator extends AbstractModelloGenerator
         return columnName;
     }
 
-    private static void writeValueStrategy( String valueStrategy, XMLWriter writer ) throws ModelloException
+    private static void writeValueStrategy( String valueStrategy, XMLWriter writer )
+        throws ModelloException
     {
         if ( !"off".equals( valueStrategy ) )
         {
             if ( !VALUE_STRATEGY_LIST.contains( valueStrategy ) )
             {
-                throw new ModelloException( "The JDO mapping generator does not support the specified "
-                                + "value-strategy '" + valueStrategy + "'. " + "Supported types: "
-                                + VALUE_STRATEGY_LIST );
+                throw new ModelloException(
+                    "The JDO mapping generator does not support the specified " + "value-strategy '" + valueStrategy
+                        + "'. " + "Supported types: " + VALUE_STRATEGY_LIST );
             }
             writer.addAttribute( "value-strategy", valueStrategy );
         }
@@ -1262,7 +1273,8 @@ public class JPoxJdoMappingModelloGenerator extends AbstractModelloGenerator
         return identifierFields.size() > 0;
     }
 
-    private List getPrimaryKeyFields( ModelClass modelClass ) throws ModelloException
+    private List getPrimaryKeyFields( ModelClass modelClass )
+        throws ModelloException
     {
         List primaryKeys = new ArrayList();
         List fields = modelClass.getFields( getGeneratedVersion() );
@@ -1294,12 +1306,14 @@ public class JPoxJdoMappingModelloGenerator extends AbstractModelloGenerator
         return primaryKeys;
     }
 
-    private void assertSupportedIdentityPrimitive( ModelField modelField ) throws ModelloException
+    private void assertSupportedIdentityPrimitive( ModelField modelField )
+        throws ModelloException
     {
         if ( !PRIMITIVE_IDENTITY_MAP.containsKey( modelField.getType() ) )
         {
-            throw new ModelloException( "The JDO mapping generator does not support the specified " + "field type '"
-                            + modelField.getType() + "'. " + "Supported types: " + PRIMITIVE_IDENTITY_MAP.keySet() );
+            throw new ModelloException(
+                "The JDO mapping generator does not support the specified " + "field type '" + modelField.getType()
+                    + "'. " + "Supported types: " + PRIMITIVE_IDENTITY_MAP.keySet() );
         }
     }
 

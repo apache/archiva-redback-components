@@ -43,13 +43,13 @@ public class DefaultTaskQueue
 
     private Logger logger = LoggerFactory.getLogger( getClass() );
 
-    private List<TaskEntryEvaluator> taskEntryEvaluators = new ArrayList<TaskEntryEvaluator>();
+    private List<TaskEntryEvaluator> taskEntryEvaluators = new ArrayList<>();
 
-    private List<TaskExitEvaluator> taskExitEvaluators = new ArrayList<TaskExitEvaluator>();
+    private List<TaskExitEvaluator> taskExitEvaluators = new ArrayList<>();
 
-    private List<TaskViabilityEvaluator> taskViabilityEvaluators = new ArrayList<TaskViabilityEvaluator>();
+    private List<TaskViabilityEvaluator> taskViabilityEvaluators = new ArrayList<>();
 
-    private BlockingQueue<Task> queue = new LinkedBlockingQueue<Task>();
+    private BlockingQueue<Task> queue = new LinkedBlockingQueue<>();
 
     // ----------------------------------------------------------------------
     // Component Lifecycle

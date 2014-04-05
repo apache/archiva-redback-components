@@ -147,7 +147,7 @@ public class TaskQueueTest
 
         assertEquals( 2, taskQueue.getQueueSnapshot().size() );
 
-        List tasks = new ArrayList();
+        List<Task> tasks = new ArrayList<>();
 
         tasks.add( firstTask );
 

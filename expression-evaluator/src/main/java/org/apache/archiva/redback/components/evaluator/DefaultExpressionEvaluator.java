@@ -36,11 +36,11 @@ import java.util.regex.Pattern;
 public class DefaultExpressionEvaluator
     implements ExpressionEvaluator
 {
-    private List expressionSources;
+    private List<ExpressionSource> expressionSources;
 
     public DefaultExpressionEvaluator()
     {
-        expressionSources = new ArrayList();
+        expressionSources = new ArrayList<>();
     }
 
     public void addExpressionSource( ExpressionSource source )
@@ -51,10 +51,10 @@ public class DefaultExpressionEvaluator
     public String expand( String str )
         throws EvaluatorException
     {
-        return recursiveExpand( str, new ArrayList() );
+        return recursiveExpand( str, new ArrayList<String>() );
     }
 
-    private String recursiveExpand( String str, List seenExpressions )
+    private String recursiveExpand( String str, List<String> seenExpressions )
         throws EvaluatorException
     {
         if ( StringUtils.isEmpty( str ) )

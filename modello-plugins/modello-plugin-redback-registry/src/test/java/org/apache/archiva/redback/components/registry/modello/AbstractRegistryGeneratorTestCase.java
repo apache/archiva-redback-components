@@ -116,7 +116,7 @@ public abstract class AbstractRegistryGeneratorTestCase
 
         addDependency( "org.codehaus.modello", "modello-test" );//, getModelloVersion() );
 
-        List<String> classPathElements = new ArrayList<String>( getClasspath().size() + 2 );
+        List<String> classPathElements = new ArrayList<>( getClasspath().size() + 2 );
 
         classPathElements.add( getTestPath( "target/classes" ) );
 

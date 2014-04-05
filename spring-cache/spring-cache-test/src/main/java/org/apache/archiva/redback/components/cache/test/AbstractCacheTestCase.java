@@ -95,7 +95,7 @@ public abstract class AbstractCacheTestCase
         }
 
         // Put some holes into the list.
-        List<String> removedKeys = new ArrayList<String>();
+        List<String> removedKeys = new ArrayList<>();
         removedKeys.add( fmt.toText( 4600 ) );
         removedKeys.add( fmt.toText( 4700 ) );
         removedKeys.add( fmt.toText( 4800 ) );

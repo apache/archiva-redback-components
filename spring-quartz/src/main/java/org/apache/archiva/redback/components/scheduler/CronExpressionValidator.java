@@ -378,7 +378,7 @@ public final class CronExpressionValidator
     {
         StringTokenizer st = new StringTokenizer( value, "," );
 
-        List values = new ArrayList();
+        List<String> values = new ArrayList<>();
 
         while ( st.hasMoreTokens() )
         {
@@ -387,9 +387,9 @@ public final class CronExpressionValidator
 
         int previousValue = -1;
 
-        for ( Iterator i = values.iterator(); i.hasNext(); )
+        for ( Iterator<String> i = values.iterator(); i.hasNext(); )
         {
-            String currentValue = (String) i.next();
+            String currentValue = i.next();
 
             if ( !checkIntValue( currentValue, minimal, maximal ) )
             {

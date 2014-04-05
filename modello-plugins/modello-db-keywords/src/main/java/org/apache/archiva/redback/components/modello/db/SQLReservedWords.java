@@ -48,7 +48,7 @@ public class SQLReservedWords
     extends AbstractLogEnabled
     implements Initializable
 {
-    private Map keywords;
+    private Map<String,List<KeywordSource>> keywords;
 
     /**
      * Tests the provided word to see if it is a keyword.
@@ -65,7 +65,7 @@ public class SQLReservedWords
         }
 
         String key = word.trim().toUpperCase();
-        return ( keywords.containsKey( key ) );
+        return keywords.containsKey( key );
     }
 
     /**
@@ -76,7 +76,7 @@ public class SQLReservedWords
      * @return the {@link List} of {@link KeywordSource} objects, or <code>null</code> if specified word is
      *         not a reserved word.
      */
-    public List /*<KeywordSource>*/getKeywordSourceList( String word )
+    public List<KeywordSource> getKeywordSourceList( String word )
     {
         if ( StringUtils.isEmpty( word ) )
         {
@@ -85,7 +85,7 @@ public class SQLReservedWords
         }
 
         String key = word.trim().toUpperCase();
-        return (List) this.keywords.get( key );
+        return this.keywords.get( key );
     }
 
     /**
@@ -105,7 +105,7 @@ public class SQLReservedWords
         }
 
         String key = word.trim().toUpperCase();
-        List sources = (List) this.keywords.get( key );
+        List<KeywordSource> sources = this.keywords.get( key );
 
         if ( sources == null )
         {
@@ -114,9 +114,9 @@ public class SQLReservedWords
 
         StringBuffer ret = new StringBuffer();
 
-        for ( Iterator it = sources.iterator(); it.hasNext(); )
+        for ( Iterator<KeywordSource> it = sources.iterator(); it.hasNext(); )
         {
-            KeywordSource source = (KeywordSource) it.next();
+            KeywordSource source = it.next();
             if ( ret.length() > 0 )
             {
                 ret.append( ", " );
@@ -138,7 +138,7 @@ public class SQLReservedWords
      */
     private void loadKeywords()
     {
-        this.keywords = new HashMap();
+        this.keywords = new HashMap<>();
 
         Properties props = new Properties();
 
@@ -228,10 +228,10 @@ public class SQLReservedWords
     private void addKeyword( String keyword, KeywordSource source )
     {
         String key = keyword.trim().toUpperCase();
-        List sources = (List) this.keywords.get( key );
+        List<KeywordSource> sources = this.keywords.get( key );
         if ( sources == null )
         {
-            sources = new ArrayList();
+            sources = new ArrayList<>();
         }
         sources.add( source );
         this.keywords.put( key, sources );
