@@ -127,9 +127,9 @@ public class CommonsConfigurationRegistry
         return configuration.getList( key );
     }
 
-    public List getSubsetList( String key )
+    public List<Registry> getSubsetList( String key )
     {
-        List subsets = new ArrayList();
+        List<Registry> subsets = new ArrayList<>();
 
         boolean done = false;
         do
