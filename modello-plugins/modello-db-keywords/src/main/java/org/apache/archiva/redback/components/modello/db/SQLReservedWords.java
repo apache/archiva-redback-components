@@ -41,14 +41,13 @@ import java.util.Properties;
  * SQLReservedWords - utility object to test against SQL Keywords.
  *
  * @author <a href="mailto:joakim@erdfelt.com">Joakim Erdfelt</a>
- *
  * @plexus.component role="org.apache.archiva.redback.components.modello.db.SQLReservedWords"
  */
 public class SQLReservedWords
     extends AbstractLogEnabled
     implements Initializable
 {
-    private Map<String,List<KeywordSource>> keywords;
+    private Map<String, List<KeywordSource>> keywords;
 
     /**
      * Tests the provided word to see if it is a keyword.
@@ -74,7 +73,7 @@ public class SQLReservedWords
      *
      * @param word the word to test.
      * @return the {@link List} of {@link KeywordSource} objects, or <code>null</code> if specified word is
-     *         not a reserved word.
+     * not a reserved word.
      */
     public List<KeywordSource> getKeywordSourceList( String word )
     {
@@ -94,7 +93,7 @@ public class SQLReservedWords
      *
      * @param word the wor to test.
      * @return the {@link String} of keyword source names seperated by commas, or <code>null</code> if word is
-     *         not a reserved word.
+     * not a reserved word.
      */
     public String getKeywordSourceString( String word )
     {
@@ -150,11 +149,8 @@ public class SQLReservedWords
             return;
         }
 
-        InputStream is = null;
-
-        try
+        try (InputStream is = definitionsURL.openStream())
         {
-            is = definitionsURL.openStream();
             props.load( is );
 
             String sources[] = StringUtils.split( props.getProperty( "keyword.sources" ), "," );
@@ -175,10 +171,6 @@ public class SQLReservedWords
             getLogger().error( "Unable to load definitions file: " + "keywords.properties", e );
             return;
         }
-        finally
-        {
-            IOUtil.close( is );
-        }
     }
 
     private void loadKeywordSource( String resource, KeywordSource source )
@@ -191,37 +183,30 @@ public class SQLReservedWords
             return;
         }
 
-        InputStream is = null;
-        InputStreamReader isr = null;
-        BufferedReader reader = null;
 
-        try
+        try (InputStream is = keywordsURL.openStream() )
         {
-            is = keywordsURL.openStream();
-            isr = new InputStreamReader( is );
-            reader = new BufferedReader( isr );
-
-            String line = reader.readLine();
-            while ( line != null )
+            try (InputStreamReader isr = new InputStreamReader( is ))
             {
-                line = line.trim();
-                if ( line.length() > 0 )
+                try (BufferedReader reader = new BufferedReader( isr ))
                 {
-                    addKeyword( line, source );
+                    String line = reader.readLine();
+                    while ( line != null )
+                    {
+                        line = line.trim();
+                        if ( line.length() > 0 )
+                        {
+                            addKeyword( line, source );
+                        }
+                        line = reader.readLine();
+                    }
                 }
-                line = reader.readLine();
             }
         }
         catch ( IOException e )
         {
             getLogger().warn( "Unable to load keywords from " + keywordsURL.toExternalForm() + ": " + e.getMessage(),
                               e );
-        }
-        finally
-        {
-            IOUtil.close( reader );
-            IOUtil.close( isr );
-            IOUtil.close( is );
         }
     }
 

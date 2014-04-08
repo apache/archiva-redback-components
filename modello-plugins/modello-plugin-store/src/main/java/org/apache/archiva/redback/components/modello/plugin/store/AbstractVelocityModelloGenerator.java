@@ -148,12 +148,13 @@ public abstract class AbstractVelocityModelloGenerator
 
         try
         {
-            Writer writer = getEncoding() == null ? WriterFactory.newPlatformWriter( file )
-                            : WriterFactory.newWriter( file, getEncoding() );
+            try (Writer writer = getEncoding() == null ? WriterFactory.newPlatformWriter( file )
+                            : WriterFactory.newWriter( file, getEncoding() ))
+            {
 
-            template.merge( context, writer );
+                template.merge( context, writer );
+            }
 
-            writer.close();
         }
         catch ( Exception e )
         {

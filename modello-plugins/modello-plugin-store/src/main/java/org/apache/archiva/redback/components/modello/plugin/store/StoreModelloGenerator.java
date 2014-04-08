@@ -101,14 +101,15 @@ public class StoreModelloGenerator
     {
         try
         {
-            Writer writer = getEncoding() == null ? WriterFactory.newPlatformWriter( file )
-                                : WriterFactory.newWriter( file, getEncoding() );
+            try (Writer writer = getEncoding() == null ? WriterFactory.newPlatformWriter( file )
+                                : WriterFactory.newWriter( file, getEncoding() ))
 
-            velocity.getEngine().mergeTemplate( template, context, writer );
+            {
+                velocity.getEngine().mergeTemplate( template, context, writer );
 
-            writer.flush();
+                writer.flush();
 
-            writer.close();
+            }
         }
         catch ( Exception e )
         {

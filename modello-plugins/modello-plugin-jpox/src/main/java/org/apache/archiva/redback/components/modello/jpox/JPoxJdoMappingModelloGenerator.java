@@ -163,7 +163,8 @@ public class JPoxJdoMappingModelloGenerator
                 {
                     throw new ModelloException(
                         "Error while creating parent directories for the file " + "'" + packageJdo.getAbsolutePath()
-                            + "'." );
+                            + "'."
+                    );
                 }
             }
 
@@ -182,84 +183,92 @@ public class JPoxJdoMappingModelloGenerator
     private void generatePackageJdo( File file, Model model )
         throws IOException, ModelloException
     {
-        OutputStreamWriter fileWriter = new OutputStreamWriter( new FileOutputStream( file ), "UTF-8" );
-
-        PrintWriter printWriter = new PrintWriter( fileWriter );
-
-        XMLWriter writer = new PrettyPrintXMLWriter( printWriter );
-
-        Map<String, List<ModelClass>> classes = new HashMap<>();
-
-        for ( Iterator<ModelClass> it = model.getClasses( getGeneratedVersion() ).iterator(); it.hasNext(); )
+        try (FileOutputStream fileOutputStream = new FileOutputStream( file ))
         {
-            ModelClass modelClass = it.next();
-
-            JPoxClassMetadata jpoxMetadata =
-                JPoxClassMetadata.class.cast( modelClass.getMetadata( JPoxClassMetadata.ID ) );
-
-            if ( !jpoxMetadata.isEnabled() )
+            try (OutputStreamWriter fileWriter = new OutputStreamWriter( fileOutputStream, "UTF-8" ))
             {
-                // Skip generation of those classes that are not enabled for the jpox plugin.
-                continue;
+
+                try (PrintWriter printWriter = new PrintWriter( fileWriter ))
+                {
+
+                    XMLWriter writer = new PrettyPrintXMLWriter( printWriter );
+
+                    Map<String, List<ModelClass>> classes = new HashMap<>();
+
+                    for ( Iterator<ModelClass> it = model.getClasses( getGeneratedVersion() ).iterator();
+                          it.hasNext(); )
+                    {
+                        ModelClass modelClass = it.next();
+
+                        JPoxClassMetadata jpoxMetadata =
+                            JPoxClassMetadata.class.cast( modelClass.getMetadata( JPoxClassMetadata.ID ) );
+
+                        if ( !jpoxMetadata.isEnabled() )
+                        {
+                            // Skip generation of those classes that are not enabled for the jpox plugin.
+                            continue;
+                        }
+
+                        String packageName = modelClass.getPackageName( isPackageWithVersion(), getGeneratedVersion() );
+
+                        List<ModelClass> list = classes.get( packageName );
+
+                        if ( list == null )
+                        {
+                            list = new ArrayList<>();
+                        }
+
+                        list.add( modelClass );
+
+                        classes.put( packageName, list );
+                    }
+
+                    printWriter.println( "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" );
+                    printWriter.println();
+                    printWriter.println( "<!DOCTYPE jdo PUBLIC" );
+                    printWriter.println( "  \"-//Sun Microsystems, Inc.//DTD Java Data Objects Metadata 2.0//EN\"" );
+                    printWriter.println( "  \"http://java.sun.com/dtd/jdo_2_0.dtd\">" );
+                    printWriter.println();
+
+                    writer.startElement( "jdo" );
+
+                    for ( Map.Entry<String, List<ModelClass>> entry : classes.entrySet() )
+                    {
+
+                        List<ModelClass> list = entry.getValue();
+
+                        if ( list.size() == 0 )
+                        {
+                            continue;
+                        }
+
+                        String packageName = entry.getKey();
+
+                        writer.startElement( "package" );
+
+                        writer.addAttribute( "name", packageName );
+
+                        for ( ModelClass modelClass : list )
+                        {
+                            writeClass( writer, modelClass );
+                        }
+
+                        if ( packageName.equals(
+                            model.getDefaultPackageName( isPackageWithVersion(), getGeneratedVersion() ) ) )
+                        {
+                            writeModelloMetadataClass( writer );
+                        }
+
+                        writer.endElement(); // package
+                    }
+
+                    writer.endElement(); // jdo
+
+                    printWriter.println();
+
+                }
             }
-
-            String packageName = modelClass.getPackageName( isPackageWithVersion(), getGeneratedVersion() );
-
-            List<ModelClass> list = classes.get( packageName );
-
-            if ( list == null )
-            {
-                list = new ArrayList<>();
-            }
-
-            list.add( modelClass );
-
-            classes.put( packageName, list );
         }
-
-        printWriter.println( "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" );
-        printWriter.println();
-        printWriter.println( "<!DOCTYPE jdo PUBLIC" );
-        printWriter.println( "  \"-//Sun Microsystems, Inc.//DTD Java Data Objects Metadata 2.0//EN\"" );
-        printWriter.println( "  \"http://java.sun.com/dtd/jdo_2_0.dtd\">" );
-        printWriter.println();
-
-        writer.startElement( "jdo" );
-
-        for ( Map.Entry<String, List<ModelClass>> entry : classes.entrySet() )
-        {
-
-            List<ModelClass> list = entry.getValue();
-
-            if ( list.size() == 0 )
-            {
-                continue;
-            }
-
-            String packageName = entry.getKey();
-
-            writer.startElement( "package" );
-
-            writer.addAttribute( "name", packageName );
-
-            for ( ModelClass modelClass : list )
-            {
-                writeClass( writer, modelClass );
-            }
-
-            if ( packageName.equals( model.getDefaultPackageName( isPackageWithVersion(), getGeneratedVersion() ) ) )
-            {
-                writeModelloMetadataClass( writer );
-            }
-
-            writer.endElement(); // package
-        }
-
-        writer.endElement(); // jdo
-
-        printWriter.println();
-
-        printWriter.close();
     }
 
     private void writeClass( XMLWriter writer, ModelClass modelClass )
@@ -319,7 +328,8 @@ public class JPoxJdoMappingModelloGenerator
                 {
                     throw new ModelloException(
                         "The JDO mapping generator does not support the specified " + "class identity type '"
-                            + identityType + "'. " + "Supported types: " + IDENTITY_TYPES );
+                            + identityType + "'. " + "Supported types: " + IDENTITY_TYPES
+                    );
                 }
                 writer.addAttribute( "identity-type", identityType );
             }
@@ -1139,7 +1149,8 @@ public class JPoxJdoMappingModelloGenerator
             {
                 throw new ModelloException(
                     "The JDO mapping generator does not support the specified " + "value-strategy '" + valueStrategy
-                        + "'. " + "Supported types: " + VALUE_STRATEGY_LIST );
+                        + "'. " + "Supported types: " + VALUE_STRATEGY_LIST
+                );
             }
             writer.addAttribute( "value-strategy", valueStrategy );
         }
@@ -1313,7 +1324,8 @@ public class JPoxJdoMappingModelloGenerator
         {
             throw new ModelloException(
                 "The JDO mapping generator does not support the specified " + "field type '" + modelField.getType()
-                    + "'. " + "Supported types: " + PRIMITIVE_IDENTITY_MAP.keySet() );
+                    + "'. " + "Supported types: " + PRIMITIVE_IDENTITY_MAP.keySet()
+            );
         }
     }
 
