@@ -22,7 +22,6 @@ package org.apache.archiva.redback.components.modello.db;
 import org.codehaus.plexus.logging.AbstractLogEnabled;
 import org.codehaus.plexus.personality.plexus.lifecycle.phase.Initializable;
 import org.codehaus.plexus.personality.plexus.lifecycle.phase.InitializationException;
-import org.codehaus.plexus.util.IOUtil;
 import org.codehaus.plexus.util.StringUtils;
 
 import java.io.BufferedReader;
@@ -183,8 +182,7 @@ public class SQLReservedWords
             return;
         }
 
-
-        try (InputStream is = keywordsURL.openStream() )
+        try (InputStream is = keywordsURL.openStream())
         {
             try (InputStreamReader isr = new InputStreamReader( is ))
             {
