@@ -62,6 +62,7 @@ public class ConfigurationListenerDelegate
         }
     }
 
+    // needed to be sure elements are properly removed from the listeners list
     @Override
     public int hashCode()
     {
