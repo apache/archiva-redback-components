@@ -61,4 +61,17 @@ public class ConfigurationListenerDelegate
             }
         }
     }
+
+    @Override
+    public int hashCode()
+    {
+        return this.listener.hashCode();
+    }
+
+    @Override
+    public boolean equals( Object obj )
+    {
+        ConfigurationListenerDelegate delegate = ConfigurationListenerDelegate.class.cast( obj );
+        return delegate.listener == this.listener;
+    }
 }
