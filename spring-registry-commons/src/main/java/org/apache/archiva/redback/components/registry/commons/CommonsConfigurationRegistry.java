@@ -185,9 +185,26 @@ public class CommonsConfigurationRegistry
 
     public void addChangeListener( RegistryListener listener )
     {
-        EventSource configuration = (EventSource) this.configuration;
+        EventSource eventSource = EventSource.class.cast( this.configuration );
 
-        configuration.addConfigurationListener( new ConfigurationListenerDelegate( listener, this ) );
+        eventSource.addConfigurationListener( new ConfigurationListenerDelegate( listener, this ) );
+    }
+
+    @Override
+    public boolean removeChangeListener( RegistryListener listener )
+    {
+        EventSource eventSource = EventSource.class.cast( this.configuration );
+
+        boolean removed =
+            eventSource.removeConfigurationListener( new ConfigurationListenerDelegate( listener, this ) );
+
+        return removed;
+    }
+
+
+    public int getChangeListenersSize()
+    {
+        return EventSource.class.cast( this.configuration ).getConfigurationListeners().size();
     }
 
     public Collection<String> getKeys()

@@ -224,6 +224,13 @@ public interface Registry
     void addChangeListener( RegistryListener listener );
 
     /**
+     * @param listener
+     * @return <code>true</code> if has been removed
+     * @since 2.3
+     */
+    boolean removeChangeListener( RegistryListener listener );
+
+    /**
      * Get all the keys in this registry. Keys are only retrieved at a depth of 1.
      *
      * @return the set of keys
