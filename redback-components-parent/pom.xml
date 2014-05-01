@@ -35,7 +35,7 @@
   <url>http://archiva.apache.org/redback/components/${project.artifactId}</url>
 
   <properties>
-    <commons-configuration.version>1.9</commons-configuration.version>
+    <commons-configuration.version>1.10</commons-configuration.version>
     <commons-lang.version>2.6</commons-lang.version>
     <slf4jVersion>1.7.7</slf4jVersion>
     <log4jVersion>2.0-rc1</log4jVersion>
