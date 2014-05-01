@@ -72,7 +72,11 @@ public class ConfigurationListenerDelegate
     @Override
     public boolean equals( Object obj )
     {
-        ConfigurationListenerDelegate delegate = ConfigurationListenerDelegate.class.cast( obj );
-        return delegate.listener == this.listener;
+        if ( ConfigurationListenerDelegate.class.isAssignableFrom( obj.getClass() ) )
+        {
+            ConfigurationListenerDelegate delegate = ConfigurationListenerDelegate.class.cast( obj );
+            return delegate.listener == this.listener;
+        }
+        return super.equals( obj );
     }
 }
