@@ -29,7 +29,7 @@
 
   <groupId>org.apache.archiva.redback.components</groupId>
   <artifactId>redback-components</artifactId>
-  <version>2.3</version>
+  <version>2.4-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Apache Archiva Redback Components</name>
   <url>http://archiva.apache.org/redback/components/${project.artifactId}</url>
@@ -47,9 +47,9 @@
   <description>Parent Pom for various components used in Redback, Apache Archiva and Apache Continuum.</description>
 
   <scm>
-    <connection>scm:svn:http://svn.apache.org/repos/asf/archiva/redback/redback-components/tags/redback-components-2.3</connection>
-    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/archiva/redback/redback-components/tags/redback-components-2.3</developerConnection>
-    <url>http://svn.apache.org/viewvc/archiva/redback/redback-components/tags/redback-components-2.3</url>
+    <connection>scm:svn:http://svn.apache.org/repos/asf/archiva/redback/redback-components/trunk/redback-components-parent/</connection>
+    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/archiva/redback/redback-components/trunk/redback-components-parent/</developerConnection>
+    <url>http://svn.apache.org/viewvc/archiva/redback/redback-components/trunk/redback-components-parent/</url>
   </scm>
 
 
