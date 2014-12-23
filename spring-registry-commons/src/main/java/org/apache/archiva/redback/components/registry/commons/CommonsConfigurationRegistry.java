@@ -53,12 +53,12 @@ import java.util.Set;
 
 /**
  * Implementation of the registry component using
- * <a href="http://jakarta.apache.org/commons/configuration">Commons Configuration</a>. The use of Commons Configuration
+ * <a href="http://commons.apache.org/commons/configuration">Commons Configuration</a>. The use of Commons Configuration
  * enables a variety of sources to be used, including XML files, properties, JNDI, JDBC, etc.
  * <p/>
  * The component can be configured using the {@link #properties} configuration item, the content of which should take
  * the format of an input to the Commons Configuration
- * <a href="http://jakarta.apache.org/commons/configuration/howto_configurationbuilder.html">configuration
+ * <a href="http://commons.apache.org/commons/configuration/howto_configurationbuilder.html">configuration
  * builder</a>.
  */
 @Service( "commons-configuration" )
@@ -159,13 +159,13 @@ public class CommonsConfigurationRegistry
             String property = (String) i.next();
             List l = configuration.getList( property );
             StringBuilder sb = new StringBuilder();
-            for( Object element : l )
+            for ( Object element : l )
             {
-                sb.append( ( String ) element );
-                sb.append( "," ); 
+                sb.append( (String) element );
+                sb.append( "," );
             }
-            if( sb.length() > 0 )
-            { 
+            if ( sb.length() > 0 )
+            {
                 sb.deleteCharAt( sb.length() - 1 );
             }
             properties.setProperty( property, sb.toString() );
