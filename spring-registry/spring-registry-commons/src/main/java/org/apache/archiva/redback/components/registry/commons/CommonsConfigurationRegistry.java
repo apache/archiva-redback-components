@@ -157,7 +157,18 @@ public class CommonsConfigurationRegistry
         for ( Iterator i = configuration.getKeys(); i.hasNext(); )
         {
             String property = (String) i.next();
-            properties.setProperty( property, configuration.getString( property ) );
+            List l = configuration.getList( property );
+            StringBuilder sb = new StringBuilder();
+            for( Object element : l )
+            {
+                sb.append( ( String ) element );
+                sb.append( "," ); 
+            }
+            if( sb.length() > 0 )
+            { 
+                sb.deleteCharAt( sb.length() - 1 );
+            }
+            properties.setProperty( property, sb.toString() );
         }
         return properties;
     }
