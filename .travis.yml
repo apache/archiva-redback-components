@@ -9,9 +9,12 @@ script: "mvn clean install"
 cache:
     directories:
     - $HOME/.m2
+
+# whitelist
 branches:
-    except:
-        - gh-pages
+  only:
+    - trunk
+
 notifications:
     email:
         - olamy@apache.org
