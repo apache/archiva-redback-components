@@ -32,7 +32,7 @@
     <relativePath>../../parent/pom.xml</relativePath>
   </parent>
 
-  <description>Utilities component used by Archiva and Continuum.</description>
+  <description>Utilities component used by Archiva.</description>
 
   <properties>
     <scmPubCheckoutDirectory>.site-content</scmPubCheckoutDirectory>
