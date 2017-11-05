@@ -50,7 +50,6 @@
     <module>redback-components-parent</module>
     <module>spring-cache</module>
     <module>expression-evaluator</module>
-    <module>spring-jdo2</module>
     <module>spring-quartz</module>
     <module>spring-registry</module>
     <module>spring-taskqueue</module>
